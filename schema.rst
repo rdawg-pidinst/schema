@@ -1,9 +1,9 @@
-Medadata Schema for the Persistent Identification of Scientific Instruments
-===========================================================================
+Medadata Schema for the Persistent Identification of Scientific Measuring Instruments
+=====================================================================================
 
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | ID   | Property                | Obligation | Occ | Definition             | Allowed values,        |
-|      |                         |            |     |                        | constarints,           |
+|      |                         |            |     |                        | constraints,           |
 |      |                         |            |     |                        | remarks                |
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 1    | Identifier              | M          | 1   | Unique string that     |                        |
@@ -12,7 +12,7 @@ Medadata Schema for the Persistent Identification of Scientific Instruments
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 1.1  | identifierType          | M          | 1   | Type of the identifier | Controlled list        |
 |      |                         |            |     |                        | of values:             |
-|      |                         |            |     |                        |   PDINST               |
+|      |                         |            |     |                        |   PIDINST              |
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 2    | LandingPage             | M          | 1   | A landing page that    | URL                    |
 |      |                         |            |     | the identifier         |                        |
@@ -27,7 +27,7 @@ Medadata Schema for the Persistent Identification of Scientific Instruments
 | 4    | Owner                   | M          | 1-n | Institution(s)         |                        |
 |      |                         |            |     | responsible for the    |                        |
 |      |                         |            |     | management of the      |                        |
-|      |                         |            |     | instrument.  This may  |                        |
+|      |                         |            |     | instrument. This may   |                        |
 |      |                         |            |     | include the legal      |                        |
 |      |                         |            |     | owner, the operator,   |                        |
 |      |                         |            |     | or an institute        |                        |
@@ -38,7 +38,7 @@ Medadata Schema for the Persistent Identification of Scientific Instruments
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 5    | Manufacturer            | M          | 1-n | The instrument's       |                        |
 |      |                         |            |     | manufacturer(s) or     |                        |
-|      |                         |            |     | developer.  This may   |                        |
+|      |                         |            |     | developer. This may    |                        |
 |      |                         |            |     | also be the owner for  |                        |
 |      |                         |            |     | custom build           |                        |
 |      |                         |            |     | instruments            |                        |
@@ -67,12 +67,12 @@ Medadata Schema for the Persistent Identification of Scientific Instruments
 |      |                         |            |     |                        |   ...                  |
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 10   | RelatedIdentifier       | R          | 0-n | Identifiers of related | Free text, must be     |
-|      |                         |            |     | ressources             | globally unique        |
+|      |                         |            |     | resources              | globally unique        |
 |      |                         |            |     |                        | identifiers.           |
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 10.1 | relatedIdentifierType   | R          | 1   | Type of the identifier | Controlled list        |
 |      |                         |            |     |                        | of values:             |
-|      |                         |            |     |                        |   PDINST, DOI,         |
+|      |                         |            |     |                        |   PIDINST, DOI,        |
 |      |                         |            |     |                        |   Handle, URL,         |
 |      |                         |            |     |                        |   URN, ...             |
 +------+-------------------------+------------+-----+------------------------+------------------------+
@@ -86,12 +86,12 @@ Medadata Schema for the Persistent Identification of Scientific Instruments
 |      |                         |            |     |                        |   References,          |
 |      |                         |            |     |                        |   HasMetadata, ...     |
 +------+-------------------------+------------+-----+------------------------+------------------------+
-| 11   | AlternateIdentifier     | O          | 0-n | Identifiers other then | Free text, should be   |
-|      |                         |            |     | the PDINST pertaining  | unique identifiers.    |
+| 11   | AlternateIdentifier     | O          | 0-n | Identifiers other than | Free text, should be   |
+|      |                         |            |     | the PIDINST pertaining | unique identifiers     |
 |      |                         |            |     | to the same instrument |                        |
 |      |                         |            |     | instance               |                        |
 +------+-------------------------+------------+-----+------------------------+------------------------+
-| 11.1 | alternateidentifierType | O          | 1   | Type of the identifier | Free text              |
+| 11.1 | alternateIdentifierType | O          | 1   | Type of the identifier | Free text              |
 +------+-------------------------+------------+-----+------------------------+------------------------+
 
 
@@ -99,4 +99,4 @@ Notes
 -----
 
 - A suitable name for the instrument PID system still needs to be
-  found.  As a place holder, we use PDINST here.
+  found.  As a place holder, we use PIDINST here.
