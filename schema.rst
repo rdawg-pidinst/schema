@@ -1,4 +1,4 @@
-Medadata Schema for the Persistent Identification of Scientific Measuring Instruments
+Metadata Schema for the Persistent Identification of Scientific Measuring Instruments
 =====================================================================================
 
 +------+-------------------------+------------+-----+------------------------+------------------------+
