@@ -6,7 +6,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |      |                         |            |     |                        | constraints,           |
 |      |                         |            |     |                        | remarks                |
 +------+-------------------------+------------+-----+------------------------+------------------------+
-| 1    | Identifier              | M          | 1   | Unique string that     |                        |
+| 1    | Identifier              | M          | 1   | Unique string that     | PIDINST                |
 |      |                         |            |     | identifies the         |                        |
 |      |                         |            |     | instrument instance    |                        |
 +------+-------------------------+------------+-----+------------------------+------------------------+
