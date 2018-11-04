@@ -75,6 +75,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |      |                         |            |     |                        |   PIDINST, DOI,        |
 |      |                         |            |     |                        |   Handle, URL,         |
 |      |                         |            |     |                        |   URN, ...             |
+|      |                         |            |     |                        |[Identifier Type](http://pid.geoscience.gov.au/def/voc/ga/igsncode)|
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 10.2 | relationType            | R          | 1   | Description of the     | Controlled list        |
 |      |                         |            |     | relationship           | of values:             |
@@ -85,6 +86,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |      |                         |            |     |                        |   IsComponentOf,       |
 |      |                         |            |     |                        |   References,          |
 |      |                         |            |     |                        |   HasMetadata, ...     |
+|      |                         |            |     |                        |[Association Type](http://pid.geoscience.gov.au/def/voc/ga/associationtype)|
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 11   | AlternateIdentifier     | O          | 0-n | Identifiers other than | Free text, should be   |
 |      |                         |            |     | the PIDINST pertaining | unique identifiers     |
