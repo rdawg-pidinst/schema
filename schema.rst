@@ -36,11 +36,15 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+------------------------+------------------------+
 | 4.1   | ownerName                  | M          | 1   | Full name of the owner | Free text              |
 +-------+----------------------------+------------+-----+------------------------+------------------------+
-| 4.2   | ownerIdentifier            | O          | 0-1 | Persistent identifier  | Free text, must be     |
+| 4.2   | ownerContact               | O          | 0-1 | Contact address of the | Electronic mail        |
+|       |                            |            |     | owner                  | address                |
+|       |                            |            |     |                        |                        |
++-------+----------------------------+------------+-----+------------------------+------------------------+
+| 4.3   | ownerIdentifier            | O          | 0-1 | Persistent identifier  | Free text, must be     |
 |       |                            |            |     | of the owner           | globally unique        |
 |       |                            |            |     |                        | identifiers.           |
 +-------+----------------------------+------------+-----+------------------------+------------------------+
-| 4.2.1 | ownerIdentifierType        | O          | 1   | Type of the identifier | Free text              |
+| 4.3.1 | ownerIdentifierType        | O          | 1   | Type of the identifier | Free text              |
 +-------+----------------------------+------------+-----+------------------------+------------------------+
 | 5     | Manufacturer               | M          | 1-n | The instrument's       |                        |
 |       |                            |            |     | manufacturer(s) or     |                        |
