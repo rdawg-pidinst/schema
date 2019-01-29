@@ -78,7 +78,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +------+-------------------------+------------+-----+------------------------+------------------------+
 | 10.2 | relationType            | R          | 1   | Description of the     | Controlled list        |
 |      |                         |            |     | relationship           | of values:             |
-|      |                         |            |     |                        |   IsDecribedBy,        |
+|      |                         |            |     |                        |   IsDescribedBy,       |
 |      |                         |            |     |                        |   IsNewVersionOf,      |
 |      |                         |            |     |                        |   IsPreviousVersionOf, |
 |      |                         |            |     |                        |   HasComponent,        |
