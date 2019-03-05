@@ -62,7 +62,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+------------------------+------------------------+
 | 5.2.1 | manufacturerIdentifierType | O          | 1   | Type of the identifier | Free text              |
 +-------+----------------------------+------------+-----+------------------------+------------------------+
-| 5.3   | modelName                  | O          | 0-1 | Name of the model or   | Free text              |
+| 5.3   | modelName                  | R          | 0-1 | Name of the model or   | Free text              |
 |       |                            |            |     | type of device as      |                        |
 |       |                            |            |     | attributed by the      |                        |
 |       |                            |            |     | manufacturer           |                        |
