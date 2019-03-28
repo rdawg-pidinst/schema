@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resource>
+    <identifier identifierType="PIDINST">1234.1675.1</identifier>
+    <landingPage>https://www.helmholtz-berlin.de/pubbin/igama_output?modus=einzel&amp;sprache=en&amp;gid=1675&amp;typoid=35517</landingPage>
+    <name>Pilatus detector at MX station 14.1</name>
+    <owners>
+	<owner>
+	    <ownerName>Helmholtz-Zentrum Berlin für Materialien und Energie</ownerName>
+	</owner>
+    </owners>
+    <manufacturers>
+	<manufacturer>
+	    <manufacturerName>DECTRIS</manufacturerName>
+	    <modelName>PILATUS3 S 6M</modelName>
+	</manufacturer>
+    </manufacturers>
+    <instrumentType>Raster image pixel detector</instrumentType>
+    <variablesMeasured>
+	<variableMeasured>X-ray</variableMeasured>
+    </variablesMeasured>
+    <description>The Pilatus 6M pixel-detector at the MX station 14.1</description>
+    <relatedIdentifiers>
+	<relatedIdentifier relatedIdentifierType="PIDINST" relationType="IsComponentOf">1234.1675</relatedIdentifier>
+	<relatedIdentifier relatedIdentifierType="URL" relationType="References">https://www.dectris.com/products/pilatus3/pilatus3-s-for-synchrotron/details/pilatus3-s-6m</relatedIdentifier>
+    </relatedIdentifiers>
+    <alternateIdentifiers>
+	<alternateIdentifier alternateIdentifierType="serialNumber">1234567</alternateIdentifier>
+    </alternateIdentifiers>
+</resource>
