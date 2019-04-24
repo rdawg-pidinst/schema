@@ -284,5 +284,73 @@ Footnotes
    be used for a technical description.
 
 
+Notes and Issues
+----------------
+
+In the following, we collect some issues with the mapping of the
+instrument metadata schema onto DataCite as presented above, roughly
+ordered by increasing importance, from least concern to critical:
+
++ There is no `LandingPage` property in the DataCite schema.
+  Nevertheless, the URL of a landing page is registered with every
+  DataCite DOI in the practice.  As long as there actually is a
+  landing page that the instrument PID resolves to, it is considered
+  mostly an esthetic question whether this is explicitely named in the
+  schema or not.
+
++ There is no suitable place for `VariableMeasured` in the DataCite
+  schema.  On the other hand, honestly speaking, the concepts for
+  representing this information in our general schema have not been
+  very advanced either.  Linking some external resource with
+  `RelatedIdentifier` / `relationType=HasMetadata` using some
+  externally defined ontology seem to be the most viable approach
+  anyway.
+
++ It should be possible to tell from the PID and its metadata that
+  this one pertains to an instrument and not any other kind of
+  resource.  The only property in the DataCite schema suitable to hold
+  this information is `ResourceType` and its subproperty
+  `resourceTypeGeneral`.  `ResourceType` is free text which does not
+  offer a reliable classification.  The only usuable value for
+  `resourceTypeGeneral` is "Other".  It would be desirable to add
+  "Instrument" to the controlled list of values for
+  `resourceTypeGeneral`.
+
++ It is not obvious that the name of the instrument would be in
+  `Title`.  This difficulty is even aggravated by the fact that there
+  is no suitable specific value for `titleType` for this purpose.  It
+  would be desirable to add "Name" to the controlled list of values
+  for `titleType`.  This could also be useful for other resources then
+  instruments, if they have a well known name.
+
++ It is not clear what to put into `Publisher` and `PublicationYear`
+  for instruments.
+
++ The only suitable property to store a serial number is
+  `AlternateIdentifier`.  It has been argued in the group that for
+  this approach to be useful one would need to have a controlled list
+  of values for `alternateIdentifierType` that includes an entry for
+  "serialNumber", although there has not been a consensus on this.  It
+  has also been argued that such a controlled list of values would be
+  impractical for some other use cases.  This is still an unresolved
+  issue also in the general schema.
+
++ As mentioned above, some of the definitions in the DataCite schema
+  need to be significantly stretched in order to squeeze the relevant
+  metadata for instruments in.  It is not obvious what piece of
+  information should be put where.  It seems that some sort of a
+  dedicated handbook on how to correctly create instrument metadata
+  using this schema will be needed.  The existing general DataCite
+  documentation will not be enough.
+
++ There is no suitable place to put the model name of the instrument,
+  although this is considered a very important piece of information.
+  
+  It has been suggested to use `AlternateIdentifier`, but that does
+  not fit: `AlternateIdentifier` is for alternate identifiers that
+  pertain to the same individual instrument instance.  A model name
+  identifies a series of instruments having the same or similar
+  specifications, but not an individual instrument.
+
 
 .. _DataCite Metadata Schema 4.2: https://schema.datacite.org/meta/kernel-4.2/
