@@ -249,7 +249,7 @@ Footnotes
    facilitate organization searches.
 .. [#titletype] None of the specific values for `titleType` in the
    DataCite schema really fits an instrument name. The value "Other"
-   will need to used here.
+   will need to be used here.
 .. [#publisher] `Publisher` does not seem to fit at all for
    instruments.  But it is mandatory in the DataCite schema, so we can
    not skip it.  Need to negotiate with DataCite what to put here.
