@@ -326,6 +326,12 @@ ordered by increasing importance, from least concern to critical:
 + It is not clear what to put into `Publisher` and `PublicationYear`
   for instruments.
 
++ It has been discussed in the group that there should be a way to
+  relate an instrument with events, such as the deployment of an
+  instrument in an expedition, using `RelatedIdentifier`.  However
+  it is not clear which `relationType` in the DataCite schema would be
+  suitable for such a "has been deployed in" or "was used in" relation.
+
 + The only suitable property to store a serial number is
   `AlternateIdentifier`.  It has been argued in the group that for
   this approach to be useful one would need to have a controlled list
