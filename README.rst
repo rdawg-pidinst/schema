@@ -6,14 +6,13 @@ of Instruments WG`_ seeks to explore a community-driven solution for
 globally unique identification of active instruments in the sciences.
 
 This repository holds the (current draft for the) medadata schema for
-this PID system.
+this PID system.  There are two variants:
 
-Map the Schema to DataCite
---------------------------
+1. the original schema has been formulated based on the evaluation of
+   use cases collected by the working group.
 
-The present branch presents a variant version of the schema, mapped to
-the current `DataCite Metadata Schema 4.2`_.  This mapping mostly
-follows suggestions by Ted Habermann.
+2. a mapping of the original schema onto the current `DataCite
+   Metadata Schema 4.2`_.
 
 Copyright and License
 ---------------------
