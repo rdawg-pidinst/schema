@@ -12,7 +12,7 @@ this PID system.  There are two variants:
    use cases collected by the working group.
 
 2. a mapping of the original schema onto the current `DataCite
-   Metadata Schema 4.2`_.
+   Metadata Schema 4.3`_.
 
 Copyright and License
 ---------------------
@@ -26,5 +26,5 @@ International License`_.
 
 .. _Research Data Alliance: https://www.rd-alliance.org/
 .. _Persistent Identification of Instruments WG: https://www.rd-alliance.org/groups/persistent-identification-instruments-wg
-.. _DataCite Metadata Schema 4.2: https://schema.datacite.org/meta/kernel-4.2/
+.. _DataCite Metadata Schema 4.3: https://schema.datacite.org/meta/kernel-4.3/
 .. _Creative Commons Attribution 4.0 International License: https://creativecommons.org/licenses/by/4.0/
