@@ -17,7 +17,7 @@ should be negotiated with DataCite.
 
 
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| ID    | Property                   | Obligation | Occ | Definition               | Allowed values,          | Required Changes          |
+| ID    | Property                   | Obligation | Occ | Definition               | Allowed values,          | Suggested Changes         |
 |       |                            |            |     |                          | constraints,             | to DataCite               |
 |       |                            |            |     |                          | remarks                  | schema                    |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
@@ -74,8 +74,8 @@ should be negotiated with DataCite.
 |       |                            |            |     | instrument instance is   |                          |                           |
 |       |                            |            |     | known                    |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 3.a   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       | None                      |
-|       |                            |            |     |                          | values:[#titletype]_     |                           |
+| 3.a   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       | Add *Name* to controlled  |
+|       |                            |            |     |                          | values:[#titletype]_     | list of values            |
 |       |                            |            |     |                          |   AlternativeTitle       |                           |
 |       |                            |            |     |                          |   Subtitle               |                           |
 |       |                            |            |     |                          |   TranslatedTitle        |                           |
@@ -203,9 +203,9 @@ should be negotiated with DataCite.
 |       |                            |            |     |                          | values, see DataCite     |                           |
 |       |                            |            |     |                          | schema                   |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.b  | relationType               | R          | 1   | Description of the       | Controlled list of       | *deployedIn?*             |
-|       |                            |            |     | relationship             | values, see DataCite     |                           |
-|       |                            |            |     |                          | schema [#reltype]_       |                           |
+| 12.b  | relationType               | R          | 1   | Description of the       | Controlled list of       | Add a relationType for    |
+|       |                            |            |     | relationship             | values, see DataCite     | deployments, indicating   |
+|       |                            |            |     |                          | schema [#reltype]_       | *was used in*             |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 12.c  | relatedMetaDataScheme      | O          | 0-1 | The name of the related  | Use only for             | None                      |
 |       |                            |            |     | metadata scheme          | HasMetadata              |                           |
@@ -216,8 +216,8 @@ should be negotiated with DataCite.
 | 12.e  | schemeType                 | O          | 0-1 | The type of the related  | Use only for             | None                      |
 |       |                            |            |     | metadata scheme          | HasMetadata              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.f  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       |                           |
-|       |                            |            |     | related resource         | values, see DataCite     |                           |
+| 12.f  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       | Add *Instrument* to       |
+|       |                            |            |     | related resource         | values, see DataCite     | controlled list of values |
 |       |                            |            |     |                          | schema **Other**         |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 17    | Description                | R          | 0-n | Technical description    | Free text                | None                      |
