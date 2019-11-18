@@ -82,7 +82,7 @@ should be negotiated with DataCite.
 |       |                            |            |     |                          |   **Other**              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 4     | Publisher                  | M          | 1   | The name of the entity   | Free text                | None                      |
-|       |                            |            |     | that holds, archives,    | [#publisher]_            | *Publisher identifier?*   |
+|       |                            |            |     | that holds, archives,    | [#publisher]_            |                           |
 |       |                            |            |     | publishes, prints,       |                          |                           |
 |       |                            |            |     | distributes, releases,   |                          |                           |
 |       |                            |            |     | issues, or produces the  |                          |                           |
@@ -150,7 +150,7 @@ should be negotiated with DataCite.
 |       |                            |            |     | identifier schema        | http://www.isni.org,     |                           |
 |       |                            |            |     |                          | https://orcid.org        |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                | *affiliation identifier?* |
+| 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                | None                      |
 |       |                            |            |     | institutional            | [#cntrb_sub]_            |                           |
 |       |                            |            |     | affiliation of the       |                          |                           |
 |       |                            |            |     | contributor              |                          |                           |
