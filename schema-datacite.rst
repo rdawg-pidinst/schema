@@ -25,7 +25,7 @@ should be negotiated with DataCite.
 |       |                            |            |     | identifies the           |                          |                           |
 |       |                            |            |     | instrument instance      |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 1.1   | identifierType             | M          | 1   | Type of the identifier   | Controlled list of       | None                      |
+| 1.a   | identifierType             | M          | 1   | Type of the identifier   | Controlled list of       | None                      |
 |       |                            |            |     |                          | values:[#identtype]_     |                           |
 |       |                            |            |     |                          |   DOI                    |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
@@ -39,7 +39,7 @@ should be negotiated with DataCite.
 | 2.1   | creatorName                | M          | 1   | Full name of the         | Free text                | None                      |
 |       |                            |            |     | manufacturer             |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.1.1 | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
+| 2.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
 |       |                            |            |     |                          | values:[#cr_nametype]_   |                           |
 |       |                            |            |     |                          | **Organizational**       |                           |
 |       |                            |            |     |                          |   Personal               |                           |
@@ -56,12 +56,12 @@ should be negotiated with DataCite.
 |       |                            |            |     | manufacturer             | dependent upon schema    |                           |
 |       |                            |            |     |                          |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.4.1 | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
+| 2.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
 |       |                            |            |     | identifier schema        | if nameIdentifier is     |                           |
 |       |                            |            |     |                          | used. Examples: ROR,     |                           |
 |       |                            |            |     |                          | ISNI, ORCID              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.4.2 | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
+| 2.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
 |       |                            |            |     | identifier schema        | **http://www.isni.org**, |                           |
 |       |                            |            |     |                          | https://orcid.org        |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
@@ -74,7 +74,7 @@ should be negotiated with DataCite.
 |       |                            |            |     | instrument instance is   |                          |                           |
 |       |                            |            |     | known                    |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 3.1   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       | None                      |
+| 3.a   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       | None                      |
 |       |                            |            |     |                          | values:[#titletype]_     |                           |
 |       |                            |            |     |                          |   AlternativeTitle       |                           |
 |       |                            |            |     |                          |   Subtitle               |                           |
@@ -97,15 +97,15 @@ should be negotiated with DataCite.
 |       |                            |            |     | key phrase describing    |                          |                           |
 |       |                            |            |     | the instrument           |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.1   | subjectScheme              | O          | 0-1 | The name of the subject  | Free text                | None                      |
+| 6.a   | subjectScheme              | O          | 0-1 | The name of the subject  | Free text                | None                      |
 |       |                            |            |     | scheme or classification |                          |                           |
 |       |                            |            |     | code or authority if one |                          |                           |
 |       |                            |            |     | is used                  |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.2   | schemeURI                  | O          | 0-1 | The URI of the subject   |                          | None                      |
+| 6.b   | schemeURI                  | O          | 0-1 | The URI of the subject   |                          | None                      |
 |       |                            |            |     | identifier scheme        |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.3   | valueURI                   | O          | 0-1 | The URI of the subject   |                          | None                      |
+| 6.c   | valueURI                   | O          | 0-1 | The URI of the subject   |                          | None                      |
 |       |                            |            |     | term                     |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 7     | Contributor                | M          | 1-n | Institution(s)           | [#contributor]_          | None                      |
@@ -118,39 +118,39 @@ should be negotiated with DataCite.
 |       |                            |            |     | providing access to      |                          |                           |
 |       |                            |            |     | the instrument.          |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.1   | contributorType            | M          | 1   | The type of contributor  | Controlled list of       | None                      |
+| 7.a   | contributorType            | M          | 1   | The type of contributor  | Controlled list of       | None                      |
 |       |                            |            |     |                          | values:                  |                           |
 |       |                            |            |     |                          | **hostingInstitution**   |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.2   | contributorName            | M          | 1   | Full name of the owner   | Free text                | None                      |
+| 7.1   | contributorName            | M          | 1   | Full name of the owner   | Free text                | None                      |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.2.1 | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
+| 7.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
 |       |                            |            |     |                          | values:[#cntrb_sub]_     |                           |
 |       |                            |            |     |                          |   Organizational         |                           |
 |       |                            |            |     |                          |   Personal               |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.3   | givenName                  | R          | 0-1 | First name of the        | Free text                | None                      |
+| 7.2   | givenName                  | R          | 0-1 | First name of the        | Free text                | None                      |
 |       |                            |            |     | owner, if                |                          |                           |
 |       |                            |            |     | applicable               |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.4   | familyName                 | R          | 0-1 | Last name of the         | Free text                | None                      |
+| 7.3   | familyName                 | R          | 0-1 | Last name of the         | Free text                | None                      |
 |       |                            |            |     | owner, if                |                          |                           |
 |       |                            |            |     | applicable               |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.5   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     | None                      |
+| 7.4   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     | None                      |
 |       |                            |            |     | owner                    | dependent upon schema    |                           |
 |       |                            |            |     |                          |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.5.1 | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
+| 7.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
 |       |                            |            |     | identifier schema        | if nameIdentifier is     |                           |
 |       |                            |            |     |                          | used. Examples: ROR,     |                           |
 |       |                            |            |     |                          | ISNI, ORCID              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.5.2 | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
+| 7.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
 |       |                            |            |     | identifier schema        | http://www.isni.org,     |                           |
 |       |                            |            |     |                          | https://orcid.org        |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.6   | affiliation                | O          | 0-n | Organizational or        | Free text                | *affiliation identifier?* |
+| 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                | *affiliation identifier?* |
 |       |                            |            |     | institutional            | [#cntrb_sub]_            |                           |
 |       |                            |            |     | affiliation of the       |                          |                           |
 |       |                            |            |     | contributor              |                          |                           |
@@ -158,11 +158,11 @@ should be negotiated with DataCite.
 | 8     | Date                       | R          | 0-n | Dates relevant to the    | ISO 8601 [#date]_        | None                      |
 |       |                            |            |     | instrument               |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 8.1   | dateType                   | R          | 1   | The type of the date     | Controlled list of       | None                      |
+| 8.a   | dateType                   | R          | 1   | The type of the date     | Controlled list of       | None                      |
 |       |                            |            |     |                          | values, see DataCite     |                           |
 |       |                            |            |     |                          | schema                   |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 8.2   | dateInformation            | O          | 0-1 | Specific information     | Free text                | None                      |
+| 8.b   | dateInformation            | O          | 0-1 | Specific information     | Free text                | None                      |
 |       |                            |            |     | about the date, if       |                          |                           |
 |       |                            |            |     | appropriate              |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
@@ -172,7 +172,7 @@ should be negotiated with DataCite.
 |       |                            |            |     |                          |   Instrument             |                           |
 |       |                            |            |     |                          |   Sensor                 |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 10.1  | resourceTypeGeneral        | M          | 1   | The general type of the  | Controlled list of       | None                      |
+| 10.a  | resourceTypeGeneral        | M          | 1   | The general type of the  | Controlled list of       | None                      |
 |       |                            |            |     | resource                 | values:[#restypegen]_    |                           |
 |       |                            |            |     |                          |   **Other**              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
@@ -188,7 +188,7 @@ should be negotiated with DataCite.
 |       |                            |            |     | entry in some instrument |                          |                           |
 |       |                            |            |     | data base.               |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 11.1  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory    | None                      |
+| 11.a  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory    | None                      |
 |       |                            |            |     |                          | if AlternateIdentifier   |                           |
 |       |                            |            |     |                          | is used.  Suggested      |                           |
 |       |                            |            |     |                          | values include:          |                           |
@@ -199,32 +199,32 @@ should be negotiated with DataCite.
 |       |                            |            |     | resources                | globally unique          |                           |
 |       |                            |            |     |                          | identifiers.             |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.1  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of       | None                      |
+| 12.a  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of       | None                      |
 |       |                            |            |     |                          | values, see DataCite     |                           |
 |       |                            |            |     |                          | schema                   |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.2  | relationType               | R          | 1   | Description of the       | Controlled list of       | *deployedIn?*             |
+| 12.b  | relationType               | R          | 1   | Description of the       | Controlled list of       | *deployedIn?*             |
 |       |                            |            |     | relationship             | values, see DataCite     |                           |
 |       |                            |            |     |                          | schema [#reltype]_       |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.3  | relatedMetaDataScheme      | O          | 0-1 | The name of the related  | Use only for             | None                      |
+| 12.c  | relatedMetaDataScheme      | O          | 0-1 | The name of the related  | Use only for             | None                      |
 |       |                            |            |     | metadata scheme          | HasMetadata              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.4  | schemeURI                  | O          | 0-1 | The URI of the related   | Use only for             | None                      |
+| 12.d  | schemeURI                  | O          | 0-1 | The URI of the related   | Use only for             | None                      |
 |       |                            |            |     | metadata scheme          | HasMetadata              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.5  | schemeType                 | O          | 0-1 | The type of the related  | Use only for             | None                      |
+| 12.e  | schemeType                 | O          | 0-1 | The type of the related  | Use only for             | None                      |
 |       |                            |            |     | metadata scheme          | HasMetadata              |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.6  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       |                           |
+| 12.f  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       |                           |
 |       |                            |            |     | related resource         | values, see DataCite     |                           |
 |       |                            |            |     |                          | schema **Other**         |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 17    | Description                | R          | 0-1 | Technical description    | Free text                | None                      |
+| 17    | Description                | R          | 0-n | Technical description    | Free text                | None                      |
 |       |                            |            |     | of the device and its    |                          |                           |
 |       |                            |            |     | capabilities             |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 17.1  | descriptionType            | R          | 1   | The type of the          | Controlled list of       | None                      |
+| 17.a  | descriptionType            | R          | 1   | The type of the          | Controlled list of       | None                      |
 |       |                            |            |     | description              | values:[#desctype]_      |                           |
 |       |                            |            |     |                          |   Abstract               |                           |
 |       |                            |            |     |                          |   Methods                |                           |
