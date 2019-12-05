@@ -298,7 +298,7 @@ ordered by increasing importance, from least concern to critical:
   mostly an esthetic question whether this is explicitely named in the
   schema or not.
 
-+ There is no suitable place for `VariableMeasured` in the DataCite
++ There is no suitable place for `MeasuredVariable` in the DataCite
   schema.  On the other hand, honestly speaking, the concepts for
   representing this information in our general schema have not been
   very advanced either.  Linking some external resource with

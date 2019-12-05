@@ -74,7 +74,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 | 7     | InstrumentType             | R          | 0-1 | Classification of the    | Free text              |
 |       |                            |            |     | type of the instrument   |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 8     | VariableMeasured           | R          | 0-n | The variable(s) that     | Free text              |
+| 8     | MeasuredVariable           | R          | 0-n | The variable(s) that     | Free text              |
 |       |                            |            |     | this instrument          |                        |
 |       |                            |            |     | measures or observes     |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
