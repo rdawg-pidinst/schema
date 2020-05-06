@@ -62,42 +62,50 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 5.2.1 | manufacturerIdentifierType | O          | 1   | Type of the identifier   | Free text              |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 5.3   | modelName                  | R          | 0-1 | Name of the model or     | Free text              |
+| 6     | Model                      | R          | 0-1 | Name of the model or     |                        |
 |       |                            |            |     | type of device as        |                        |
 |       |                            |            |     | attributed by the        |                        |
 |       |                            |            |     | manufacturer             |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 6     | Description                | R          | 0-1 | Technical description    | Free text              |
+| 6.1   | modelName                  | R          | 1   | Full name of the model   | Free text              |
++-------+----------------------------+------------+-----+--------------------------+------------------------+
+| 6.2   | modelIdentifier            | O          | 0-1 | Persistent identifier    | Free text, must be a   |
+|       |                            |            |     | of the model             | globally unique        |
+|       |                            |            |     |                          | identifier.            |
++-------+----------------------------+------------+-----+--------------------------+------------------------+
+| 6.2.1 | modelIdentifierType        | O          | 1   | Type of the identifier   | Free text              |
++-------+----------------------------+------------+-----+--------------------------+------------------------+
+| 7     | Description                | R          | 0-1 | Technical description    | Free text              |
 |       |                            |            |     | of the device and its    |                        |
 |       |                            |            |     | capabilities             |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 7     | InstrumentType             | R          | 0-1 | Classification of the    | Free text              |
+| 8     | InstrumentType             | R          | 0-1 | Classification of the    | Free text              |
 |       |                            |            |     | type of the instrument   |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 8     | MeasuredVariable           | R          | 0-n | The variable(s) that     | Free text              |
+| 9     | MeasuredVariable           | R          | 0-n | The variable(s) that     | Free text              |
 |       |                            |            |     | this instrument          |                        |
 |       |                            |            |     | measures or observes     |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 9     | Date                       | R          | 0-n | Dates relevant to the    | ISO 8601               |
+| 10    | Date                       | R          | 0-n | Dates relevant to the    | ISO 8601               |
 |       |                            |            |     | instrument               |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 9.1   | dateType                   | R          | 1   | The type of the date     | Controlled list        |
+| 10.1  | dateType                   | R          | 1   | The type of the date     | Controlled list        |
 |       |                            |            |     |                          | of values:             |
 |       |                            |            |     |                          |   Commissioned,        |
 |       |                            |            |     |                          |   DeCommissioned,      |
 |       |                            |            |     |                          |   ...                  |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 10    | RelatedIdentifier          | R          | 0-n | Identifiers of related   | Free text, must be     |
+| 11    | RelatedIdentifier          | R          | 0-n | Identifiers of related   | Free text, must be     |
 |       |                            |            |     | resources                | globally unique        |
 |       |                            |            |     |                          | identifiers.           |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 10.1  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list        |
+| 11.1  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list        |
 |       |                            |            |     |                          | of values:             |
 |       |                            |            |     |                          |   PIDINST, DOI,        |
 |       |                            |            |     |                          |   Handle, URL,         |
 |       |                            |            |     |                          |   URN, ...             |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 10.2  | relationType               | R          | 1   | Description of the       | Controlled list        |
+| 11.2  | relationType               | R          | 1   | Description of the       | Controlled list        |
 |       |                            |            |     | relationship             | of values:             |
 |       |                            |            |     |                          |   IsDescribedBy,       |
 |       |                            |            |     |                          |   IsNewVersionOf,      |
@@ -107,7 +115,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     |                          |   References,          |
 |       |                            |            |     |                          |   HasMetadata, ...     |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 11    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be   |
+| 12    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be   |
 |       |                            |            |     | the PIDINST pertaining   | unique identifiers     |
 |       |                            |            |     | to the same instrument   |                        |
 |       |                            |            |     | instance.  This should   |                        |
@@ -119,7 +127,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     | entry in some instrument |                        |
 |       |                            |            |     | data base.               |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 11.1  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory  |
+| 12.1  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory  |
 |       |                            |            |     |                          | if AlternateIdentifier |
 |       |                            |            |     |                          | is used.  Suggested    |
 |       |                            |            |     |                          | values include:        |
