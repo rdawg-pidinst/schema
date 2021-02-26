@@ -6,13 +6,11 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     |                          | constraints,           |
 |       |                            |            |     |                          | remarks                |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 1     | Identifier                 | M          | 1   | Unique string that       | PIDINST                |
+| 1     | Identifier                 | M          | 1   | Unique string that       |                        |
 |       |                            |            |     | identifies the           |                        |
 |       |                            |            |     | instrument instance      |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 1.1   | identifierType             | M          | 1   | Type of the identifier   | Controlled list        |
-|       |                            |            |     |                          | of values:             |
-|       |                            |            |     |                          |   PIDINST              |
+| 1.1   | identifierType             | M          | 1   | Type of the identifier   | [#identtype]_          |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 2     | LandingPage                | M          | 1   | A landing page that      | URL                    |
 |       |                            |            |     | the identifier           |                        |
@@ -101,8 +99,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 11.1  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list        |
 |       |                            |            |     |                          | of values:             |
-|       |                            |            |     |                          |   PIDINST, DOI,        |
-|       |                            |            |     |                          |   Handle, URL,         |
+|       |                            |            |     |                          |   DOI, Handle, URL,    |
 |       |                            |            |     |                          |   URN, ...             |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 11.2  | relationType               | R          | 1   | Description of the       | Controlled list        |
@@ -139,8 +136,9 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 Notes
 -----
 
-- A suitable name for the instrument PID system still needs to be
-  found.  As a place holder, we use PIDINST here.
+.. [#identtype] The type of the identifier depends on the provider
+   being used to register the instrument PID.  In the case of ePIC,
+   the value of `identifierType` would be "Handle".
 
 
 Criteria for adding and classifying properties
