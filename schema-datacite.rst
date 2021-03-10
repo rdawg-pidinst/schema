@@ -166,8 +166,8 @@ should be negotiated with DataCite.
 |       |                            |            |     | about the date, if       |                          |                           |
 |       |                            |            |     | appropriate              |                          |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 10    | ResourceType               | M          | 1   | A description of the     | Free text.  Suggested    | None                      |
-|       |                            |            |     | resource                 | values:                  |                           |
+| 10    | ResourceType               | M          | 1   | The type of the resource | Free text.  Suggested    | None                      |
+|       |                            |            |     |                          | values:                  |                           |
 |       |                            |            |     |                          |   Platform               |                           |
 |       |                            |            |     |                          |   Instrument             |                           |
 |       |                            |            |     |                          |   Sensor                 |                           |
