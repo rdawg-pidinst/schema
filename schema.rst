@@ -77,8 +77,17 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | of the device and its    |                        |
 |       |                              |            |     | capabilities             |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 8     | InstrumentType               | R          | 0-1 | Classification of the    | Free text              |
+| 8     | InstrumentType               | R          | 0-n | Classification of the    |                        |
 |       |                              |            |     | type of the instrument   |                        |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 8.1   | instrumentTypeName           | R          | 1   | Full name of the         | Free text              |
+|       |                              |            |     | instrument type          |                        |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 8.2   | instrumentTypeIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
+|       |                              |            |     | identify the type of the | globally unique        |
+|       |                              |            |     | instrument               | identifier             |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 8.2.1 | instrumentTypeIdentifierType | O          | 1   | Type of the identifier   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 9     | MeasuredVariable             | R          | 0-n | The variable(s) that     | Free text              |
 |       |                              |            |     | this instrument          |                        |
