@@ -38,9 +38,9 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     | owner                    | address                |
 |       |                            |            |     |                          |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 4.3   | ownerIdentifier            | O          | 0-1 | Persistent identifier    | Free text, must be     |
-|       |                            |            |     | used to identify the     | globally unique        |
-|       |                            |            |     | owner                    | identifiers.           |
+| 4.3   | ownerIdentifier            | O          | 0-1 | Identifier used to       | Free text, should be   |
+|       |                            |            |     | identify the owner       | a globally unique      |
+|       |                            |            |     |                          | identifier.            |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 4.3.1 | ownerIdentifierType        | O          | 1   | Type of the identifier   | Free text              |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
@@ -54,9 +54,9 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 | 5.1   | manufacturerName           | M          | 1   | Full name of the         | Free text              |
 |       |                            |            |     | manufacturer             |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 5.2   | manufacturerIdentifier     | O          | 0-1 | Persistent identifier    | Free text, must be     |
-|       |                            |            |     | used to identify the     | globally unique        |
-|       |                            |            |     | manufacturer             | identifiers.           |
+| 5.2   | manufacturerIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be   |
+|       |                            |            |     | identify the             | a globally unique      |
+|       |                            |            |     | manufacturer             | identifier.            |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 5.2.1 | manufacturerIdentifierType | O          | 1   | Type of the identifier   | Free text              |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
@@ -67,9 +67,9 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 6.1   | modelName                  | R          | 1   | Full name of the model   | Free text              |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 6.2   | modelIdentifier            | O          | 0-1 | Persistent identifier    | Free text, must be a   |
-|       |                            |            |     | used to identify the     | globally unique        |
-|       |                            |            |     | model                    | identifier.            |
+| 6.2   | modelIdentifier            | O          | 0-1 | Identifier used to       | Free text, should be   |
+|       |                            |            |     | identify the model       | a globally unique      |
+|       |                            |            |     |                          | identifier.            |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 6.2.1 | modelIdentifierType        | O          | 1   | Type of the identifier   | Free text              |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
