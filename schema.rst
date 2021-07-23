@@ -130,6 +130,12 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     |                          |   InventoryNumber,     |
 |       |                            |            |     |                          |   Other                |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
+| 12.2  | alternateIdentifierName    | O          | 0-1 | A supplementary name for | Free text              |
+|       |                            |            |     | the identifier type.     |                        |
+|       |                            |            |     | This is mostly useful if |                        |
+|       |                            |            |     | alternateIdentifierType  |                        |
+|       |                            |            |     | is Other.                |                        |
++-------+----------------------------+------------+-----+--------------------------+------------------------+
 
 
 Notes
