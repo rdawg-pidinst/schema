@@ -99,8 +99,13 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 11.1  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list        |
 |       |                            |            |     |                          | of values:             |
-|       |                            |            |     |                          |   DOI, Handle, URL,    |
-|       |                            |            |     |                          |   URN, ...             |
+|       |                            |            |     |                          |   ARK, arXiv, bibcode, |
+|       |                            |            |     |                          |   DOI, EAN13, EISSN,   |
+|       |                            |            |     |                          |   Handle, IGSN, ISBN,  |
+|       |                            |            |     |                          |   ISSN, ISTC, LISSN,   |
+|       |                            |            |     |                          |   PMID, PURL, RAiD,    |
+|       |                            |            |     |                          |   RRID, UPC, URL,      |
+|       |                            |            |     |                          |   URN, w3id            |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 11.2  | relationType               | R          | 1   | Description of the       | Controlled list        |
 |       |                            |            |     | relationship             | of values:             |
