@@ -129,12 +129,17 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     | entry in some instrument |                        |
 |       |                            |            |     | data base.               |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
-| 12.1  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory  |
-|       |                            |            |     |                          | if AlternateIdentifier |
-|       |                            |            |     |                          | is used.  Suggested    |
-|       |                            |            |     |                          | values include:        |
-|       |                            |            |     |                          |   serialNumber,        |
-|       |                            |            |     |                          |   inventoryNumber, ... |
+| 12.1  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Controlled list of     |
+|       |                            |            |     |                          | values:                |
+|       |                            |            |     |                          |   SerialNumber,        |
+|       |                            |            |     |                          |   InventoryNumber,     |
+|       |                            |            |     |                          |   Other                |
++-------+----------------------------+------------+-----+--------------------------+------------------------+
+| 12.2  | alternateIdentifierName    | O          | 0-1 | A supplementary name for | Free text              |
+|       |                            |            |     | the identifier type.     |                        |
+|       |                            |            |     | This is mostly useful if |                        |
+|       |                            |            |     | alternateIdentifierType  |                        |
+|       |                            |            |     | is Other.                |                        |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 
 
