@@ -108,8 +108,13 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 11.1  | relatedIdentifierType        | R          | 1   | Type of the identifier   | Controlled list        |
 |       |                              |            |     |                          | of values:             |
-|       |                              |            |     |                          |   DOI, Handle, URL,    |
-|       |                              |            |     |                          |   URN, ...             |
+|       |                              |            |     |                          |   ARK, arXiv, bibcode, |
+|       |                              |            |     |                          |   DOI, EAN13, EISSN,   |
+|       |                              |            |     |                          |   Handle, IGSN, ISBN,  |
+|       |                              |            |     |                          |   ISSN, ISTC, LISSN,   |
+|       |                              |            |     |                          |   PMID, PURL, RAiD,    |
+|       |                              |            |     |                          |   RRID, UPC, URL,      |
+|       |                              |            |     |                          |   URN, w3id            |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 11.2  | relationType                 | R          | 1   | Description of the       | Controlled list        |
 |       |                              |            |     | relationship             | of values:             |
@@ -133,12 +138,17 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | entry in some instrument |                        |
 |       |                              |            |     | data base.               |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 12.1  | alternateIdentifierType      | R          | 1   | Type of the identifier   | Free text.  Mandatory  |
-|       |                              |            |     |                          | if AlternateIdentifier |
-|       |                              |            |     |                          | is used.  Suggested    |
-|       |                              |            |     |                          | values include:        |
-|       |                              |            |     |                          |   serialNumber,        |
-|       |                              |            |     |                          |   inventoryNumber, ... |
+| 12.1  | alternateIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of     |
+|       |                              |            |     |                          | values:                |
+|       |                              |            |     |                          |   SerialNumber,        |
+|       |                              |            |     |                          |   InventoryNumber,     |
+|       |                              |            |     |                          |   Other                |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 12.2  | alternateIdentifierName      | O          | 0-1 | A supplementary name for | Free text              |
+|       |                              |            |     | the identifier type.     |                        |
+|       |                              |            |     | This is mostly useful if |                        |
+|       |                              |            |     | alternateIdentifierType  |                        |
+|       |                              |            |     | is Other.                |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 
 
