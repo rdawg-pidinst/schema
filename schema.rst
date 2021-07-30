@@ -90,8 +90,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 | 10.1  | dateType                   | R          | 1   | The type of the date     | Controlled list        |
 |       |                            |            |     |                          | of values:             |
 |       |                            |            |     |                          |   Commissioned,        |
-|       |                            |            |     |                          |   DeCommissioned,      |
-|       |                            |            |     |                          |   ...                  |
+|       |                            |            |     |                          |   DeCommissioned       |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 11    | RelatedIdentifier          | R          | 0-n | Identifiers of related   | Free text, must be     |
 |       |                            |            |     | resources                | globally unique        |
