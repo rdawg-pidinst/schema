@@ -12,9 +12,9 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 1.1   | identifierType               | M          | 1   | Type of the identifier   | [#identtype]_          |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 2     | SchemaVersion                | M          | 1   | Version number of the    | Fixed value according  |
-|       |                              |            |     | PIDINST schema used in   | to the current version |
-|       |                              |            |     | this record              | of the schema          |
+| 2     | SchemaVersion                | M          | 1   | Version number of the    | Fixed value            |
+|       |                              |            |     | PIDINST schema used in   | [#schemaversion]_      |
+|       |                              |            |     | this record              |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 3     | LandingPage                  | M          | 1   | A landing page that      | URL                    |
 |       |                              |            |     | the identifier           |                        |
@@ -165,6 +165,8 @@ Notes
    being used to register the instrument PID.  In the case of ePIC,
    the value of `identifierType` would be "Handle".
 
+.. [#schemaversion] The value of `SchemaVersion` is defined to be
+   equal to the version number for each release version of the schema.
 
 Criteria for adding and classifying properties
 ----------------------------------------------
