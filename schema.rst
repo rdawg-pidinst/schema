@@ -114,7 +114,10 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                            |            |     |                          |   HasComponent,        |
 |       |                            |            |     |                          |   IsComponentOf,       |
 |       |                            |            |     |                          |   References,          |
-|       |                            |            |     |                          |   HasMetadata, ...     |
+|       |                            |            |     |                          |   HasMetadata,         |
+|       |                            |            |     |                          |   WasUsedIn,           |
+|       |                            |            |     |                          |   IsIdenticalTo,       |
+|       |                            |            |     |                          |   IsAttachedTo         |
 +-------+----------------------------+------------+-----+--------------------------+------------------------+
 | 12    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be   |
 |       |                            |            |     | the PIDINST pertaining   | unique identifiers     |
