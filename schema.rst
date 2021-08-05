@@ -12,17 +12,21 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 1.1   | identifierType               | M          | 1   | Type of the identifier   | [#identtype]_          |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 2     | LandingPage                  | M          | 1   | A landing page that      | URL                    |
+| 2     | SchemaVersion                | M          | 1   | Version number of the    | Fixed value            |
+|       |                              |            |     | PIDINST schema used in   | [#schemaversion]_      |
+|       |                              |            |     | this record              |                        |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 3     | LandingPage                  | M          | 1   | A landing page that      | URL                    |
 |       |                              |            |     | the identifier           |                        |
 |       |                              |            |     | resolves to              |                        |
 |       |                              |            |     |                          |                        |
 |       |                              |            |     |                          |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 3     | Name                         | M          | 1   | Name by which the        | Free text              |
+| 4     | Name                         | M          | 1   | Name by which the        | Free text              |
 |       |                              |            |     | instrument instance is   |                        |
 |       |                              |            |     | known                    |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 4     | Owner                        | M          | 1-n | Institution(s)           |                        |
+| 5     | Owner                        | M          | 1-n | Institution(s)           |                        |
 |       |                              |            |     | responsible for the      |                        |
 |       |                              |            |     | management of the        |                        |
 |       |                              |            |     | instrument. This may     |                        |
@@ -32,80 +36,80 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | providing access to      |                        |
 |       |                              |            |     | the instrument.          |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 4.1   | ownerName                    | M          | 1   | Full name of the owner   | Free text              |
+| 5.1   | ownerName                    | M          | 1   | Full name of the owner   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 4.2   | ownerContact                 | O          | 0-1 | Contact address of the   | Electronic mail        |
+| 5.2   | ownerContact                 | O          | 0-1 | Contact address of the   | Electronic mail        |
 |       |                              |            |     | owner                    | address                |
 |       |                              |            |     |                          |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 4.3   | ownerIdentifier              | O          | 0-1 | Persistent identifier    | Free text, must be     |
+| 5.3   | ownerIdentifier              | O          | 0-1 | Persistent identifier    | Free text, must be     |
 |       |                              |            |     | used to identify the     | globally unique        |
 |       |                              |            |     | owner                    | identifiers.           |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 4.3.1 | ownerIdentifierType          | O          | 1   | Type of the identifier   | Free text              |
+| 5.3.1 | ownerIdentifierType          | O          | 1   | Type of the identifier   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 5     | Manufacturer                 | M          | 1-n | The instrument's         |                        |
+| 6     | Manufacturer                 | M          | 1-n | The instrument's         |                        |
 |       |                              |            |     | manufacturer(s) or       |                        |
 |       |                              |            |     | developer. This may      |                        |
 |       |                              |            |     | also be the owner for    |                        |
 |       |                              |            |     | custom build             |                        |
 |       |                              |            |     | instruments              |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 5.1   | manufacturerName             | M          | 1   | Full name of the         | Free text              |
+| 6.1   | manufacturerName             | M          | 1   | Full name of the         | Free text              |
 |       |                              |            |     | manufacturer             |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 5.2   | manufacturerIdentifier       | O          | 0-1 | Persistent identifier    | Free text, must be     |
+| 6.2   | manufacturerIdentifier       | O          | 0-1 | Persistent identifier    | Free text, must be     |
 |       |                              |            |     | used to identify the     | globally unique        |
 |       |                              |            |     | manufacturer             | identifiers.           |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 5.2.1 | manufacturerIdentifierType   | O          | 1   | Type of the identifier   | Free text              |
+| 6.2.1 | manufacturerIdentifierType   | O          | 1   | Type of the identifier   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 6     | Model                        | R          | 0-1 | Name of the model or     |                        |
+| 7     | Model                        | R          | 0-1 | Name of the model or     |                        |
 |       |                              |            |     | type of device as        |                        |
 |       |                              |            |     | attributed by the        |                        |
 |       |                              |            |     | manufacturer             |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 6.1   | modelName                    | R          | 1   | Full name of the model   | Free text              |
+| 7.1   | modelName                    | R          | 1   | Full name of the model   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 6.2   | modelIdentifier              | O          | 0-1 | Persistent identifier    | Free text, must be a   |
+| 7.2   | modelIdentifier              | O          | 0-1 | Persistent identifier    | Free text, must be a   |
 |       |                              |            |     | used to identify the     | globally unique        |
 |       |                              |            |     | model                    | identifier.            |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 6.2.1 | modelIdentifierType          | O          | 1   | Type of the identifier   | Free text              |
+| 7.2.1 | modelIdentifierType          | O          | 1   | Type of the identifier   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 7     | Description                  | R          | 0-1 | Technical description    | Free text              |
+| 8     | Description                  | R          | 0-1 | Technical description    | Free text              |
 |       |                              |            |     | of the device and its    |                        |
 |       |                              |            |     | capabilities             |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 8     | InstrumentType               | R          | 0-n | Classification of the    |                        |
+| 9     | InstrumentType               | R          | 0-n | Classification of the    |                        |
 |       |                              |            |     | type of the instrument   |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 8.1   | instrumentTypeName           | R          | 1   | Full name of the         | Free text              |
+| 9.1   | instrumentTypeName           | R          | 1   | Full name of the         | Free text              |
 |       |                              |            |     | instrument type          |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 8.2   | instrumentTypeIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
+| 9.2   | instrumentTypeIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
 |       |                              |            |     | identify the type of the | globally unique        |
 |       |                              |            |     | instrument               | identifier             |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 8.2.1 | instrumentTypeIdentifierType | O          | 1   | Type of the identifier   | Free text              |
+| 9.2.1 | instrumentTypeIdentifierType | O          | 1   | Type of the identifier   | Free text              |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 9     | MeasuredVariable             | R          | 0-n | The variable(s) that     | Free text              |
+| 10    | MeasuredVariable             | R          | 0-n | The variable(s) that     | Free text              |
 |       |                              |            |     | this instrument          |                        |
 |       |                              |            |     | measures or observes     |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 10    | Date                         | R          | 0-n | Dates relevant to the    | ISO 8601               |
+| 11    | Date                         | R          | 0-n | Dates relevant to the    | ISO 8601               |
 |       |                              |            |     | instrument               |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 10.1  | dateType                     | R          | 1   | The type of the date     | Controlled list        |
+| 11.1  | dateType                     | R          | 1   | The type of the date     | Controlled list        |
 |       |                              |            |     |                          | of values:             |
 |       |                              |            |     |                          |   Commissioned,        |
 |       |                              |            |     |                          |   DeCommissioned       |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 11    | RelatedIdentifier            | R          | 0-n | Identifiers of related   | Free text, must be     |
+| 12    | RelatedIdentifier            | R          | 0-n | Identifiers of related   | Free text, must be     |
 |       |                              |            |     | resources                | globally unique        |
 |       |                              |            |     |                          | identifiers.           |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 11.1  | relatedIdentifierType        | R          | 1   | Type of the identifier   | Controlled list        |
+| 12.1  | relatedIdentifierType        | R          | 1   | Type of the identifier   | Controlled list        |
 |       |                              |            |     |                          | of values:             |
 |       |                              |            |     |                          |   ARK, arXiv, bibcode, |
 |       |                              |            |     |                          |   DOI, EAN13, EISSN,   |
@@ -115,7 +119,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     |                          |   RRID, UPC, URL,      |
 |       |                              |            |     |                          |   URN, w3id            |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 11.2  | relationType                 | R          | 1   | Description of the       | Controlled list        |
+| 12.2  | relationType                 | R          | 1   | Description of the       | Controlled list        |
 |       |                              |            |     | relationship             | of values:             |
 |       |                              |            |     |                          |   IsDescribedBy,       |
 |       |                              |            |     |                          |   IsNewVersionOf,      |
@@ -128,7 +132,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     |                          |   IsIdenticalTo,       |
 |       |                              |            |     |                          |   IsAttachedTo         |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 12    | AlternateIdentifier          | R          | 0-n | Identifiers other than   | Free text, should be   |
+| 13    | AlternateIdentifier          | R          | 0-n | Identifiers other than   | Free text, should be   |
 |       |                              |            |     | the PIDINST pertaining   | unique identifiers     |
 |       |                              |            |     | to the same instrument   |                        |
 |       |                              |            |     | instance.  This should   |                        |
@@ -140,13 +144,13 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | entry in some instrument |                        |
 |       |                              |            |     | data base.               |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 12.1  | alternateIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of     |
+| 13.1  | alternateIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of     |
 |       |                              |            |     |                          | values:                |
 |       |                              |            |     |                          |   SerialNumber,        |
 |       |                              |            |     |                          |   InventoryNumber,     |
 |       |                              |            |     |                          |   Other                |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
-| 12.2  | alternateIdentifierName      | O          | 0-1 | A supplementary name for | Free text              |
+| 13.2  | alternateIdentifierName      | O          | 0-1 | A supplementary name for | Free text              |
 |       |                              |            |     | the identifier type.     |                        |
 |       |                              |            |     | This is mostly useful if |                        |
 |       |                              |            |     | alternateIdentifierType  |                        |
@@ -161,6 +165,8 @@ Notes
    being used to register the instrument PID.  In the case of ePIC,
    the value of `identifierType` would be "Handle".
 
+.. [#schemaversion] The value of `SchemaVersion` is defined to be
+   equal to the version number for each release version of the schema.
 
 Criteria for adding and classifying properties
 ----------------------------------------------
