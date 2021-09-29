@@ -36,15 +36,19 @@ clean:
 
 # realclean: Remove all intermediate files
 realclean:
-	$(RM) $(AUXFILES) $(LOGFILES)
+	$(RM) $(AUXFILES) .meta.tex $(LOGFILES)
 
 # distclean: Remove all automatically created files
 distclean:
-	$(RM) $(RESFILES) $(AUXFILES) $(LOGFILES) $(PDFIMGS)
+	$(RM) $(RESFILES) $(AUXFILES) .meta.tex $(LOGFILES) $(PDFIMGS)
+
+# metafile: Create a file containing some metadata such as version and date
+metafile:
+	python3 meta.py > .meta.tex
 
 # Tell make, that the main targets are not actually files, that should
 # considered to be build:
-.PHONY: all clean realclean distclean
+.PHONY: all clean realclean distclean metafile
 
 
 #=========================================================================
@@ -76,4 +80,4 @@ distclean:
 #=========================================================================
 # Dependencies:
 schema.bbl: schema.tex $(BIBFILES)
-schema.pdf: schema.bbl schema.tex
+schema.pdf: metafile schema.bbl schema.tex
