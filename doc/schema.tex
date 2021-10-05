@@ -110,7 +110,7 @@ identifier and stored in the PID infrastructure.
 
 \newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
 \newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
-\newlength{\occcolw}\settowidth{\occcolw}{Occ}
+\newlength{\occcolw}\settowidth{\occcolw}{\emph{Occ}}
 \newlength{\valcolw}\settowidth{\valcolw}{Controlled list of values:}
 \newlength{\defcolw}
 \setlength{\defcolw}{\textwidth}
@@ -122,18 +122,22 @@ identifier and stored in the PID infrastructure.
 
 \begin{longtable}{|l|l|l|p{\defcolw}|p{\valcolw}|}
   \hline
-  ID    & Property                     & Occ
-        & Definition & Allowed values, constraints, remarks \\
+  \emph{ID} & \emph{Property}          & \emph{Occ}
+        & \emph{Definition}
+        & \emph{Allowed values, constraints, remarks} \\
   \hline \endhead
   1     & Identifier                   & 1
         & Unique string that identifies the instrument instance & \\
   \hline
   1.1   & identifierType               & 1
-        & Type of the identifier & \\
+        & Type of the identifier
+        & The type of the identifier depends on the provider being
+          used to register it.  In the case of ePIC, the value would
+          be ``Handle''. \\
   \hline
   2     & SchemaVersion                & 1
         & Version number of the PIDINST schema used in this record
-        & Fixed value: \schemaversion \\
+        & Fixed value: ``\schemaversion'' \\
   \hline
   3     & LandingPage                  & 1
         & A landing page that the identifier resolves to & URL \\
@@ -226,7 +230,8 @@ identifier and stored in the PID infrastructure.
           \end{minipage} \\
   \hline
   12    & RelatedIdentifier            & 0-n
-        & Identifiers of related resources & Free text, must be globally unique identifiers \\
+        & Identifiers of related resources
+        & Free text, must be globally unique identifiers \\
   \hline
   12.1  & relatedIdentifierType        & 1
         & Type of the identifier
@@ -277,7 +282,9 @@ identifier and stored in the PID infrastructure.
           \end{minipage} \\
   \hline
   12.3  & relatedIdentifierName        & 0-1
-        & A name for the related resource, may be used to give a hint on the content of that resource & Free text \\
+        & A name for the related resource, may be used to give a hint
+          on the content of that resource
+        & Free text \\
   \hline
   13    & AlternateIdentifier          & 0-n
         & Identifiers other than the PIDINST pertaining to the same
@@ -303,6 +310,8 @@ identifier and stored in the PID infrastructure.
           mostly useful if alternateIdentifierType is Other.
         & Free text \\
   \hline
+  \caption{Expanded PIDINST properties}
+  \label{schema:tab:expandprops}
 \end{longtable}
 
 \bibliographystyle{plain}
