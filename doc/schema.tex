@@ -108,6 +108,61 @@ identifier and stored in the PID infrastructure.
 
 \section{Metadata Schema}
 
+The PIDINST metadata provide a general description of the instrument.
+It contains enough information to identify the individual instrument
+instance and to link other sources of information and related
+entities.
+
+The PIDINST metadata schema must to be applicable to various kinds of
+instruments being used in all scientific domains.  It thus needs to
+keep somewhat generic.  An in-depth technical description of the
+instrument is not possible at that level.  But more detailed,
+community specific descriptions may be linked to the PIDINST record
+using RelatedIdentifier with relationType IsDescribedBy or
+HasMetadata.
+
+\subsection{Overview}
+
+Table \ref{schema:tab:propoverview} provides an overview of the
+properties in the PIDINST schema.  The last column indicates whether
+the property is
+\begin{itemize}
+\item Mandatory (M); the property must be provided for the metadata
+  record to be valid,
+\item Recommended (R); the property is optional, but it is recommended
+  to be added if applicable, or
+\item Optional (O); the property may be added to provide a richer
+  description.
+\end{itemize}
+In the present version of the schema, all properties are either
+mandatory or recommended.  But future versions may also add optional
+properties.
+
+\begin{longtable}{|l|l|l|}
+  \hline
+  \emph{ID} & \emph{Property} & \emph{Obligation} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  1     & Identifier          & M \\
+  2     & SchemaVersion       & M \\
+  3     & LandingPage         & M \\
+  4     & Name                & M \\
+  5     & Owner               & M \\
+  6     & Manufacturer        & M \\
+  7     & Model               & R \\
+  8     & Description         & R \\
+  9     & InstrumentType      & R \\
+  10    & MeasuredVariable    & R \\
+  11    & Date                & R \\
+  12    & RelatedIdentifier   & R \\
+  13    & AlternateIdentifier & R \\
+  \hline
+  \caption{Overview of PIDINST properties}
+  \label{schema:tab:propoverview}
+\end{longtable}
+
+\subsection{Definition of the PIDINST properties}
+
 \newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
 \newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
 \newlength{\occcolw}\settowidth{\occcolw}{\emph{Occ}}
