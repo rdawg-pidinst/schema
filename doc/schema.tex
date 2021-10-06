@@ -164,6 +164,38 @@ properties.
 
 \subsection{Definition of the PIDINST properties}
 
+Table \ref{schema:tab:expandprops} provides a detailed description for
+the properties in the PIDINST metadata schema.
+
+There are simple properties that take just one value, such as Name and
+Description.  Other complex properties are composed of multiple
+sub-properties.  For instance Owner is composed of ownerName,
+ownerContact, and ownerIdentifier, the latter in turn having another
+sub-property ownerIdentifierType.  The structure of properties and
+sub-properties is indicated in the numbering in the ID column,
+e.g.\ 5.3.1 (ownerIdentifierType) is a sub-property of 5.3
+(ownerIdentifier).
+
+The number of occurrences for any property in one PIDINST metadata
+record is indicated in the column labeled ``Occ''.  The meaning is:
+\begin{itemize}
+\item 1: a mandatory property that must appear once,
+\item 0--1: an optional property that may appear at most once,
+\item 1--n: a mandatory property with multiple values, e.g.\ the
+  property may appear one or more times in a single record,
+\item 0--n: a multivalued optional property that may appear appear zero
+  or more times in a record.
+\end{itemize}
+In the case of a sub-property, the occurrence is to be understood
+within each of the parent entries.  E.g.\ a PIDINST record may have
+zero or more RelatedIdentifier (occ.\ 0--n).  Each of them must have
+one relatedIdentifierType (occ.\ 1) and one relationType (occ.\ 1) and
+may optionally have one relatedIdentifierName (occ.\ 0--1).  Another
+example: a PIDINST record must have one or more Manufacturer
+(occ.\ 0--n).  Each of them must have a manufacturerName (occ.\ 1) and
+may have a manufacturerIdentifier (occ.\ 0--1).  If a
+manufacturerIdentifier is included for a Manufacturer, it must also
+have a manufacturerIdentifierType (occ.\ 1).
 
 \newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
 \newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
