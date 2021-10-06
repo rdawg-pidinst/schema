@@ -162,6 +162,10 @@ properties.
   \label{schema:tab:propoverview}
 \end{longtable}
 
+If a value for any of the mandatory properties is not available, one
+of the standard values for unknown information may be used instead,
+see Appendix \ref{appendix:unknown}.
+
 \subsection{Definition of the PIDINST properties}
 
 Table \ref{schema:tab:expandprops} provides a detailed description for
@@ -401,6 +405,36 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   \caption{Expanded PIDINST properties}
   \label{schema:tab:expandprops}
+\end{longtable}
+
+\appendix
+
+\section{Standard values for unknown information}
+  \label{appendix:unknown}
+
+For the case that the value for a mandatory property is unknown or not
+available, we adopt the standard values for unknown information from
+the DataCite Metadata Schema \cite{datacite:schema}.  These values are
+repeated here in Table \ref{appendix:tab:unknown}.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Code} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  :unac & temporarily inaccessible \\
+  :unal & unallowed, suppressed intentionally \\
+  :unap & not applicable, makes no sense \\
+  :unas & value unassigned (e.g., Untitled) \\
+  :unav & value unavailable, possibly unknown \\
+  :unkn & known to be unknown (e.g., Anonymous, Inconnue) \\
+  :none & never had a value, never will \\
+  :null & explicitly and meaningfully empty \\
+  :tba  & to be assigned or announced later \\
+  :etal & too numerous to list (et alia) \\
+  \hline
+  \caption{Standard values for unknown information}
+  \label{appendix:tab:unknown}
 \end{longtable}
 
 \bibliographystyle{plain}
