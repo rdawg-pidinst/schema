@@ -164,6 +164,7 @@ properties.
 
 \subsection{Definition of the PIDINST properties}
 
+
 \newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
 \newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
 \newlength{\occcolw}\settowidth{\occcolw}{\emph{Occ}}
@@ -201,7 +202,7 @@ properties.
   4     & Name                         & 1
         & Name by which the instrument instance is known & Free text \\
   \hline
-  5     & Owner                        & 1-n
+  5     & Owner                        & 1--n
         & Institution(s) responsible for the management of the
           instrument.  This may include the legal owner, the operator,
           or an institute providing access to the instrument.
@@ -210,17 +211,17 @@ properties.
   5.1   & ownerName                    & 1
         & Full name of the owner & Free text \\
   \hline
-  5.2   & ownerContact                 & 0-1
+  5.2   & ownerContact                 & 0--1
         & Contact address of the owner & Electronic mail address \\
   \hline
-  5.3   & ownerIdentifier              & 0-1
+  5.3   & ownerIdentifier              & 0--1
         & Identifier used to identify the owner
         & Free text, should be a globally unique identifier \\
   \hline
   5.3.1 & ownerIdentifierType          & 1
         & Type of the identifier & Free text \\
   \hline
-  6     & Manufacturer                 & 1-n
+  6     & Manufacturer                 & 1--n
         & The instrument's manufacturer(s) or developer.  This may
           also be the owner for custom build instruments.
         & \\
@@ -228,14 +229,14 @@ properties.
   6.1   & manufacturerName             & 1
         & Full name of the manufacturer & Free text \\
   \hline
-  6.2   & manufacturerIdentifier       & 0-1
+  6.2   & manufacturerIdentifier       & 0--1
         & Identifier used to identify the manufacturer
         & Free text, should be a globally unique identifier \\
   \hline
   6.2.1 & manufacturerIdentifierType   & 1
         & Type of the identifier & Free text \\
   \hline
-  7     & Model                        & 0-1
+  7     & Model                        & 0--1
         & Name of the model or type of device as attributed by the
           manufacturer
         & \\
@@ -243,35 +244,35 @@ properties.
   7.1   & modelName                    & 1
         & Full name of the model & Free text \\
   \hline
-  7.2   & modelIdentifier              & 0-1
+  7.2   & modelIdentifier              & 0--1
         & Identifier used to identify the model
         & Free text, should be a globally unique identifier \\
   \hline
   7.2.1 & modelIdentifierType          & 1
         & Type of the identifier & Free text \\
   \hline
-  8     & Description                  & 0-1
+  8     & Description                  & 0--1
         & Technical description of the device and its capabilities
         & Free text \\
   \hline
-  9     & InstrumentType               & 0-n
+  9     & InstrumentType               & 0--n
         & Classification of the type of the instrument & \\
   \hline
   9.1   & instrumentTypeName           & 1
         & Full name of the instrument type & Free text \\
   \hline
-  9.2   & instrumentTypeIdentifier     & 0-1
+  9.2   & instrumentTypeIdentifier     & 0--1
         & Identifier used to identify the type of the instrument
         & Free text, should be a globally unique identifier \\
   \hline
   9.2.1 & instrumentTypeIdentifierType & 1
         & Type of the identifier & Free text \\
   \hline
-  10    & MeasuredVariable             & 0-n
+  10    & MeasuredVariable             & 0--n
         & The variable(s) that this instrument measures or observes
         & Free text \\
   \hline
-  11    & Date                         & 0-n
+  11    & Date                         & 0--n
         & Dates relevant to the instrument & ISO 8601 \\
   \hline
   11.1  & dateType                     & 1
@@ -285,7 +286,7 @@ properties.
             \vspace{1ex}
           \end{minipage} \\
   \hline
-  12    & RelatedIdentifier            & 0-n
+  12    & RelatedIdentifier            & 0--n
         & Identifiers of related resources
         & Free text, must be globally unique identifiers \\
   \hline
@@ -337,12 +338,12 @@ properties.
             \vspace{1ex}
           \end{minipage} \\
   \hline
-  12.3  & relatedIdentifierName        & 0-1
+  12.3  & relatedIdentifierName        & 0--1
         & A name for the related resource, may be used to give a hint
           on the content of that resource
         & Free text \\
   \hline
-  13    & AlternateIdentifier          & 0-n
+  13    & AlternateIdentifier          & 0--n
         & Identifiers other than the PIDINST pertaining to the same
           instrument instance.  This should be used if the instrument
           has a serial number.  Other possible uses include an owner's
@@ -361,7 +362,7 @@ properties.
             \vspace{1ex}
           \end{minipage} \\
   \hline
-  13.2  & alternateIdentifierName      & 0-1
+  13.2  & alternateIdentifierName      & 0--1
         & A supplementary name for the identifier type.  This is
           mostly useful if alternateIdentifierType is Other.
         & Free text \\
