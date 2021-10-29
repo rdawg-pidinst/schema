@@ -116,24 +116,27 @@ repository of the working group \cite{pidinst:github}.
 
 \section{Metadata Schema}
 
-The PIDINST metadata provide a general description of the instrument.
-It contains enough information to identify the individual instrument
-instance and to link other sources of information and related
-entities.
+The PIDINST metadata schema provides core properties to represent
+instrument descriptions.  It contains essential information to
+identify the individual instrument instance and to link the instance
+with other sources of information and related entities.
 
-The PIDINST metadata schema must be applicable to various kinds of
-instruments being used in all scientific domains.  It thus needs to be
-kept somewhat generic.  An in-depth technical description of the
-instrument is not practicable at that level.  But more detailed,
-community specific descriptions may be linked to the PIDINST record
-using RelatedIdentifier with relationType IsDescribedBy or
-HasMetadata.
+The WG strives for a metadata schema that is applicable to various
+kinds of instruments being used in all scientific domains.  For this
+reason, we kept the schema as generic as possible, with the
+possibility to extend it to accommodate emerging requirements.  An
+in-depth technical description of the instrument is not practicable at
+that level.  The core metadata of an instrument may be extended with
+more detailed, community-specific descriptions by linking the PIDINST
+record with supplementary metadata using the properties
+RelatedIdentifier with relationType IsDescribedBy or HasMetadata
+provided in the schema.
 
 \subsection{Overview}
 
 Table \ref{schema:tab:propoverview} provides an overview of the
 properties in the PIDINST schema.  The last column indicates whether
-the property is
+the property is:
 \begin{itemize}
 \item Mandatory (M); the property must be provided for the metadata
   record to be valid,
@@ -143,8 +146,9 @@ the property is
   description.
 \end{itemize}
 In the present version of the schema, all properties are either
-mandatory or recommended.  But future versions may also add optional
-properties.
+mandatory or recommended.  It is envisioned that additional optional
+properties (in addition to mandatory and recommended properties) will
+be added in the future.
 
 \begin{longtable}{|l|l|l|}
   \hline
@@ -180,12 +184,12 @@ the properties in the PIDINST metadata schema.
 
 There are simple properties that take just one value, such as Name and
 Description.  Other complex properties are composed of multiple
-sub-properties.  For instance Owner is composed of ownerName,
+sub-properties.  For instance, Owner is composed of ownerName,
 ownerContact, and ownerIdentifier, the latter in turn having another
 sub-property ownerIdentifierType.  The structure of properties and
 sub-properties is indicated in the numbering in the ID column,
-e.g.\ 5.3.1 (ownerIdentifierType) is a sub-property of 5.3
-(ownerIdentifier).
+e.g.\ the property 5.3 (ownerIdentifier) has a sub-property 5.3.1
+(ownerIdentifierType).
 
 The number of occurrences for any property in one PIDINST metadata
 record is indicated in the column labeled ``Occ''.  The meaning is:
@@ -194,7 +198,7 @@ record is indicated in the column labeled ``Occ''.  The meaning is:
 \item 0--1: an optional property that may appear at most once,
 \item 1--n: a mandatory property with multiple values, e.g.\ the
   property may appear one or more times in a single record,
-\item 0--n: a multivalued optional property that may appear appear zero
+\item 0--n: a multivalued optional property that may appear zero
   or more times in a record.
 \end{itemize}
 In the case of a sub-property, the occurrence is to be understood
