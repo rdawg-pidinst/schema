@@ -422,6 +422,231 @@ have a manufacturerIdentifierType (occ.\ 1).
   \label{tab:schema:expandprops}
 \end{longtable}
 
+\subsection{Definition of terms in controlled lists of values}
+
+The allowed values for some properties are constraint to a controlled
+list.  In the following, we define the semantics of the terms and
+provide guidance when to use them.
+
+\newlength{\valnamecolw}\settowidth{\valnamecolw}{IsPreviousVersionOf}
+\newlength{\valdefcolw}
+\setlength{\valdefcolw}{\textwidth}
+\addtolength{\valdefcolw}{-\valnamecolw}
+\addtolength{\valdefcolw}{-4\tabcolsep}
+
+\subsubsection{dateType}
+
+The Date property allows to refer to relevant events in the lifetime
+of the instrument.  The dateType sub-property indicates the nature of
+that event.  Table \ref{tab:schema:values:dateType} lists the allowed
+values for dateType.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  Commissioned   & the date that the instrument started to be in operation \\
+  DeCommissioned & the date that the instrument ceased to be in operation \\
+  \hline
+  \caption{Values for dateType}
+  \label{tab:schema:values:dateType}
+\end{longtable}
+
+\subsubsection{relatedIdentifierType}
+
+The RelatedIdentifier property should be used to link other resources
+of any kind related to the instrument, referring to a persistent
+identifier of this resource.  The relatedIdentifierType sub-property
+indicates the type of persistent identifier being used in the link.
+The allowed values for relatedIdentifierType are listed in Table
+\ref{tab:schema:values:relatedIdentifierType}.  Most of these values
+have been adopted from the DataCite Metadata Schema
+\cite{datacite:schema}.
+
+\begin{longtable}{|l|p{\valdefcolw}|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  ARK     &
+  Archival Resource Key: a URI designed to support long-term access to
+  information objects.
+  \\ \hline
+  arXiv   &
+  arXiv identifier: arXiv.org is a repository of preprints of
+  scientific papers in the fields of mathematics, physics, astronomy,
+  computer science, quantitative biology, statistics, and quantitative
+  finance.
+  \\ \hline
+  bibcode &
+  Astrophysics Data System bibliographic codes: a standardized
+  19-character identifier.
+  \\ \hline
+  DOI     &
+  Digital Object Identifier: a character string used to uniquely
+  identify an object.  A DOI name is divided into two parts, a prefix
+  and a suffix, separated by a slash.
+  \\ \hline
+  EAN13   &
+  European Article Number, now renamed International Article Number,
+  but retaining the original acronym, is a 13-digit barcoding standard
+  that is a superset of the original 12-digit Universal Product Code
+  (UPC) system.
+  \\ \hline
+  EISSN   &
+  Electronic International Standard Serial Number: ISSN used to
+  identify periodicals in electronic form (eISSN or e-ISSN).
+  \\ \hline
+  Handle  &
+  This refers specifically to an ID in the Handle system operated by
+  the Corporation for National Research Initiatives (CNRI).
+  \\ \hline
+  IGSN    &
+  A persistent unique identifier for physical samples and specimens
+  formerly known as International Geo Sample Number.  See
+  \url{https://www.igsn.org/}
+  \\ \hline
+  ISBN    &
+  International Standard Book Number: a unique numeric book identifier.
+  \\ \hline
+  ISSN    &
+  International Standard Serial Number: a unique 8-digit number used
+  to identify a print or electronic periodical publication.
+  \\ \hline
+  ISTC    &
+  International Standard Text Code: a unique ``number'' assigned to a
+  textual work.  An ISTC consists of 16 numbers and/or letters.
+  \\ \hline
+  LISSN   &
+  The linking ISSN or ISSN-L enables collocation or linking among
+  different media versions of a continuing resource.
+  \\ \hline
+  PMID    &
+  PubMed identifier: a unique number assigned to each PubMed record.
+  \\ \hline
+  PURL    &
+  Persistent Uniform Resource Locator.
+  \\ \hline
+  RAiD    &
+  Research Activity Identifier, see \url{https://www.raid.org.au/}
+  \\ \hline
+  RRID    &
+  Research Resource Identifiers, see \url{https://www.rrids.org/}
+  \\ \hline
+  UPC     &
+  Universal Product Code is a barcode symbology used for tracking
+  trade items in stores.
+  \\ \hline
+  URL     &
+  Uniform Resource Locator, also known as web address.
+  \\ \hline
+  URN     &
+  Uniform Resource Name: a unique and persistent identifier of an
+  electronic document.
+  \\ \hline
+  w3id    &
+  Permanent identifier for Web applications.  Mostly used to publish
+  vocabularies and ontologies.
+  \\ \hline
+  \caption{Values for relatedIdentifierType}
+  \label{tab:schema:values:relatedIdentifierType}
+\end{longtable}
+
+\subsubsection{relationType}
+
+The RelatedIdentifier property should be used to link other resources
+of any kind related to the instrument, referring to a persistent
+identifier of this resource.  The relationType sub-property indicates
+the nature of that relation.  Table
+\ref{tab:schema:values:relationType} lists the allowed values for
+relationType.
+
+\begin{longtable}{|l|p{\valdefcolw}|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  IsDescribedBy       &
+  The linked resource is a document describing the instrument.
+  \\ \hline
+  IsNewVersionOf      &
+  If an instrument is substantially modified, a new PID may be
+  attributed to the new version.  In that case the old and the new PID
+  should be linked to each other.  IsNewVersionOf should be used in
+  the new PID record to link the old instrument before the
+  modification.
+  \\ \hline
+  IsPreviousVersionOf &
+  If an instrument is substantially modified, a new PID may be
+  attributed to the new version.  In that case the old and the new PID
+  should be linked to each other.  IsPreviousVersionOf should be used
+  in the old PID record to link the new instrument after the
+  modification.
+  \\ \hline
+  HasComponent        &
+  In the case of a complex instrument, having multiple components that
+  may be considered as instruments in itself, having their own PIDs,
+  these PIDs should be linked to each other.  HasComponent should be
+  used in the PID record of the compound instrument to link the
+  components.
+  \\ \hline
+  IsComponentOf       &
+  In the case of a complex instrument, having multiple components that
+  may be considered as instruments in itself, having their own PIDs,
+  these PIDs should be linked to each other.  IsComponentOf should be
+  used in the PID records of the components to link the compound
+  instrument.
+  \\ \hline
+  References          &
+  This may be used in the generic case, if no other more specific
+  relation type applies.
+  \\ \hline
+  HasMetadata         &
+  If there is additional metadata describing the instrument, possible
+  using a community specific metadata standard, that metadata record
+  may be linked using HasMetadata.
+  \\ \hline
+  WasUsedIn           &
+  If the instrument has been deployed in some research activity, such
+  as a cruise of a research vessel, WasUsedIn may be used to link that
+  activity.
+  \\ \hline
+  IsIdenticalTo       &
+  If more than one PIDs have been attributed to a single instrument
+  (which should preferably be avoided in the first place), these PID
+  records should be linked to each other using IsIdenticalTo.
+  \\ \hline
+  IsAttachedTo        &
+  If the instrument is permanently attached to another instrument, the
+  PID records for both instrument should link to each other using
+  IsAttachedTo.
+  \\ \hline
+  \caption{Values for relationType}
+  \label{tab:schema:values:relationType}
+\end{longtable}
+
+\subsubsection{alternateIdentifierType}
+
+If the instrument is also registered elsewhere using any other kind of
+identifier, these identifiers may be stored in the AlternateIdentifier
+property.  The alternateIdentifierType sub-property indicates the
+nature of that identifier.  The allowed values are listed in Table
+\ref{tab:schema:values:alternateIdentifierType}.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  SerialNumber    & a serial number attributed by the manufacturer \\
+  InventoryNumber & an inventory number used by the owner \\
+  Other           & any other kind of identifier \\
+  \hline
+  \caption{Values for alternateIdentifierType}
+  \label{tab:schema:values:alternateIdentifierType}
+\end{longtable}
+
 \appendix
 
 \section{Standard values for unknown information}
