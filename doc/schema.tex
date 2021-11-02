@@ -82,6 +82,7 @@
 \pagenumbering{arabic}
 
 \section{Introduction}
+\label{intro}
 
 The Persistent Identification of Instruments Working Group (PIDINST)
 seeks to explore a commu\-nity-driven solution for globally unique and
@@ -115,6 +116,7 @@ The schema is publicly available for reuse and maintained in the code
 repository of the working group \cite{pidinst:github}.
 
 \section{Metadata Schema}
+\label{schema}
 
 The PIDINST metadata schema provides core properties to represent
 instrument descriptions.  It contains essential information to
@@ -134,7 +136,7 @@ provided in the schema.
 
 \subsection{Overview}
 
-Table \ref{schema:tab:propoverview} provides an overview of the
+Table \ref{tab:schema:propoverview} provides an overview of the
 properties in the PIDINST schema.  The last column indicates whether
 the property is:
 \begin{itemize}
@@ -170,7 +172,7 @@ be added in the future.
   13    & AlternateIdentifier & R \\
   \hline
   \caption{Overview of PIDINST properties}
-  \label{schema:tab:propoverview}
+  \label{tab:schema:propoverview}
 \end{longtable}
 
 If a value for any of the mandatory properties is not available, one
@@ -179,7 +181,7 @@ see Appendix \ref{appendix:unknown}.
 
 \subsection{Definition of the PIDINST properties}
 
-Table \ref{schema:tab:expandprops} provides a detailed description for
+Table \ref{tab:schema:expandprops} provides a detailed description for
 the properties in the PIDINST metadata schema.
 
 There are simple properties that take just one value, such as Name and
@@ -415,18 +417,18 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Free text \\
   \hline
   \caption{Expanded PIDINST properties}
-  \label{schema:tab:expandprops}
+  \label{tab:schema:expandprops}
 \end{longtable}
 
 \appendix
 
 \section{Standard values for unknown information}
-  \label{appendix:unknown}
+\label{appendix:unknown}
 
 For the case that the value for a mandatory property is unknown or not
 available, we adopt the standard values for unknown information from
 the DataCite Metadata Schema \cite{datacite:schema}.  These values are
-repeated here in Table \ref{appendix:tab:unknown}.
+repeated here in Table \ref{tab:appendix:unknown}.
 
 \begin{longtable}{|l|l|}
   \hline
@@ -445,7 +447,7 @@ repeated here in Table \ref{appendix:tab:unknown}.
   :etal & too numerous to list (et alia) \\
   \hline
   \caption{Standard values for unknown information}
-  \label{appendix:tab:unknown}
+  \label{tab:appendix:unknown}
 \end{longtable}
 
 \bibliographystyle{plain}
