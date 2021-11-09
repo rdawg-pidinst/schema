@@ -1,6 +1,16 @@
 \ProvidesPackage{pidinsttitle}[2021/11/09 customized title page]
+\RequirePackage{graphicx}
 
-\newcommand*{\@titlefoot}{}%
+\renewcommand*{\@titlehead}{%
+  \includegraphics[height=15ex]{rda-logo}%
+  \hfill%
+  \includegraphics[height=15ex]{pidinst-logo}%
+}
+
+\newcommand*{\@titlefoot}{%
+  \hfill%
+  \includegraphics[height=3ex]{cc-by}%
+}%
 \newcommand{\titlefoot}[1]{\gdef\@titlefoot{%
     #1%
 }}%
@@ -33,7 +43,7 @@
       {\usekomafont{publishers}{\@publishers \par}}%
       \vskip 3em
     \end{center}\par
-    \vfill\null
+    \vfill
     \ifx\@titlefoot\@empty \else
       \begin{minipage}[t]{\textwidth}%
         \usekomafont{titlehead}{\@titlefoot\par}%

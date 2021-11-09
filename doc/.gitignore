@@ -1,8 +1,8 @@
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.pdf
-*.toc
 /.meta.tex
+/schema.aux
+/schema.bbl
+/schema.blg
+/schema.log
+/schema.out
+/schema.pdf
+/schema.toc
