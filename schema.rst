@@ -132,6 +132,11 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     |                          |   IsIdenticalTo,       |
 |       |                              |            |     |                          |   IsAttachedTo         |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
+| 12.3  | relatedIdentifierName        | O          | 0-1 | A name for the related   | Free text              |
+|       |                              |            |     | resource, may be used to |                        |
+|       |                              |            |     | give a hint on the       |                        |
+|       |                              |            |     | content of that resource |                        |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 13    | AlternateIdentifier          | R          | 0-n | Identifiers other than   | Free text, should be   |
 |       |                              |            |     | the PIDINST pertaining   | unique identifiers     |
 |       |                              |            |     | to the same instrument   |                        |
