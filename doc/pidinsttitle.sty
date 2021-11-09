@@ -1,0 +1,43 @@
+\ProvidesPackage{pidinsttitle}[2021/11/09 customized title page]
+
+\newcommand*{\@titlefoot}{}%
+\newcommand{\titlefoot}[1]{\gdef\@titlefoot{%
+    #1%
+}}%
+
+\renewcommand\maketitle{%
+  \begin{titlepage}
+    \setcounter{page}{1}%
+    \ifx\@titlehead\@empty \else
+      \begin{minipage}[t]{\textwidth}%
+        \usekomafont{titlehead}{\@titlehead\par}%
+      \end{minipage}\par
+    \fi
+    \null\vfill
+    \begin{center}
+      {\usekomafont{title}{\huge \@title\par}}%
+      \vskip 1em
+      {\ifx\@subtitle\@empty\else\usekomafont{subtitle}{\@subtitle\par}\fi}%
+      \vskip 2em
+      {%
+        \usekomafont{author}{%
+          \lineskip 0.75em
+          \begin{tabular}[t]{c}
+            \@author
+          \end{tabular}\par
+        }%
+      }%
+      \vskip 1.5em
+      {\usekomafont{date}{\@date \par}}%
+      \vskip \z@ \@plus3fill
+      {\usekomafont{publishers}{\@publishers \par}}%
+      \vskip 3em
+    \end{center}\par
+    \vfill\null
+    \ifx\@titlefoot\@empty \else
+      \begin{minipage}[t]{\textwidth}%
+        \usekomafont{titlehead}{\@titlefoot\par}%
+      \end{minipage}\par
+    \fi
+  \end{titlepage}
+}%
