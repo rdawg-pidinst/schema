@@ -79,5 +79,4 @@ metafile:
 
 #=========================================================================
 # Dependencies:
-schema.bbl: schema.tex $(BIBFILES)
-schema.pdf: metafile schema.bbl schema.tex
+schema.pdf: metafile schema.tex
