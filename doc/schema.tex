@@ -100,11 +100,12 @@ sequencers used in life sciences or laboratory engines used for
 medical domains, are widespread in most fields of applied sciences.
 The ability to link a physical instrument to the data that it
 generated and contextual metadata such as when, where and how it was
-operated, is critical to interpret data accurately.  Instrument PIDs
-also provide more context information, such as linking other
-instruments and platforms, descriptive information about the
-instrument, and people and manufacturers.  This information can then
-be automatically aggregated following the so-called PID-Graph.
+operated, is critical for the accurate interpretation of that data.
+Instrument PIDs also provide more context information, such as linking
+other instruments and platforms, descriptive information about the
+instrument, and manufacturer and owner of the instrument.  This
+information can then be automatically aggregated following the
+so-called PID-Graph.
 
 PIDINST is a working group in the Research Data Alliance (RDA).  It
 aims to establish a cross-discipline, practical solution for the
@@ -115,12 +116,13 @@ objects, as opposed to instrument types or models.  See
 \cite{pidinst2020} for an overview of PIDINST.
 
 The solution uses a resolvable persistent identifier (PID) published
-with a descriptive metadata schema that helps identify the instrument
-as well as enable linkages to other external metadata.  This document
-defines the metadata schema that PIDINST developed for the description
-of an instrument instance.  These metadata items are supposed to be
-registered along with the persistent identifier and stored in the PID
-infrastructure.
+with descriptive metadata that provides enough information to identify
+the instrument and may as well include links to other external
+metadata.  This document defines the metadata schema that PIDINST
+developed for the description of an instrument instance.  Institutions
+or organizations operating scientific instruments may use the schema
+when registering the metadata describing their instrument along with
+the persistent identifier through a relevant PID infrastructure.
 
 The schema is publicly available for reuse and maintained in the code
 repository of the working group \cite{pidinst:github}.
@@ -135,14 +137,14 @@ with other sources of information and related entities.
 
 The WG strives for a metadata schema that is applicable to various
 kinds of instruments being used in all scientific domains.  For this
-reason, we kept the schema as generic as needed, with the possibility
-to extend it to accommodate emerging requirements.  An in-depth
-technical description of the instrument is not practicable at that
-level.  The core metadata of an instrument may be extended with more
-detailed, community-specific descriptions by linking the PIDINST
-record with supplementary metadata using the properties
-RelatedIdentifier with relationType IsDescribedBy or HasMetadata
-provided in the schema.
+reason, we kept the schema generic.  Technical details such as
+specifications, data sheets, or detailed technique descriptions were
+not included as these necessarily apply only to a subclass of
+instruments relevant to a particular scientific subdomain.  The core
+metadata of an instrument may be extended with more detailed,
+community-specific descriptions by linking the PIDINST record with
+supplementary metadata using the properties RelatedIdentifier with
+relationType IsDescribedBy or HasMetadata provided in the schema.
 
 \subsection{Overview}
 
@@ -282,7 +284,7 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   6     & Manufacturer                 & 1--n
         & The instrument's manufacturer(s) or developer.  This may
-          also be the owner for custom build instruments.
+          also be the owner for custom-build instruments.
         & \\
   \hline
   6.1   & manufacturerName             & 1
