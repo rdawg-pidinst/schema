@@ -280,7 +280,11 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Free text, should be a globally unique identifier \\
   \hline
   5.3.1 & ownerIdentifierType          & 1
-        & Type of the identifier & Free text \\
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for owners not in this list though,
+          hence we allow free text.  \\
   \hline
   6     & Manufacturer                 & 1--n
         & The instrument's manufacturer(s) or developer.  This may
@@ -295,7 +299,11 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Free text, should be a globally unique identifier \\
   \hline
   6.2.1 & manufacturerIdentifierType   & 1
-        & Type of the identifier & Free text \\
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for manufacturers not in this list though,
+          hence we allow free text.  \\
   \hline
   7     & Model                        & 0--1
         & Name of the model or type of device as attributed by the
@@ -310,7 +318,11 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Free text, should be a globally unique identifier \\
   \hline
   7.2.1 & modelIdentifierType          & 1
-        & Type of the identifier & Free text \\
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for instrument models not in this list
+          though, hence we allow free text.  \\
   \hline
   8     & Description                  & 0--1
         & Technical description of the device and its capabilities
@@ -327,7 +339,11 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Free text, should be a globally unique identifier \\
   \hline
   9.2.1 & instrumentTypeIdentifierType & 1
-        & Type of the identifier & Free text \\
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for instrument types not in this list
+          though, hence we allow free text.  \\
   \hline
   10    & MeasuredVariable             & 0--n
         & The variable(s) that this instrument measures or observes
