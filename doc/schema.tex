@@ -75,7 +75,7 @@
   ({\small
   \href{mailto:markus.stocker@tib.eu}{markus.stocker@tib.eu},
   \url{https://orcid.org/0000-0001-5492-3212}}),
-  TIB Leibniz Information Centre for Science and Technology,
+  TIB -- Leibniz Information Centre for Science and Technology,
   Welfengarten 1 B, 30167 Hannover, Germany and
   Leibniz University Hannover, Welfengarten 1, 30167 Hannover, Germany
 \item \emph{The Research Data Alliance Persistent Identification of Instruments
@@ -104,15 +104,16 @@ Instrument PIDs also provide more context information, such as linking
 other instruments and platforms, descriptive information about the
 instrument, and manufacturer and owner of the instrument.  This
 information can then be automatically aggregated following the
-so-called PID-Graph.
+so-called PID Graph.
 
-PIDINST is a working group in the Research Data Alliance (RDA).  It
+PIDINST is a working group of the Research Data Alliance (RDA).  It
 aims to establish a cross-discipline, practical solution for the
 globally unique and permanent identification of a physical instrument
 that can act as an anchor for associated metadata.  The group
 considered instrument instances, e.g.\ the individual physical
 objects, as opposed to instrument types or models.  See
-\cite{pidinst2020} for an overview of PIDINST.
+\cite{pidinst2020} for an overview of the work developed by the RDA
+PIDINST WG.
 
 The solution uses a resolvable persistent identifier (PID) published
 with descriptive metadata that provides enough information to identify
@@ -193,16 +194,14 @@ see Appendix \ref{appendix:unknown}.
 \subsection{Definition of the PIDINST properties}
 
 Table \ref{tab:schema:expandprops} provides a detailed description for
-the properties in the PIDINST metadata schema.
-
-There are simple properties that take just one value, such as Name and
-Description.  Other complex properties are composed of multiple
-sub-properties.  For instance, Owner is composed of ownerName,
-ownerContact, and ownerIdentifier, the latter in turn having another
-sub-property ownerIdentifierType.  The structure of properties and
-sub-properties is indicated in the numbering in the ID column,
-e.g.\ the property 5.3 (ownerIdentifier) has a sub-property 5.3.1
-(ownerIdentifierType).
+the properties in the PIDINST metadata schema.  Simple properties,
+such as Name and Description, take just one value.  Complex properties
+are composed of multiple sub-properties.  For instance, Owner is
+composed of ownerName, ownerContact, and ownerIdentifier, the latter
+in turn having another sub-property ownerIdentifierType.  The
+structure of properties and sub-properties is indicated in the
+numbering in the ID column, e.g.\ the property 5.3 (ownerIdentifier)
+has a sub-property 5.3.1 (ownerIdentifierType).
 
 The number of occurrences for any property in one PIDINST metadata
 record is indicated in the column labeled ``Occ''.  The meaning is:
@@ -215,13 +214,13 @@ record is indicated in the column labeled ``Occ''.  The meaning is:
   or more times in a record.
 \end{itemize}
 In the case of a sub-property, the occurrence is to be understood
-within each of the parent entries.  E.g.\ a PIDINST record may have
-zero or more RelatedIdentifier (occ.\ 0--n).  Each of them must have
-one relatedIdentifierType (occ.\ 1) and one relationType (occ.\ 1) and
-may optionally have one relatedIdentifierName (occ.\ 0--1).  Another
-example: a PIDINST record must have one or more Manufacturer
-(occ.\ 0--n).  Each of them must have a manufacturerName (occ.\ 1) and
-may have a manufacturerIdentifier (occ.\ 0--1).  If a
+within each of the parent entries.  For example, a PIDINST record may
+have zero or more RelatedIdentifier (occ.\ 0--n).  Each of them must
+have one relatedIdentifierType (occ.\ 1) and one relationType
+(occ.\ 1) and may optionally have one relatedIdentifierName
+(occ.\ 0--1).  Another example: a PIDINST record must have one or more
+Manufacturer (occ.\ 0--n).  Each of them must have a manufacturerName
+(occ.\ 1) and may have a manufacturerIdentifier (occ.\ 0--1).  If a
 manufacturerIdentifier is included for a Manufacturer, it must also
 have a manufacturerIdentifierType (occ.\ 1).
 
@@ -449,9 +448,9 @@ have a manufacturerIdentifierType (occ.\ 1).
 
 \subsection{Definition of terms in controlled lists of values}
 
-The allowed values for some properties are constrained to a controlled
-list.  In the following, we define the semantics of the terms and
-provide guidance on when to use them.
+For some properties, the allowed values are constrained to a
+controlled list.  In the following, we define the semantics of the
+terms and provide guidance on when to use them.
 
 \newlength{\valnamecolw}\settowidth{\valnamecolw}{IsPreviousVersionOf}
 \newlength{\valdefcolw}
