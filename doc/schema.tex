@@ -152,11 +152,11 @@ Table \ref{tab:schema:propoverview} provides an overview of the
 properties in the PIDINST schema.  The last column indicates whether
 the property is:
 \begin{itemize}
-\item Mandatory (M); the property must be provided for the metadata
+\item Mandatory (M): the property must be provided for the metadata
   record to be valid,
-\item Recommended (R); the property is optional, but it is recommended
+\item Recommended (R): the property is optional, but it is recommended
   to be added if applicable, or
-\item Optional (O); the property may be added to provide a richer
+\item Optional (O): the property may be added to provide a richer
   description.
 \end{itemize}
 In the present version of the schema, all properties are either
@@ -470,8 +470,8 @@ values for dateType.
   \emph{Value} & \emph{Definition} \\
   \hline \endhead
   \hline \endfoot\endlastfoot
-  Commissioned   & the date that the instrument started to be in operation \\
-  DeCommissioned & the date that the instrument ceased to be in operation \\
+  Commissioned   & The date when the instrument started to be in operation \\
+  DeCommissioned & The date when the instrument ceased to be in operation \\
   \hline
   \caption{Values for dateType}
   \label{tab:schema:values:dateType}
@@ -609,17 +609,15 @@ relationType.
   \\ \hline
   HasComponent        &
   In the case of a complex instrument, having multiple components that
-  may be considered as instruments in itself, having their own PIDs,
-  these PIDs should be linked to each other.  HasComponent should be
-  used in the PID record of the compound instrument to link the
-  components.
+  may be considered as instruments in their own right, with their own
+  PIDs, these PIDs should be linked.  HasComponent should be used in
+  the PID record of the compound instrument to link the components.
   \\ \hline
   IsComponentOf       &
   In the case of a complex instrument, having multiple components that
-  may be considered as instruments in itself, having their own PIDs,
-  these PIDs should be linked to each other.  IsComponentOf should be
-  used in the PID records of the components to link the compound
-  instrument.
+  may be considered as instruments in their own right, with their own
+  PIDs, these PIDs should be linked.  IsComponentOf should be used in
+  the PID records of the components to link the compound instrument.
   \\ \hline
   References          &
   This may be used in the generic case, if no other more specific
@@ -636,9 +634,9 @@ relationType.
   activity.
   \\ \hline
   IsIdenticalTo       &
-  If more than one PIDs have been attributed to a single instrument
-  (which should preferably be avoided in the first place), these PID
-  records should be linked to each other using IsIdenticalTo.
+  If multiple PIDs have been attributed to a single instrument (which
+  should preferably be avoided in the first place), these PID records
+  should be linked to each other using IsIdenticalTo.
   \\ \hline
   IsAttachedTo        &
   If the instrument is permanently attached to another instrument, the
@@ -662,9 +660,9 @@ nature of that identifier.  The allowed values are listed in Table
   \emph{Value} & \emph{Definition} \\
   \hline \endhead
   \hline \endfoot\endlastfoot
-  SerialNumber    & a serial number attributed by the manufacturer \\
-  InventoryNumber & an inventory number used by the owner \\
-  Other           & any other kind of identifier \\
+  SerialNumber    & A serial number attributed by the manufacturer \\
+  InventoryNumber & An inventory number used by the owner \\
+  Other           & Any other kind of identifier \\
   \hline
   \caption{Values for alternateIdentifierType}
   \label{tab:schema:values:alternateIdentifierType}
@@ -685,16 +683,16 @@ repeated here in Table \ref{tab:appendix:unknown}.
   \emph{Code} & \emph{Definition} \\
   \hline \endhead
   \hline \endfoot\endlastfoot
-  :unac & temporarily inaccessible \\
-  :unal & unallowed, suppressed intentionally \\
-  :unap & not applicable, makes no sense \\
-  :unas & value unassigned (e.g., Untitled) \\
-  :unav & value unavailable, possibly unknown \\
-  :unkn & known to be unknown (e.g., Anonymous, Inconnue) \\
-  :none & never had a value, never will \\
-  :null & explicitly and meaningfully empty \\
-  :tba  & to be assigned or announced later \\
-  :etal & too numerous to list (et alia) \\
+  :unac & Temporarily inaccessible \\
+  :unal & Unallowed, suppressed intentionally \\
+  :unap & Not applicable, makes no sense \\
+  :unas & Value unassigned (e.g., Untitled) \\
+  :unav & Value unavailable, possibly unknown \\
+  :unkn & Known to be unknown (e.g., Anonymous, Inconnue) \\
+  :none & Never had a value, never will \\
+  :null & Explicitly and meaningfully empty \\
+  :tba  & To be assigned or announced later \\
+  :etal & Too numerous to list (et alia) \\
   \hline
   \caption{Standard values for unknown information}
   \label{tab:appendix:unknown}
@@ -708,7 +706,7 @@ repeated here in Table \ref{tab:appendix:unknown}.
 Markus Stocker et~al.
 \newblock Persistent Identification of Instruments.
 \newblock \emph{Data Science Journal}, 19(1), 18, 2020.
-\newblock \href{https://doi.org/10.5334/dsj-2020-018}{doi:10.5334/dsj-2020-018}.
+\newblock \url{https://doi.org/10.5334/dsj-2020-018}.
 
 \bibitem{pidinst:github}
 RDA Persistent~Identification of~Instruments~WG.
@@ -721,7 +719,7 @@ RDA Persistent~Identification of~Instruments~WG.
 DataCite Metadata~Working Group.
 \newblock DataCite Metadata Schema Documentation for the Publication and
   Citation of Research Data and Other Research Outputs v4.4, March 2021.
-\newblock \href{https://doi.org/10.14454/3W3Z-SA82}{doi:10.14454/3W3Z-SA82}.
+\newblock \url{https://doi.org/10.14454/3W3Z-SA82}.
 
 \end{thebibliography}
 
