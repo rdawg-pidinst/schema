@@ -131,16 +131,16 @@ instrument descriptions.  It contains essential information to
 identify the individual instrument instance and to link the instance
 with other sources of information and related entities.
 
-The WG strives for a metadata schema that is applicable to various
-kinds of instruments being used in all scientific domains.  For this
-reason, we kept the schema generic.  Technical details such as
-specifications, data sheets, or detailed technique descriptions were
-not included as these necessarily apply only to a subclass of
-instruments relevant to a particular scientific subdomain.  The core
-metadata of an instrument may be extended with more detailed,
-community-specific descriptions by linking the PIDINST record with
-supplementary metadata using the properties RelatedIdentifier with
-relationType IsDescribedBy or HasMetadata provided in the schema.
+The Working Group strives for a metadata schema that is applicable to
+various kinds of instruments being used in all scientific domains.
+For this reason, we kept the schema generic.  Technical details such
+as specifications, data sheets, or detailed technique descriptions
+were not included as these may only apply to a subclass of instruments
+relevant to a particular scientific subdomain.  The core metadata of
+an instrument may be extended with more detailed, community-specific
+descriptions by linking the PIDINST record with supplementary metadata
+using the properties RelatedIdentifier with relationType IsDescribedBy
+or HasMetadata provided in the schema.
 
 \subsection{Overview}
 
@@ -456,7 +456,7 @@ terms and provide guidance on when to use them.
 
 \subsubsection{dateType}
 
-The Date property allows referring to relevant events in the lifetime
+The Date property allows references to relevant events in the lifetime
 of the instrument.  The dateType sub-property indicates the nature of
 that event.  Table \ref{tab:schema:values:dateType} lists the allowed
 values for dateType.
