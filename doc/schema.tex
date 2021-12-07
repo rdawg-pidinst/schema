@@ -1,0 +1,727 @@
+\documentclass[titlepage=true,twoside=false,DIV=13]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{pidinsttitle}
+
+\input{.meta}
+
+\begin{document}
+
+\title{Metadata Schema for the \\
+  Persistent Identification of Instruments}
+\author{RDA Persistent Identification of Instruments WG}
+\date{\schemadate}
+\publishers{
+  \begin{tabular}[t]{|l|l|}
+    \hline
+    Version & \schemaversion \\
+    \hline
+    Date    & \schemadate    \\
+    \hline
+  \end{tabular}
+}
+
+\renewcommand{\arraystretch}{1.3}
+
+\maketitle
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+\section*{Contributors}
+
+\begin{itemize}\emergencystretch 3em
+\item \emph{Rolf Krahl}
+  ({\small
+  \href{mailto:rolf.krahl@helmholtz-berlin.de}{rolf.krahl@helmholtz-berlin.de},
+  \url{https://orcid.org/0000-0002-1266-3819}}),
+  Helmholtz-Zentrum Berlin für Materialien und Energie,
+  Albert-Einstein-Str.\ 15, 12489 Berlin, Germany
+\item \emph{Louise Darroch}
+  ({\small
+  \href{mailto:louise.darroch@bodc.ac.uk}{louise.darroch@bodc.ac.uk},
+  \url{https://orcid.org/0000-0003-4163-9575}}),
+  British Oceanographic Data Centre, National Oceanography Centre,
+  Liverpool, L3 5DA, United Kingdom
+\item \emph{Robert Huber}
+  ({\small
+  \href{mailto:rhuber@uni-bremen.de}{rhuber@uni-bremen.de},
+  \url{https://orcid.org/0000-0003-3000-0020}}),
+  MARUM - Center for Marine Environmental Sciences, University of Bremen,
+  Leobener Str.\ 8, 28359 Bremen, Germany
+\item \emph{Anusuriya Devaraju}
+  ({\small
+  \href{mailto:adevaraju@marum.de}{adevaraju@marum.de},
+  \url{https://orcid.org/0000-0003-0870-3192}}),
+  Terrestrial Ecosystem Research Network (TERN), The University of
+  Queensland, Long Pocket Precinct, Level 5 Foxtail Building \#1019,
+  80 Meiers Road, Indooroopilly QLD 4068, Australia
+\item \emph{Jens Klump}
+  ({\small
+  \href{mailto:jens.klump@csiro.au}{jens.klump@csiro.au},
+  \url{https://orcid.org/0000-0001-5911-6022}}),
+  CSIRO Mineral Resources, 26 Dick Perry Avenue, Kensington WA 6151,
+  Australia
+\item \emph{Ted Habermann}
+  ({\small
+  \href{mailto:ted@metadatagamechangers.com}{ted@metadatagamechangers.com},
+  \url{http://orcid.org/0000-0003-3585-6733}}),
+  Metadata Game Changers, Boulder, Colorado, USA 80304
+\item \emph{Markus Stocker}
+  ({\small
+  \href{mailto:markus.stocker@tib.eu}{markus.stocker@tib.eu},
+  \url{https://orcid.org/0000-0001-5492-3212}}),
+  TIB -- Leibniz Information Centre for Science and Technology,
+  Welfengarten 1 B, 30167 Hannover, Germany and
+  Leibniz University Hannover, Welfengarten 1, 30167 Hannover, Germany
+\item \emph{The Research Data Alliance Persistent Identification of Instruments
+  Working Group members}
+  ({\small \url{https://www.rd-alliance.org/node/57186/members}})
+\end{itemize}
+
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+
+\section{Introduction}
+\label{intro}
+
+Instruments, such as sensors used in environmental science, DNA
+sequencers used in life sciences or laboratory engines used for
+medical domains, are widespread in most fields of applied sciences.
+The ability to link a physical instrument to the data that it
+generated and contextual metadata such as when, where and how it was
+operated, is critical for the accurate interpretation of that data.
+
+The Persistent Identification of Instruments Working Group (PIDINST)
+is a working group of the Research Data Alliance (RDA).  It aims to
+establish a cross-discipline, practical solution for the globally
+unique and persistent identification of instruments operated in the
+sciences that can act as an anchor for associated metadata.  The group
+considers instrument instances, e.g.\ the individual physical objects,
+as opposed to instrument types or models.  See \cite{pidinst2020} for
+an overview of the work developed by the RDA PIDINST WG.
+
+The solution uses a resolvable persistent identifier (PID) published
+with descriptive metadata that provides enough information to identify
+the instrument.  Instrument PIDs also provide more context to the
+instrument itself by linking other instruments and platforms,
+descriptive information and other external metadata about the
+instrument, and manufacturer and owner of the instrument.  This
+information can then be automatically aggregated following the
+so-called PID Graph \cite{pidgraph2021}.
+
+This document defines the metadata schema that PIDINST developed for
+the description of an instrument instance.  Institutions or
+organizations operating scientific instruments may use the schema when
+registering the metadata describing their instrument along with the
+persistent identifier through a relevant PID infrastructure.  The
+schema is publicly available for reuse and maintained in the code
+repository of the working group \cite{pidinst:github}.
+
+\section{Metadata Schema}
+\label{schema}
+
+The PIDINST metadata schema provides core properties to represent
+instrument descriptions.  It contains essential information to
+identify the individual instrument instance and to link the instance
+with other sources of information and related entities.
+
+The Working Group strives for a metadata schema that is applicable to
+various kinds of instruments being used in all scientific domains.
+For this reason, we kept the schema generic.  Technical details such
+as specifications, data sheets, or detailed technique descriptions
+were not included as these may only apply to a subclass of instruments
+relevant to a particular scientific subdomain.  The core metadata of
+an instrument may be extended with more detailed, community-specific
+descriptions by linking the PIDINST record with supplementary metadata
+using the properties RelatedIdentifier with relationType IsDescribedBy
+or HasMetadata provided in the schema.
+
+\subsection{Overview}
+
+Table \ref{tab:schema:propoverview} provides an overview of the
+properties in the PIDINST schema.  The last column indicates whether
+the property is:
+\begin{itemize}
+\item Mandatory (M): the property must be provided for the metadata
+  record to be valid,
+\item Recommended (R): the property is optional, but it is recommended
+  to be added if applicable, or
+\item Optional (O): the property may be added to provide a richer
+  description.
+\end{itemize}
+In the present version of the schema, all properties are either
+mandatory or recommended.  It is envisioned that additional optional
+properties (in addition to mandatory and recommended properties) will
+be added in the future.
+
+\begin{longtable}{|l|l|l|}
+  \hline
+  \emph{ID} & \emph{Property} & \emph{Obligation} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  1     & Identifier          & M \\
+  2     & SchemaVersion       & M \\
+  3     & LandingPage         & M \\
+  4     & Name                & M \\
+  5     & Owner               & M \\
+  6     & Manufacturer        & M \\
+  7     & Model               & R \\
+  8     & Description         & R \\
+  9     & InstrumentType      & R \\
+  10    & MeasuredVariable    & R \\
+  11    & Date                & R \\
+  12    & RelatedIdentifier   & R \\
+  13    & AlternateIdentifier & R \\
+  \hline
+  \caption{Overview of PIDINST properties}
+  \label{tab:schema:propoverview}
+\end{longtable}
+
+If a value for any of the mandatory properties is not available, one
+of the standard values for unknown information may be used instead,
+see Appendix \ref{appendix:unknown}.
+
+\subsection{Definition of the PIDINST properties}
+
+Table \ref{tab:schema:expandprops} provides a detailed description for
+the properties in the PIDINST metadata schema.  Simple properties,
+such as Name and Description, take just one value.  Complex properties
+are composed of multiple sub-properties.  For instance, Owner is
+composed of ownerName, ownerContact, and ownerIdentifier, the latter
+in turn having another sub-property ownerIdentifierType.  The
+structure of properties and sub-properties is indicated in the
+numbering in the ID column, e.g.\ the property 5.3 (ownerIdentifier)
+has a sub-property 5.3.1 (ownerIdentifierType).
+
+The number of occurrences for any property in one PIDINST metadata
+record is indicated in the column labeled ``Occ''.  The meaning is:
+\begin{itemize}
+\item 1: a mandatory property that must appear once,
+\item 0--1: an optional property that may appear at most once,
+\item 1--n: a mandatory property with multiple values, e.g.\ the
+  property may appear one or more times in a single record,
+\item 0--n: a multivalued optional property that may appear zero
+  or more times in a record.
+\end{itemize}
+In the case of a sub-property, the occurrence is to be understood
+within each of the parent entries.  For example, a PIDINST record may
+have zero or more RelatedIdentifier (occ.\ 0--n).  Each of them must
+have one relatedIdentifierType (occ.\ 1) and one relationType
+(occ.\ 1) and may optionally have one relatedIdentifierName
+(occ.\ 0--1).  Another example: a PIDINST record must have one or more
+Manufacturer (occ.\ 0--n).  Each of them must have a manufacturerName
+(occ.\ 1) and may have a manufacturerIdentifier (occ.\ 0--1).  If a
+manufacturerIdentifier is included for a Manufacturer, it must also
+have a manufacturerIdentifierType (occ.\ 1).
+
+\newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
+\newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
+\newlength{\occcolw}\settowidth{\occcolw}{\emph{Occ}}
+\newlength{\valcolw}\settowidth{\valcolw}{Controlled list of values:}
+\newlength{\defcolw}
+\setlength{\defcolw}{\textwidth}
+\addtolength{\defcolw}{-\idcolw}
+\addtolength{\defcolw}{-\propcolw}
+\addtolength{\defcolw}{-\occcolw}
+\addtolength{\defcolw}{-\valcolw}
+\addtolength{\defcolw}{-10\tabcolsep}
+
+\begin{longtable}{|l|l|l|p{\defcolw}|p{\valcolw}|}
+  \hline
+  \emph{ID} & \emph{Property}          & \emph{Occ}
+        & \emph{Definition}
+        & \emph{Allowed values, constraints, remarks} \\
+  \hline \endhead
+  1     & Identifier                   & 1
+        & Unique string that identifies the instrument instance & \\
+  \hline
+  1.1   & identifierType               & 1
+        & Type of the identifier
+        & The type of the identifier depends on the provider being
+          used to register it.  In the case of ePIC, the value would
+          be ``Handle''. \\
+  \hline
+  2     & SchemaVersion                & 1
+        & Version number of the PIDINST schema used in this record
+        & Fixed value: ``\schemaversion'' \\
+  \hline
+  3     & LandingPage                  & 1
+        & A landing page that the identifier resolves to & URL \\
+  \hline
+  4     & Name                         & 1
+        & Name by which the instrument instance is known & Free text \\
+  \hline
+  5     & Owner                        & 1--n
+        & Institution(s) responsible for the management of the
+          instrument.  This may include the legal owner, the operator,
+          or an institute providing access to the instrument.
+        & \\
+  \hline
+  5.1   & ownerName                    & 1
+        & Full name of the owner & Free text \\
+  \hline
+  5.2   & ownerContact                 & 0--1
+        & Contact address of the owner & Electronic mail address \\
+  \hline
+  5.3   & ownerIdentifier              & 0--1
+        & Identifier used to identify the owner
+        & Free text, should be a globally unique identifier \\
+  \hline
+  5.3.1 & ownerIdentifierType          & 1
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for owners not in this list though,
+          hence we allow free text.  \\
+  \hline
+  6     & Manufacturer                 & 1--n
+        & The instrument's manufacturer(s) or developer.  This may
+          also be the owner for custom-build instruments.
+        & \\
+  \hline
+  6.1   & manufacturerName             & 1
+        & Full name of the manufacturer & Free text \\
+  \hline
+  6.2   & manufacturerIdentifier       & 0--1
+        & Identifier used to identify the manufacturer
+        & Free text, should be a globally unique identifier \\
+  \hline
+  6.2.1 & manufacturerIdentifierType   & 1
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for manufacturers not in this list though,
+          hence we allow free text.  \\
+  \hline
+  7     & Model                        & 0--1
+        & Name of the model or type of device as attributed by the
+          manufacturer
+        & \\
+  \hline
+  7.1   & modelName                    & 1
+        & Full name of the model & Free text \\
+  \hline
+  7.2   & modelIdentifier              & 0--1
+        & Identifier used to identify the model
+        & Free text, should be a globally unique identifier \\
+  \hline
+  7.2.1 & modelIdentifierType          & 1
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for instrument models not in this list
+          though, hence we allow free text.  \\
+  \hline
+  8     & Description                  & 0--1
+        & Technical description of the device and its capabilities
+        & Free text \\
+  \hline
+  9     & InstrumentType               & 0--n
+        & Classification of the type of the instrument & \\
+  \hline
+  9.1   & instrumentTypeName           & 1
+        & Full name of the instrument type & Free text \\
+  \hline
+  9.2   & instrumentTypeIdentifier     & 0--1
+        & Identifier used to identify the type of the instrument
+        & Free text, should be a globally unique identifier \\
+  \hline
+  9.2.1 & instrumentTypeIdentifierType & 1
+        & Type of the identifier
+        & Free text, see related\-IdentifierType for a list of known
+          identifier types.  We anticipate there might be other
+          identifier types for instrument types not in this list
+          though, hence we allow free text.  \\
+  \hline
+  10    & MeasuredVariable             & 0--n
+        & The variable(s) that this instrument measures or observes
+        & Free text \\
+  \hline
+  11    & Date                         & 0--n
+        & Dates relevant to the instrument & ISO 8601 \\
+  \hline
+  11.1  & dateType                     & 1
+        & The type of the date
+        & \begin{minipage}[t]{\valcolw}
+            Controlled list of values:
+            \begin{itemize}[nosep,leftmargin=3.5ex]
+            \item Commissioned
+            \item DeCommissioned
+            \end{itemize}
+            \vspace{1ex}
+          \end{minipage} \\
+  \hline
+  12    & RelatedIdentifier            & 0--n
+        & Identifiers of related resources
+        & Free text, must be globally unique identifiers \\
+  \hline
+  12.1  & relatedIdentifierType        & 1
+        & Type of the identifier
+        & \begin{minipage}[t]{\valcolw}
+            Controlled list of values:
+            \begin{itemize}[nosep,leftmargin=3.5ex]
+            \item ARK
+            \item arXiv
+            \item bibcode
+            \item DOI
+            \item EAN13
+            \item EISSN
+            \item Handle
+            \item IGSN
+            \item ISBN
+            \item ISSN
+            \item ISTC
+            \item LISSN
+            \item PMID
+            \item PURL
+            \item RAiD
+            \item RRID
+            \item UPC
+            \item URL
+            \item URN
+            \item w3id
+            \end{itemize}
+            \vspace{1ex}
+          \end{minipage} \\
+  \hline
+  12.2  & relationType                 & 1
+        & Description of the relationship
+        & \begin{minipage}[t]{\valcolw}
+            Controlled list of values:
+            \begin{itemize}[nosep,leftmargin=3.5ex]
+            \item IsDescribedBy
+            \item IsNewVersionOf
+            \item IsPreviousVersionOf
+            \item HasComponent
+            \item IsComponentOf
+            \item References
+            \item HasMetadata
+            \item WasUsedIn
+            \item IsIdenticalTo
+            \item IsAttachedTo
+            \end{itemize}
+            \vspace{1ex}
+          \end{minipage} \\
+  \hline
+  12.3  & relatedIdentifierName        & 0--1
+        & A name for the related resource, may be used to give a hint
+          on the content of that resource
+        & Free text \\
+  \hline
+  13    & AlternateIdentifier          & 0--n
+        & Identifiers other than the PIDINST pertaining to the same
+          instrument instance.  This should be used if the instrument
+          has a serial number.  Other possible uses include an owner's
+          inventory number or an entry in some instrument data base.
+        & Free text, should be unique identifiers \\
+  \hline
+  13.1  & alternateIdentifierType      & 1
+        & Type of the identifier
+        & \begin{minipage}[t]{\valcolw}
+            Controlled list of values:
+            \begin{itemize}[nosep,leftmargin=3.5ex]
+            \item SerialNumber
+            \item InventoryNumber
+            \item Other
+            \end{itemize}
+            \vspace{1ex}
+          \end{minipage} \\
+  \hline
+  13.2  & alternateIdentifierName      & 0--1
+        & A supplementary name for the identifier type.  This is
+          mostly useful if alternateIdentifierType is Other.
+        & Free text \\
+  \hline
+  \caption{Expanded PIDINST properties}
+  \label{tab:schema:expandprops}
+\end{longtable}
+
+\subsection{Definition of terms in controlled lists of values}
+
+For some properties, the allowed values are constrained to a
+controlled list.  In the following, we define the semantics of the
+terms and provide guidance on when to use them.
+
+\newlength{\valnamecolw}\settowidth{\valnamecolw}{IsPreviousVersionOf}
+\newlength{\valdefcolw}
+\setlength{\valdefcolw}{\textwidth}
+\addtolength{\valdefcolw}{-\valnamecolw}
+\addtolength{\valdefcolw}{-4\tabcolsep}
+
+\subsubsection{dateType}
+
+The Date property allows references to relevant events in the lifetime
+of the instrument.  The dateType sub-property indicates the nature of
+that event.  Table \ref{tab:schema:values:dateType} lists the allowed
+values for dateType.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  Commissioned   & The date when the instrument started to be in operation \\
+  DeCommissioned & The date when the instrument ceased to be in operation \\
+  \hline
+  \caption{Values for dateType}
+  \label{tab:schema:values:dateType}
+\end{longtable}
+
+\subsubsection{relatedIdentifierType}
+
+The RelatedIdentifier property should be used to link other resources
+of any kind related to the instrument, referring to a persistent
+identifier of this resource.  The relatedIdentifierType sub-property
+indicates the type of persistent identifier being used in the link.
+The allowed values for relatedIdentifierType are listed in Table
+\ref{tab:schema:values:relatedIdentifierType}.  Most of these values
+have been adopted from the DataCite Metadata Schema
+\cite{datacite:schema}.
+
+\begin{longtable}{|l|p{\valdefcolw}|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  ARK     &
+  Archival Resource Key: a URI designed to support long-term access to
+  information objects.
+  \\ \hline
+  arXiv   &
+  arXiv identifier: arXiv.org is a repository of preprints of
+  scientific papers in the fields of mathematics, physics, astronomy,
+  computer science, quantitative biology, statistics, and quantitative
+  finance.
+  \\ \hline
+  bibcode &
+  Astrophysics Data System bibliographic codes: a standardized
+  19-character identifier.
+  \\ \hline
+  DOI     &
+  Digital Object Identifier: a character string used to uniquely
+  identify an object.  A DOI name is divided into two parts, a prefix
+  and a suffix, separated by a slash.
+  \\ \hline
+  EAN13   &
+  European Article Number, now renamed International Article Number,
+  but retaining the original acronym, is a 13-digit barcoding standard
+  that is a superset of the original 12-digit Universal Product Code
+  (UPC) system.
+  \\ \hline
+  EISSN   &
+  Electronic International Standard Serial Number: ISSN used to
+  identify periodicals in electronic form (eISSN or e-ISSN).
+  \\ \hline
+  Handle  &
+  This refers specifically to an ID in the Handle system operated by
+  the Corporation for National Research Initiatives (CNRI).
+  \\ \hline
+  IGSN    &
+  A persistent unique identifier for physical samples and specimens.
+  See \url{https://www.igsn.org/}
+  \\ \hline
+  ISBN    &
+  International Standard Book Number: a unique numeric book identifier.
+  \\ \hline
+  ISSN    &
+  International Standard Serial Number: a unique 8-digit number used
+  to identify a print or electronic periodical publication.
+  \\ \hline
+  ISTC    &
+  International Standard Text Code: a unique ``number'' assigned to a
+  textual work.  An ISTC consists of 16 numbers and/or letters.
+  \\ \hline
+  LISSN   &
+  The linking ISSN or ISSN-L enables collocation or linking among
+  different media versions of a continuing resource.
+  \\ \hline
+  PMID    &
+  PubMed identifier: a unique number assigned to each PubMed record.
+  \\ \hline
+  PURL    &
+  Persistent Uniform Resource Locator.
+  \\ \hline
+  RAiD    &
+  Research Activity Identifier, see \url{https://www.raid.org.au/}
+  \\ \hline
+  RRID    &
+  Research Resource Identifiers, see \url{https://www.rrids.org/}
+  \\ \hline
+  UPC     &
+  Universal Product Code is a barcode symbology used for tracking
+  trade items in stores.
+  \\ \hline
+  URL     &
+  Uniform Resource Locator, also known as web address.
+  \\ \hline
+  URN     &
+  Uniform Resource Name: a unique and persistent identifier of an
+  electronic document.
+  \\ \hline
+  w3id    &
+  Permanent identifier for Web applications.  Mostly used to publish
+  vocabularies and ontologies.
+  \\ \hline
+  \caption{Values for relatedIdentifierType}
+  \label{tab:schema:values:relatedIdentifierType}
+\end{longtable}
+
+\subsubsection{relationType}
+
+The RelatedIdentifier property should be used to link other resources
+of any kind related to the instrument, referring to a persistent
+identifier of this resource.  The relationType sub-property indicates
+the nature of that relation.  Table
+\ref{tab:schema:values:relationType} lists the allowed values for
+relationType.
+
+\begin{longtable}{|l|p{\valdefcolw}|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  IsDescribedBy       &
+  The linked resource is a document describing the instrument.
+  \\ \hline
+  IsNewVersionOf      &
+  If an instrument is substantially modified, a new PID may be
+  attributed to the new version.  In that case the old and the new PID
+  should be linked to each other.  IsNewVersionOf should be used in
+  the new PID record to link the old instrument before the
+  modification.
+  \\ \hline
+  IsPreviousVersionOf &
+  If an instrument is substantially modified, a new PID may be
+  attributed to the new version.  In that case the old and the new PID
+  should be linked to each other.  IsPreviousVersionOf should be used
+  in the old PID record to link the new instrument after the
+  modification.
+  \\ \hline
+  HasComponent        &
+  In the case of a complex instrument, having multiple components that
+  may be considered as instruments in their own right, with their own
+  PIDs, these PIDs should be linked.  HasComponent should be used in
+  the PID record of the compound instrument to link the components.
+  \\ \hline
+  IsComponentOf       &
+  In the case of a complex instrument, having multiple components that
+  may be considered as instruments in their own right, with their own
+  PIDs, these PIDs should be linked.  IsComponentOf should be used in
+  the PID records of the components to link the compound instrument.
+  \\ \hline
+  References          &
+  This may be used in the generic case, if no other more specific
+  relation type applies.
+  \\ \hline
+  HasMetadata         &
+  If there is additional metadata describing the instrument, possibly
+  using a community specific metadata standard, that metadata record
+  may be linked using HasMetadata.
+  \\ \hline
+  WasUsedIn           &
+  If the instrument has been deployed in some research activity, such
+  as a cruise of a research vessel, WasUsedIn may be used to link that
+  activity.
+  \\ \hline
+  IsIdenticalTo       &
+  If multiple PIDs have been attributed to a single instrument (which
+  should preferably be avoided in the first place), these PID records
+  should be linked to each other using IsIdenticalTo.
+  \\ \hline
+  IsAttachedTo        &
+  If the instrument is permanently attached to another instrument, the
+  PID records for both instruments should link to each other using
+  IsAttachedTo.
+  \\ \hline
+  \caption{Values for relationType}
+  \label{tab:schema:values:relationType}
+\end{longtable}
+
+\subsubsection{alternateIdentifierType}
+
+If the instrument is also registered elsewhere using any other kind of
+identifier, these identifiers may be stored in the AlternateIdentifier
+property.  The alternateIdentifierType sub-property indicates the
+nature of that identifier.  The allowed values are listed in Table
+\ref{tab:schema:values:alternateIdentifierType}.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Value} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  SerialNumber    & A serial number attributed by the manufacturer \\
+  InventoryNumber & An inventory number used by the owner \\
+  Other           & Any other kind of identifier \\
+  \hline
+  \caption{Values for alternateIdentifierType}
+  \label{tab:schema:values:alternateIdentifierType}
+\end{longtable}
+
+\appendix
+
+\section{Standard values for unknown information}
+\label{appendix:unknown}
+
+For the case that the value for a mandatory property is unknown or not
+available, we adopt the standard values for unknown information from
+the DataCite Metadata Schema \cite{datacite:schema}.  These values are
+repeated here in Table \ref{tab:appendix:unknown}.
+
+\begin{longtable}{|l|l|}
+  \hline
+  \emph{Code} & \emph{Definition} \\
+  \hline \endhead
+  \hline \endfoot\endlastfoot
+  :unac & Temporarily inaccessible \\
+  :unal & Unallowed, suppressed intentionally \\
+  :unap & Not applicable, makes no sense \\
+  :unas & Value unassigned (e.g., Untitled) \\
+  :unav & Value unavailable, possibly unknown \\
+  :unkn & Known to be unknown (e.g., Anonymous, Inconnue) \\
+  :none & Never had a value, never will \\
+  :null & Explicitly and meaningfully empty \\
+  :tba  & To be assigned or announced later \\
+  :etal & Too numerous to list (et alia) \\
+  \hline
+  \caption{Standard values for unknown information}
+  \label{tab:appendix:unknown}
+\end{longtable}
+
+%\bibliographystyle{plain}
+%\bibliography{schema}
+\begin{thebibliography}{1}
+
+\bibitem{pidinst2020}
+Markus Stocker et~al.
+\newblock Persistent Identification of Instruments.
+\newblock \emph{Data Science Journal}, 19(1), 18, 2020.
+\newblock \url{https://doi.org/10.5334/dsj-2020-018}.
+
+\bibitem{pidgraph2021}
+Helena Cousijn et~al.
+\newblock Connected Research: The Potential of the PID Graph.
+\newblock \emph{Patterns}, 2(1), 100180, 2021.
+\newblock \url{https://doi.org/10.1016/j.patter.2020.100180}.
+
+\bibitem{pidinst:github}
+RDA Persistent~Identification of~Instruments~WG.
+\newblock Medadata Schema for the Persistent Identification of Scientific
+  Instruments.
+\newblock \url{https://github.com/rdawg-pidinst/schema}.
+\newblock Code repository.
+
+\bibitem{datacite:schema}
+DataCite Metadata~Working Group.
+\newblock DataCite Metadata Schema Documentation for the Publication and
+  Citation of Research Data and Other Research Outputs v4.4, March 2021.
+\newblock \url{https://doi.org/10.14454/3W3Z-SA82}.
+
+\end{thebibliography}
+
+\end{document}
