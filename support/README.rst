@@ -1,8 +1,8 @@
 Supporting Material
 ===================
 
-This directory supporting material for the PIDINST schema.  This
-includes:
+This directory contains supporting material for the PIDINST schema.
+This includes:
 
 + pidinst-schema-1_0.xsd: a XML Schema Definition file.
 
