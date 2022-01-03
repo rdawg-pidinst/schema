@@ -5,19 +5,20 @@ The `Research Data Alliance`_ working group `Persistent Identification
 of Instruments WG`_ seeks to explore a community-driven solution for
 globally unique identification of active instruments in the sciences.
 
-This repository holds the (current draft for the) medadata schema for
-this PID system.  There are two variants:
+This repository is used to maintain the PIDINST schema for the
+metadata describing the instrument instance to be registered in the
+PID infrastructure.  The current version of the schema has been
+submitted to RDA for endorsement as a recommendation and is expected
+to be published as version 1.0 soon.
 
-1. the original schema has been formulated based on the evaluation of
-   use cases collected by the working group.
+Furthermore, the repository provides a mapping of the PIDINST schema
+onto the current `DataCite Metadata Schema 4.3`_.
 
-2. a mapping of the original schema onto the current `DataCite
-   Metadata Schema 4.3`_.
 
 Copyright and License
 ---------------------
 
-Copyright 2019 RDA Persistent Identification of Instruments WG
+Copyright 2019–2021 RDA Persistent Identification of Instruments WG
 
 This work is licensed under the `Creative Commons Attribution 4.0
 International License`_.
