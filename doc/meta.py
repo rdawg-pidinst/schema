@@ -23,6 +23,17 @@ class GitProps:
         return proc.stdout.strip()
 
     @property
+    def commit(self):
+        return self._exec("git log -1 --format=%H")
+
+    @property
+    def tag(self):
+        try:
+            return self._exec("git describe --exact-match %s" % self.commit)
+        except subprocess.CalledProcessError:
+            return None
+
+    @property
     def is_dirty(self):
         return bool(self._exec("git status --porcelain --untracked-files=no"))
 
@@ -31,7 +42,12 @@ class GitProps:
         if self.is_dirty:
             d = datetime.date.today()
         else:
-            ts = int(self._exec("git log -1 --format=%cd --date=unix"))
+            tag = self.tag
+            if tag:
+                cmd = "git tag -l --format=%%(taggerdate:unix) %s" % tag
+                ts = int(self._exec(cmd))
+            else:
+                ts = int(self._exec("git log -1 --format=%ad --date=unix"))
             d = datetime.date.fromtimestamp(ts)
         return d.strftime("%e %B %Y").strip()
 
