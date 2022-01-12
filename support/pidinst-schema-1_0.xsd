@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:annotation>
+  <xsd:documentation>
+    XML Schema Definition for the
+    Metadata Schema for the Persistent Identification of Instruments
+    Version 1.0
+
+    Important note: this XSD is preliminary as version 1.0 of the
+    PIDINST schema has not yet been published!
+  </xsd:documentation>
+</xsd:annotation>
+
+<xsd:element name="instrument" type="pidinst"/>
+
+<xsd:complexType name="pidinst">
+  <xsd:all>
+    <xsd:element name="identifier" type="identifier"/>
+    <xsd:element name="schemaVersion" type="xsd:string" fixed="1.0"/>
+    <xsd:element name="landingPage" type="xsd:string"/>
+    <xsd:element name="name" type="xsd:string"/>
+    <xsd:element name="owners" type="owners"/>
+    <xsd:element name="manufacturers" type="manufacturers"/>
+    <xsd:element name="model" type="model" minOccurs="0"/>
+    <xsd:element name="description" type="xsd:string"
+    		 minOccurs="0"/>
+    <xsd:element name="instrumentTypes" type="instrumentTypes"
+    		 minOccurs="0"/>
+    <xsd:element name="measuredVariables" type="measuredVariables"
+    		 minOccurs="0"/>
+    <xsd:element name="dates" type="dates" minOccurs="0"/>
+    <xsd:element name="relatedIdentifiers" type="relatedIdentifiers"
+    		 minOccurs="0"/>
+    <xsd:element name="alternateIdentifiers" type="alternateIdentifiers"
+    		 minOccurs="0"/>
+  </xsd:all>
+</xsd:complexType>
+
+<xsd:complexType name="identifier">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="identifierType" use="required"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:complexType name="owners">
+  <xsd:sequence>
+    <xsd:element name="owner" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:sequence>
+	  <xsd:element name="ownerName" type="xsd:string"/>
+	  <xsd:element name="ownerContact" type="xsd:string" minOccurs="0"/>
+	  <xsd:element name="ownerIdentifier" minOccurs="0">
+	    <xsd:complexType>
+	      <xsd:simpleContent>
+		<xsd:extension base="xsd:string">
+		  <xsd:attribute name="ownerIdentifierType" use="required"/>
+		</xsd:extension>
+	      </xsd:simpleContent>
+	    </xsd:complexType>
+	  </xsd:element>
+	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="manufacturers">
+  <xsd:sequence>
+    <xsd:element name="manufacturer" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:sequence>
+	  <xsd:element name="manufacturerName" type="xsd:string"/>
+	  <xsd:element name="manufacturerIdentifier" minOccurs="0">
+	    <xsd:complexType>
+	      <xsd:simpleContent>
+		<xsd:extension base="xsd:string">
+		  <xsd:attribute name="manufacturerIdentifierType"
+				 use="required"/>
+		</xsd:extension>
+	      </xsd:simpleContent>
+	    </xsd:complexType>
+	  </xsd:element>
+	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="model">
+  <xsd:sequence>
+    <xsd:element name="modelName" type="xsd:string"/>
+    <xsd:element name="modelIdentifier" minOccurs="0">
+      <xsd:complexType>
+	<xsd:simpleContent>
+	  <xsd:extension base="xsd:string">
+	    <xsd:attribute name="modelIdentifierType" use="required"/>
+	  </xsd:extension>
+	</xsd:simpleContent>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="instrumentTypes">
+  <xsd:sequence>
+    <xsd:element name="instrumentType" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:sequence>
+	  <xsd:element name="instrumentTypeName" type="xsd:string"/>
+	  <xsd:element name="instrumentTypeIdentifier" minOccurs="0">
+	    <xsd:complexType>
+	      <xsd:simpleContent>
+		<xsd:extension base="xsd:string">
+		  <xsd:attribute name="instrumentTypeIdentifierType"
+				 use="required"/>
+		</xsd:extension>
+	      </xsd:simpleContent>
+	    </xsd:complexType>
+	  </xsd:element>
+	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="measuredVariables">
+  <xsd:sequence>
+    <xsd:element name="measuredVariable" type="xsd:string"
+		 maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="dates">
+  <xsd:sequence>
+    <xsd:element name="date" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:simpleContent>
+	  <xsd:extension base="xsd:string">
+	    <xsd:attribute name="dateType" use="required">
+	      <xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+		  <xsd:enumeration value="Commissioned"/>
+		  <xsd:enumeration value="DeCommissioned"/>
+		</xsd:restriction>
+	      </xsd:simpleType>
+	    </xsd:attribute>
+	  </xsd:extension>
+	</xsd:simpleContent>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="relatedIdentifiers">
+  <xsd:sequence>
+    <xsd:element name="relatedIdentifier" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:simpleContent>
+	  <xsd:extension base="xsd:string">
+	    <xsd:attribute name="relatedIdentifierType" use="required">
+	      <xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+		  <xsd:enumeration value="ARK"/>
+		  <xsd:enumeration value="arXiv"/>
+		  <xsd:enumeration value="bibcode"/>
+		  <xsd:enumeration value="DOI"/>
+		  <xsd:enumeration value="EAN13"/>
+		  <xsd:enumeration value="EISSN"/>
+		  <xsd:enumeration value="Handle"/>
+		  <xsd:enumeration value="IGSN"/>
+		  <xsd:enumeration value="ISBN"/>
+		  <xsd:enumeration value="ISSN"/>
+		  <xsd:enumeration value="ISTC"/>
+		  <xsd:enumeration value="LISSN"/>
+		  <xsd:enumeration value="PMID"/>
+		  <xsd:enumeration value="PURL"/>
+		  <xsd:enumeration value="RAiD"/>
+		  <xsd:enumeration value="RRID"/>
+		  <xsd:enumeration value="UPC"/>
+		  <xsd:enumeration value="URL"/>
+		  <xsd:enumeration value="URN"/>
+		  <xsd:enumeration value="w3id"/>
+		</xsd:restriction>
+	      </xsd:simpleType>
+	    </xsd:attribute>
+	    <xsd:attribute name="relationType" use="required">
+	      <xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+		  <xsd:enumeration value="IsDescribedBy"/>
+		  <xsd:enumeration value="IsNewVersionOf"/>
+		  <xsd:enumeration value="IsPreviousVersionOf"/>
+		  <xsd:enumeration value="HasComponent"/>
+		  <xsd:enumeration value="IsComponentOf"/>
+		  <xsd:enumeration value="References"/>
+		  <xsd:enumeration value="HasMetadata"/>
+		  <xsd:enumeration value="WasUsedIn"/>
+		  <xsd:enumeration value="IsIdenticalTo"/>
+		  <xsd:enumeration value="IsAttachedTo"/>
+		</xsd:restriction>
+	      </xsd:simpleType>
+	    </xsd:attribute>
+	    <xsd:attribute name="relatedIdentifierName"/>
+	  </xsd:extension>
+	</xsd:simpleContent>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="alternateIdentifiers">
+  <xsd:sequence>
+    <xsd:element name="alternateIdentifier" maxOccurs="unbounded">
+      <xsd:complexType>
+	<xsd:simpleContent>
+	  <xsd:extension base="xsd:string">
+	    <xsd:attribute name="alternateIdentifierType" use="required">
+	      <xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+		  <xsd:enumeration value="SerialNumber"/>
+		  <xsd:enumeration value="InventoryNumber"/>
+		  <xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	      </xsd:simpleType>
+	    </xsd:attribute>
+	    <xsd:attribute name="alternateIdentifierName"/>
+	  </xsd:extension>
+	</xsd:simpleContent>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

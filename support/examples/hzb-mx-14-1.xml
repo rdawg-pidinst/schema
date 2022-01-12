@@ -1,22 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resource>
-    <identifier identifierType="PIDINST">1234.1675</identifier>
+<!--
+  Note: this is just an example.  It does not correspond to a real PID
+  for an instrument.
+  -->
+<instrument>
+    <identifier identifierType="Handle">1234.1675</identifier>
+    <schemaVersion>1.0</schemaVersion>
     <landingPage>https://www.helmholtz-berlin.de/pubbin/igama_output?modus=einzel&amp;sprache=en&amp;gid=1675&amp;typoid=35517</landingPage>
     <name>Macromolecular Crystallography station 14.1</name>
     <owners>
 	<owner>
 	    <ownerName>Helmholtz-Zentrum Berlin für Materialien und Energie</ownerName>
+	    <ownerIdentifier ownerIdentifierType="ROR">02aj13c28</ownerIdentifier>
 	</owner>
     </owners>
     <manufacturers>
 	<manufacturer>
 	    <manufacturerName>Helmholtz-Zentrum Berlin für Materialien und Energie</manufacturerName>
+	    <manufacturerIdentifier manufacturerIdentifierType="ROR">02aj13c28</manufacturerIdentifier>
 	</manufacturer>
     </manufacturers>
-    <instrumentType>Experimental station for Macromolecular Crystallography (MX)</instrumentType>
+    <instrumentTypes>
+	<instrumentType>
+	    <instrumentTypeName>Synchrotron experimental station</instrumentTypeName>
+	</instrumentType>
+    </instrumentTypes>
     <description>The Macromolecular Crystallography (MX) group at the Helmholtz-Zentrum Berlin (HZB) is operating three state-of-the-art synchrotron beamlines for MX at BESSY II in Berlin (Heinemann et al., 2003; Mueller et al., 2012, 2015). The radiation source for all three beamlines BL14.1-3 is a superconducting 7T-wavelength shifter. Currently, the three beam lines are the most productive stations for MX in Germany, with about 250 PDB depositions per year and over 1500 PDB depositions in total (Status 10/2015). BL14.1 and BL14.2 are energy tuneable in the range 5.5-15.5 keV, while beam line BL14.3 is a fixed-energy side station operated at 13.8 keV. The HZB-MX beamlines are in regular user operation providing close to 200 beam days per year and about 600 user shifts to approximately 100 research groups across Europe. Additional user facilities include office space adjacent to the beam lines, a sample preparation laboratory, a biology laboratory (safety level 1) and high-end computing resources.</description>
     <relatedIdentifiers>
 	<relatedIdentifier relatedIdentifierType="DOI" relationType="IsDescribedBy">10.17815/jlsrf-2-64</relatedIdentifier>
-	<relatedIdentifier relatedIdentifierType="PIDINST" relationType="HasComponent">1234.1675.1</relatedIdentifier>
+	<relatedIdentifier relatedIdentifierType="Handle" relationType="HasComponent">1234.1675.1</relatedIdentifier>
     </relatedIdentifiers>
-</resource>
+</instrument>
