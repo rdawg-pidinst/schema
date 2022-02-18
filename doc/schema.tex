@@ -274,10 +274,7 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   5.3.1 & ownerIdentifierType          & 1
         & Type of the identifier
-        & Free text, see related\-IdentifierType for a list of known
-          identifier types.  We anticipate there might be other
-          identifier types for owners not in this list though,
-          hence we allow free text.  \\
+        & Free text, see note below \\
   \hline
   6     & Manufacturer                 & 1--n
         & The instrument's manufacturer(s) or developer.  This may
@@ -293,10 +290,7 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   6.2.1 & manufacturerIdentifierType   & 1
         & Type of the identifier
-        & Free text, see related\-IdentifierType for a list of known
-          identifier types.  We anticipate there might be other
-          identifier types for manufacturers not in this list though,
-          hence we allow free text.  \\
+        & Free text, see note below \\
   \hline
   7     & Model                        & 0--1
         & Name of the model or type of device as attributed by the
@@ -312,10 +306,7 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   7.2.1 & modelIdentifierType          & 1
         & Type of the identifier
-        & Free text, see related\-IdentifierType for a list of known
-          identifier types.  We anticipate there might be other
-          identifier types for instrument models not in this list
-          though, hence we allow free text.  \\
+        & Free text, see note below \\
   \hline
   8     & Description                  & 0--1
         & Technical description of the device and its capabilities
@@ -325,7 +316,7 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Classification of the type of the instrument & \\
   \hline
   9.1   & instrumentTypeName           & 1
-        & Full name of the instrument type & Free text \\
+        & Full name of the instrument type & Free text, see note below \\
   \hline
   9.2   & instrumentTypeIdentifier     & 0--1
         & Identifier used to identify the type of the instrument
@@ -333,10 +324,7 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   9.2.1 & instrumentTypeIdentifierType & 1
         & Type of the identifier
-        & Free text, see related\-IdentifierType for a list of known
-          identifier types.  We anticipate there might be other
-          identifier types for instrument types not in this list
-          though, hence we allow free text.  \\
+        & Free text, see note below \\
   \hline
   10    & MeasuredVariable             & 0--n
         & The variable(s) that this instrument measures or observes
@@ -440,6 +428,34 @@ have a manufacturerIdentifierType (occ.\ 1).
   \caption{Expanded PIDINST properties}
   \label{tab:schema:expandprops}
 \end{longtable}
+
+There is not one single comprehensive classification for instrument
+types that would be applicable to all kinds of instruments being used
+in all scientific domains.  That is why we can't prescribe a
+controlled list of values for instrumentTypeName, but allow free text.
+There are however controlled vocabularies or ontologies to classify
+instrument types for some scientific domains.  If the instrument is
+used in a domain that has a well established instrument type
+classification, it is recommended to use these terms in
+instrumentTypeName.  If furthermore the classification defines
+identifiers for the terms, it is recommended to link them using
+instrumentTypeIdentifier.
+
+It is important that links to related resources can be resolved in a
+reliable way.  Therefore, well established persistent identifier
+schemes should preferably be used to make these links and that is why
+we prescribe a controlled list of values for relatedIdentifierType.
+For ownerIdentifierType, manufacturerIdentifierType,
+modelIdentifierType, and instrumentTypeIdentifierType we anticipate
+that there might be other, less well established identifier types that
+may need to be used in some cases.  Hence we allow free text.
+Nevertheless, the values defined for relatedIdentifierType should also
+be used here, whenever it is possible.
+
+As formalized controlled vocabularies evolve and become common
+standard across domains, future versions of this schema may adopt them
+and change properties that are free text in the current version to use
+a controlled list of values instead.
 
 \subsection{Definition of terms in controlled lists of values}
 
