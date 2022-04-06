@@ -1,3 +1,9 @@
+|doi|
+
+.. |doi| image:: https://zenodo.org/badge/DOI/10.15497/RDA00070.svg
+   :target: https://doi.org/10.15497/RDA00070
+   :alt: DOI:10.15497/RDA00070
+
 Medadata Schema for the Persistent Identification of Scientific Instruments
 ===========================================================================
 
@@ -7,9 +13,16 @@ globally unique identification of active instruments in the sciences.
 
 This repository is used to maintain the PIDINST schema for the
 metadata describing the instrument instance to be registered in the
-PID infrastructure.  The current version of the schema has been
-submitted to RDA for endorsement as a recommendation and is expected
-to be published as version 1.0 soon.
+PID infrastructure.  Version 1.0 of the schema has been endorsement as
+a RDA recommendation.
+
+Cite this recommendation as:
+
+  Krahl, R., Darroch, L., Huber, R., Devaraju, A., Klump, J.,
+  Habermann, T., Stocker, M., & The Research Data Alliance Persistent
+  Identification of Instruments Working Group members (2022).
+  Metadata Schema for the Persistent Identification of Instruments
+  (1.0).  Research Data Alliance.  https://doi.org/10.15497/RDA00070
 
 Furthermore, the repository provides a mapping of the PIDINST schema
 onto the current `DataCite Metadata Schema 4.4`_.
@@ -18,7 +31,7 @@ onto the current `DataCite Metadata Schema 4.4`_.
 Copyright and License
 ---------------------
 
-Copyright 2019–2021 RDA Persistent Identification of Instruments WG
+Copyright 2019–2022 RDA Persistent Identification of Instruments WG
 
 This work is licensed under the `Creative Commons Attribution 4.0
 International License`_.
