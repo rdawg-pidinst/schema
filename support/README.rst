@@ -6,7 +6,7 @@ This includes:
 
 + pidinst-schema-1_0.xsd: a XML Schema Definition file.
 
-+ pidinst-schema-1_0.json: a JSON Schema representation.
++ pidinst-schema-1_0.schema.json: a JSON Schema representation.
 
 + examples: examples of serializations of instrument metedata using
   the PIDINST schema.  Examples collected so far:
