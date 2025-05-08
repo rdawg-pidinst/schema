@@ -53,10 +53,10 @@ DataCite schema at all.
 | 2.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     |
 |       |                            |            |     | identifier schema        | if nameIdentifier is     |
 |       |                            |            |     |                          | used. Examples: ROR,     |
-|       |                            |            |     |                          | ISNI, ORCID              |
+|       |                            |            |     |                          | ORCID                    |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+
 | 2.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                |
-|       |                            |            |     | identifier schema        | **http://www.isni.org**, |
+|       |                            |            |     | identifier schema        | **https://ror.org**,     |
 |       |                            |            |     |                          | https://orcid.org        |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+
 | 2.5   | affiliation                | O          | 0-n | Organizational or        | Free text                |
@@ -138,10 +138,10 @@ DataCite schema at all.
 | 7.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     |
 |       |                            |            |     | identifier schema        | if nameIdentifier is     |
 |       |                            |            |     |                          | used. Examples: ROR,     |
-|       |                            |            |     |                          | ISNI, ORCID              |
+|       |                            |            |     |                          | ORCID                    |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+
 | 7.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                |
-|       |                            |            |     | identifier schema        | http://www.isni.org,     |
+|       |                            |            |     | identifier schema        | https://ror.org,         |
 |       |                            |            |     |                          | https://orcid.org        |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+
 | 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                |
