@@ -10,223 +10,223 @@ relevant instrument properties there is even no suitable place in the
 DataCite schema at all.
 
 
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| ID    | Property                   | Obligation | Occ | Definition               | Allowed values,          | Suggested Changes         |
-|       |                            |            |     |                          | constraints,             | to DataCite               |
-|       |                            |            |     |                          | remarks                  | schema                    |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 1     | Identifier                 | M          | 1   | Unique string that       | DOI                      | None                      |
-|       |                            |            |     | identifies the           |                          |                           |
-|       |                            |            |     | instrument instance      |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 1.a   | identifierType             | M          | 1   | Type of the identifier   | Controlled list of       | None                      |
-|       |                            |            |     |                          | values:[#identtype]_     |                           |
-|       |                            |            |     |                          |   DOI                    |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2     | Creator                    | M          | 1-n | The instrument's         |                          | None                      |
-|       |                            |            |     | manufacturer(s) or       |                          |                           |
-|       |                            |            |     | developer. This may      |                          |                           |
-|       |                            |            |     | also be the owner for    |                          |                           |
-|       |                            |            |     | custom build             |                          |                           |
-|       |                            |            |     | instruments              |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.1   | creatorName                | M          | 1   | Full name of the         | Free text                | None                      |
-|       |                            |            |     | manufacturer             |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
-|       |                            |            |     |                          | values:[#cr_nametype]_   |                           |
-|       |                            |            |     |                          | **Organizational**       |                           |
-|       |                            |            |     |                          |   Personal               |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.2   | givenName                  | R          | 0-1 | First name of the        | Free text                | None                      |
-|       |                            |            |     | manufacturer, if         |                          |                           |
-|       |                            |            |     | applicable               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.3   | familyName                 | R          | 0-1 | Last name of the         | Free text                | None                      |
-|       |                            |            |     | manufacturer, if         |                          |                           |
-|       |                            |            |     | applicable               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.4   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     | None                      |
-|       |                            |            |     | manufacturer             | dependent upon schema    |                           |
-|       |                            |            |     |                          |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
-|       |                            |            |     | identifier schema        | if nameIdentifier is     |                           |
-|       |                            |            |     |                          | used. Examples: ROR,     |                           |
-|       |                            |            |     |                          | ISNI, ORCID              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
-|       |                            |            |     | identifier schema        | **http://www.isni.org**, |                           |
-|       |                            |            |     |                          | https://orcid.org        |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 2.5   | affiliation                | O          | 0-n | Organizational or        | Free text                | None                      |
-|       |                            |            |     | institutional            | [#cr_affiliation]_       |                           |
-|       |                            |            |     | affiliation of the       |                          |                           |
-|       |                            |            |     | manufacturer             |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 3     | Title                      | M          | 1   | Name by which the        | Free text                | None                      |
-|       |                            |            |     | instrument instance is   |                          |                           |
-|       |                            |            |     | known                    |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 3.a   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       | Add *Name* to controlled  |
-|       |                            |            |     |                          | values:[#titletype]_     | list of values            |
-|       |                            |            |     |                          |   AlternativeTitle       |                           |
-|       |                            |            |     |                          |   Subtitle               |                           |
-|       |                            |            |     |                          |   TranslatedTitle        |                           |
-|       |                            |            |     |                          |   **Other**              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 4     | Publisher                  | M          | 1   | The name of the entity   | Free text                | None                      |
-|       |                            |            |     | that holds, archives,    | [#publisher]_            |                           |
-|       |                            |            |     | publishes, prints,       |                          |                           |
-|       |                            |            |     | distributes, releases,   |                          |                           |
-|       |                            |            |     | issues, or produces the  |                          |                           |
-|       |                            |            |     | resource                 |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 5     | PublicationYear            | M          | 1   | The year when the data   | YYYY [#pubyear]_         | None                      |
-|       |                            |            |     | was made publicly        |                          |                           |
-|       |                            |            |     | available                |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6     | Subject                    | R          | 0-n | Subject, keyword,        |  Free text [#subject]_   | None                      |
-|       |                            |            |     | classification code, or  |                          |                           |
-|       |                            |            |     | key phrase describing    |                          |                           |
-|       |                            |            |     | the instrument           |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.a   | subjectScheme              | O          | 0-1 | The name of the subject  | Free text                | None                      |
-|       |                            |            |     | scheme or classification |                          |                           |
-|       |                            |            |     | code or authority if one |                          |                           |
-|       |                            |            |     | is used                  |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.b   | schemeURI                  | O          | 0-1 | The URI of the subject   |                          | None                      |
-|       |                            |            |     | identifier scheme        |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 6.c   | valueURI                   | O          | 0-1 | The URI of the subject   |                          | None                      |
-|       |                            |            |     | term                     |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7     | Contributor                | M          | 1-n | Institution(s)           | [#contributor]_          | None                      |
-|       |                            |            |     | responsible for the      |                          |                           |
-|       |                            |            |     | management of the        |                          |                           |
-|       |                            |            |     | instrument. This may     |                          |                           |
-|       |                            |            |     | include the legal        |                          |                           |
-|       |                            |            |     | owner, the operator,     |                          |                           |
-|       |                            |            |     | or an institute          |                          |                           |
-|       |                            |            |     | providing access to      |                          |                           |
-|       |                            |            |     | the instrument.          |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.a   | contributorType            | M          | 1   | The type of contributor  | Controlled list of       | None                      |
-|       |                            |            |     |                          | values:                  |                           |
-|       |                            |            |     |                          | **hostingInstitution**   |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.1   | contributorName            | M          | 1   | Full name of the owner   | Free text                | None                      |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       | None                      |
-|       |                            |            |     |                          | values:[#cntrb_sub]_     |                           |
-|       |                            |            |     |                          |   Organizational         |                           |
-|       |                            |            |     |                          |   Personal               |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.2   | givenName                  | R          | 0-1 | First name of the        | Free text                | None                      |
-|       |                            |            |     | owner, if                |                          |                           |
-|       |                            |            |     | applicable               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.3   | familyName                 | R          | 0-1 | Last name of the         | Free text                | None                      |
-|       |                            |            |     | owner, if                |                          |                           |
-|       |                            |            |     | applicable               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.4   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     | None                      |
-|       |                            |            |     | owner                    | dependent upon schema    |                           |
-|       |                            |            |     |                          |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     | None                      |
-|       |                            |            |     | identifier schema        | if nameIdentifier is     |                           |
-|       |                            |            |     |                          | used. Examples: ROR,     |                           |
-|       |                            |            |     |                          | ISNI, ORCID              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                | None                      |
-|       |                            |            |     | identifier schema        | http://www.isni.org,     |                           |
-|       |                            |            |     |                          | https://orcid.org        |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                | None                      |
-|       |                            |            |     | institutional            | [#cntrb_sub]_            |                           |
-|       |                            |            |     | affiliation of the       |                          |                           |
-|       |                            |            |     | contributor              |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 8     | Date                       | R          | 0-n | Dates relevant to the    | ISO 8601 [#date]_        | None                      |
-|       |                            |            |     | instrument               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 8.a   | dateType                   | R          | 1   | The type of the date     | Controlled list of       | None                      |
-|       |                            |            |     |                          | values, see DataCite     |                           |
-|       |                            |            |     |                          | schema                   |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 8.b   | dateInformation            | O          | 0-1 | Specific information     | Free text                | None                      |
-|       |                            |            |     | about the date, if       |                          |                           |
-|       |                            |            |     | appropriate              |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 10    | ResourceType               | M          | 1   | The type of the resource | Free text.  Suggested    | None                      |
-|       |                            |            |     |                          | values:                  |                           |
-|       |                            |            |     |                          |   Platform               |                           |
-|       |                            |            |     |                          |   Instrument             |                           |
-|       |                            |            |     |                          |   Sensor                 |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 10.a  | resourceTypeGeneral        | M          | 1   | The general type of the  | Controlled list of       | None                      |
-|       |                            |            |     | resource                 | values:[#restypegen]_    |                           |
-|       |                            |            |     |                          |   **Instrument**         |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 11    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be     | None                      |
-|       |                            |            |     | the DOI pertaining to    | unique identifiers       |                           |
-|       |                            |            |     | the same instrument      |                          |                           |
-|       |                            |            |     | instance.  This should   |                          |                           |
-|       |                            |            |     | be used if the           |                          |                           |
-|       |                            |            |     | instrument has a serial  |                          |                           |
-|       |                            |            |     | number.  Other possible  |                          |                           |
-|       |                            |            |     | uses include an owner's  |                          |                           |
-|       |                            |            |     | inventory number or an   |                          |                           |
-|       |                            |            |     | entry in some instrument |                          |                           |
-|       |                            |            |     | data base.               |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 11.a  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory    | None                      |
-|       |                            |            |     |                          | if AlternateIdentifier   |                           |
-|       |                            |            |     |                          | is used.  Suggested      |                           |
-|       |                            |            |     |                          | values include:          |                           |
-|       |                            |            |     |                          |   serialNumber           |                           |
-|       |                            |            |     |                          |   inventoryNumber        |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12    | RelatedIdentifier          | R          | 0-n | Identifiers of related   | Free text, must be       | None                      |
-|       |                            |            |     | resources                | globally unique          |                           |
-|       |                            |            |     |                          | identifiers.             |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.a  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of       | None                      |
-|       |                            |            |     |                          | values, see DataCite     |                           |
-|       |                            |            |     |                          | schema                   |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.b  | relationType               | R          | 1   | Description of the       | Controlled list of       | Add a relationType for    |
-|       |                            |            |     | relationship             | values, see DataCite     | deployments, indicating   |
-|       |                            |            |     |                          | schema [#reltype]_       | *was used in*             |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.c  | relatedMetaDataScheme      | O          | 0-1 | The name of the related  | Use only for             | None                      |
-|       |                            |            |     | metadata scheme          | HasMetadata              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.d  | schemeURI                  | O          | 0-1 | The URI of the related   | Use only for             | None                      |
-|       |                            |            |     | metadata scheme          | HasMetadata              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.e  | schemeType                 | O          | 0-1 | The type of the related  | Use only for             | None                      |
-|       |                            |            |     | metadata scheme          | HasMetadata              |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 12.f  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       | Add *Instrument* to       |
-|       |                            |            |     | related resource         | values, see DataCite     | controlled list of values |
-|       |                            |            |     |                          | schema **Other**         |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 17    | Description                | R          | 0-n | Technical description    | Free text                | None                      |
-|       |                            |            |     | of the device and its    |                          |                           |
-|       |                            |            |     | capabilities             |                          |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
-| 17.a  | descriptionType            | R          | 1   | The type of the          | Controlled list of       | None                      |
-|       |                            |            |     | description              | values:[#desctype]_      |                           |
-|       |                            |            |     |                          |   Abstract               |                           |
-|       |                            |            |     |                          |   Methods                |                           |
-|       |                            |            |     |                          |   SeriesInformation      |                           |
-|       |                            |            |     |                          |   TableOfContents        |                           |
-|       |                            |            |     |                          |   TechnicalInfo          |                           |
-|       |                            |            |     |                          |   Other                  |                           |
-+-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| ID    | Property                   | Obligation | Occ | Definition               | Allowed values,          |
+|       |                            |            |     |                          | constraints,             |
+|       |                            |            |     |                          | remarks                  |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 1     | Identifier                 | M          | 1   | Unique string that       | DOI                      |
+|       |                            |            |     | identifies the           |                          |
+|       |                            |            |     | instrument instance      |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 1.a   | identifierType             | M          | 1   | Type of the identifier   | Controlled list of       |
+|       |                            |            |     |                          | values:[#identtype]_     |
+|       |                            |            |     |                          |   DOI                    |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2     | Creator                    | M          | 1-n | The instrument's         |                          |
+|       |                            |            |     | manufacturer(s) or       |                          |
+|       |                            |            |     | developer. This may      |                          |
+|       |                            |            |     | also be the owner for    |                          |
+|       |                            |            |     | custom build             |                          |
+|       |                            |            |     | instruments              |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.1   | creatorName                | M          | 1   | Full name of the         | Free text                |
+|       |                            |            |     | manufacturer             |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       |
+|       |                            |            |     |                          | values:[#cr_nametype]_   |
+|       |                            |            |     |                          | **Organizational**       |
+|       |                            |            |     |                          |   Personal               |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.2   | givenName                  | R          | 0-1 | First name of the        | Free text                |
+|       |                            |            |     | manufacturer, if         |                          |
+|       |                            |            |     | applicable               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.3   | familyName                 | R          | 0-1 | Last name of the         | Free text                |
+|       |                            |            |     | manufacturer, if         |                          |
+|       |                            |            |     | applicable               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.4   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     |
+|       |                            |            |     | manufacturer             | dependent upon schema    |
+|       |                            |            |     |                          |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     |
+|       |                            |            |     | identifier schema        | if nameIdentifier is     |
+|       |                            |            |     |                          | used. Examples: ROR,     |
+|       |                            |            |     |                          | ISNI, ORCID              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                |
+|       |                            |            |     | identifier schema        | **http://www.isni.org**, |
+|       |                            |            |     |                          | https://orcid.org        |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 2.5   | affiliation                | O          | 0-n | Organizational or        | Free text                |
+|       |                            |            |     | institutional            | [#cr_affiliation]_       |
+|       |                            |            |     | affiliation of the       |                          |
+|       |                            |            |     | manufacturer             |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 3     | Title                      | M          | 1   | Name by which the        | Free text                |
+|       |                            |            |     | instrument instance is   |                          |
+|       |                            |            |     | known                    |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 3.a   | titleType                  | O          | 0-1 | The type of Title        | Controlled list of       |
+|       |                            |            |     |                          | values:[#titletype]_     |
+|       |                            |            |     |                          |   AlternativeTitle       |
+|       |                            |            |     |                          |   Subtitle               |
+|       |                            |            |     |                          |   TranslatedTitle        |
+|       |                            |            |     |                          |   **Other**              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 4     | Publisher                  | M          | 1   | The name of the entity   | Free text                |
+|       |                            |            |     | that holds, archives,    | [#publisher]_            |
+|       |                            |            |     | publishes, prints,       |                          |
+|       |                            |            |     | distributes, releases,   |                          |
+|       |                            |            |     | issues, or produces the  |                          |
+|       |                            |            |     | resource                 |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 5     | PublicationYear            | M          | 1   | The year when the data   | YYYY [#pubyear]_         |
+|       |                            |            |     | was made publicly        |                          |
+|       |                            |            |     | available                |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 6     | Subject                    | R          | 0-n | Subject, keyword,        |  Free text [#subject]_   |
+|       |                            |            |     | classification code, or  |                          |
+|       |                            |            |     | key phrase describing    |                          |
+|       |                            |            |     | the instrument           |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 6.a   | subjectScheme              | O          | 0-1 | The name of the subject  | Free text                |
+|       |                            |            |     | scheme or classification |                          |
+|       |                            |            |     | code or authority if one |                          |
+|       |                            |            |     | is used                  |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 6.b   | schemeURI                  | O          | 0-1 | The URI of the subject   |                          |
+|       |                            |            |     | identifier scheme        |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 6.c   | valueURI                   | O          | 0-1 | The URI of the subject   |                          |
+|       |                            |            |     | term                     |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7     | Contributor                | M          | 1-n | Institution(s)           | [#contributor]_          |
+|       |                            |            |     | responsible for the      |                          |
+|       |                            |            |     | management of the        |                          |
+|       |                            |            |     | instrument. This may     |                          |
+|       |                            |            |     | include the legal        |                          |
+|       |                            |            |     | owner, the operator,     |                          |
+|       |                            |            |     | or an institute          |                          |
+|       |                            |            |     | providing access to      |                          |
+|       |                            |            |     | the instrument.          |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.a   | contributorType            | M          | 1   | The type of contributor  | Controlled list of       |
+|       |                            |            |     |                          | values:                  |
+|       |                            |            |     |                          | **hostingInstitution**   |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.1   | contributorName            | M          | 1   | Full name of the owner   | Free text                |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.1.a | nameType                   | R          | 0-1 | The type of name         | Controlled list of       |
+|       |                            |            |     |                          | values:[#cntrb_sub]_     |
+|       |                            |            |     |                          |   Organizational         |
+|       |                            |            |     |                          |   Personal               |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.2   | givenName                  | R          | 0-1 | First name of the        | Free text                |
+|       |                            |            |     | owner, if                |                          |
+|       |                            |            |     | applicable               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.3   | familyName                 | R          | 0-1 | Last name of the         | Free text                |
+|       |                            |            |     | owner, if                |                          |
+|       |                            |            |     | applicable               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.4   | nameIdentifier             | R          | 0-n | Unique identifier of the | Free text, format is     |
+|       |                            |            |     | owner                    | dependent upon schema    |
+|       |                            |            |     |                          |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.4.a | nameIdentifierScheme       | R          | 1   | The name of the name     | Free text, mandatory     |
+|       |                            |            |     | identifier schema        | if nameIdentifier is     |
+|       |                            |            |     |                          | used. Examples: ROR,     |
+|       |                            |            |     |                          | ISNI, ORCID              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.4.b | schemeURI                  | O          | 0-1 | The URI of the name      | Examples:                |
+|       |                            |            |     | identifier schema        | http://www.isni.org,     |
+|       |                            |            |     |                          | https://orcid.org        |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 7.5   | affiliation                | O          | 0-n | Organizational or        | Free text                |
+|       |                            |            |     | institutional            | [#cntrb_sub]_            |
+|       |                            |            |     | affiliation of the       |                          |
+|       |                            |            |     | contributor              |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 8     | Date                       | R          | 0-n | Dates relevant to the    | ISO 8601 [#date]_        |
+|       |                            |            |     | instrument               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 8.a   | dateType                   | R          | 1   | The type of the date     | Controlled list of       |
+|       |                            |            |     |                          | values, see DataCite     |
+|       |                            |            |     |                          | schema                   |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 8.b   | dateInformation            | O          | 0-1 | Specific information     | Free text                |
+|       |                            |            |     | about the date, if       |                          |
+|       |                            |            |     | appropriate              |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 10    | ResourceType               | M          | 1   | The type of the resource | Free text.  Suggested    |
+|       |                            |            |     |                          | values:                  |
+|       |                            |            |     |                          |   Platform               |
+|       |                            |            |     |                          |   Instrument             |
+|       |                            |            |     |                          |   Sensor                 |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 10.a  | resourceTypeGeneral        | M          | 1   | The general type of the  | Controlled list of       |
+|       |                            |            |     | resource                 | values:[#restypegen]_    |
+|       |                            |            |     |                          |   **Instrument**         |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 11    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be     |
+|       |                            |            |     | the DOI pertaining to    | unique identifiers       |
+|       |                            |            |     | the same instrument      |                          |
+|       |                            |            |     | instance.  This should   |                          |
+|       |                            |            |     | be used if the           |                          |
+|       |                            |            |     | instrument has a serial  |                          |
+|       |                            |            |     | number.  Other possible  |                          |
+|       |                            |            |     | uses include an owner's  |                          |
+|       |                            |            |     | inventory number or an   |                          |
+|       |                            |            |     | entry in some instrument |                          |
+|       |                            |            |     | data base.               |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 11.a  | alternateIdentifierType    | R          | 1   | Type of the identifier   | Free text.  Mandatory    |
+|       |                            |            |     |                          | if AlternateIdentifier   |
+|       |                            |            |     |                          | is used.  Suggested      |
+|       |                            |            |     |                          | values include:          |
+|       |                            |            |     |                          |   serialNumber           |
+|       |                            |            |     |                          |   inventoryNumber        |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12    | RelatedIdentifier          | R          | 0-n | Identifiers of related   | Free text, must be       |
+|       |                            |            |     | resources                | globally unique          |
+|       |                            |            |     |                          | identifiers.             |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.a  | relatedIdentifierType      | R          | 1   | Type of the identifier   | Controlled list of       |
+|       |                            |            |     |                          | values, see DataCite     |
+|       |                            |            |     |                          | schema                   |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.b  | relationType               | R          | 1   | Description of the       | Controlled list of       |
+|       |                            |            |     | relationship             | values, see DataCite     |
+|       |                            |            |     |                          | schema [#reltype]_       |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.c  | relatedMetaDataScheme      | O          | 0-1 | The name of the related  | Use only for             |
+|       |                            |            |     | metadata scheme          | HasMetadata              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.d  | schemeURI                  | O          | 0-1 | The URI of the related   | Use only for             |
+|       |                            |            |     | metadata scheme          | HasMetadata              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.e  | schemeType                 | O          | 0-1 | The type of the related  | Use only for             |
+|       |                            |            |     | metadata scheme          | HasMetadata              |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 12.f  | resourceTypeGeneral        | O          | 0-1 | The general type of the  | Controlled list of       |
+|       |                            |            |     | related resource         | values, see DataCite     |
+|       |                            |            |     |                          | schema **Other**         |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 17    | Description                | R          | 0-n | Technical description    | Free text                |
+|       |                            |            |     | of the device and its    |                          |
+|       |                            |            |     | capabilities             |                          |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
+| 17.a  | descriptionType            | R          | 1   | The type of the          | Controlled list of       |
+|       |                            |            |     | description              | values:[#desctype]_      |
+|       |                            |            |     |                          |   Abstract               |
+|       |                            |            |     |                          |   Methods                |
+|       |                            |            |     |                          |   SeriesInformation      |
+|       |                            |            |     |                          |   TableOfContents        |
+|       |                            |            |     |                          |   TechnicalInfo          |
+|       |                            |            |     |                          |   Other                  |
++-------+----------------------------+------------+-----+--------------------------+--------------------------+
 
 
 Footnotes
