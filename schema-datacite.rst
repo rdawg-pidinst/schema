@@ -3,17 +3,11 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 
 The following table presents the metadata schema for the persistent
 identification of instruments mapped onto the `DataCite Metadata
-Schema 4.6`_.  Note that the current version of the DataCite schema
-has not been designed to describe instruments.  As a consequence, some
+Schema 4.6`_.  Note that the the DataCite schema has not specifically
+been designed to describe instruments.  As a consequence, some
 definitions in the DataCite schema need to be stretched.  For a few
 relevant instrument properties there is even no suitable place in the
 DataCite schema at all.
-
-In this presentation, the DataCite schema is mostly taken as is,
-assuming that no adaptations are made to accommodate instruments.
-Nevertheless, there are some shortcomings of this approach, so some
-amendments of the schema would facilitate its use for instruments and
-should be negotiated with DataCite.
 
 
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
