@@ -9,6 +9,11 @@ definitions in the DataCite schema need to be stretched.  For a few
 relevant instrument properties there is even no suitable place in the
 DataCite schema at all.
 
+Since version 4.5, the DataCite schema also includes a `mapping from
+the PIDINST Schema onto DataCite <DataCite PIDINST Mapping_>`_.
+Some more discussion on the representation of PIDINST in the DataCite
+Schema is also provided in the `Section on metadata in the DataCite
+Cookbook <DataCite Cookbook metadata_>`_.
 
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+
 | ID    | Property                   | Obligation | Occ | Definition               | Allowed values,          |
@@ -343,3 +348,5 @@ ordered by increasing importance, from least concern to critical:
 
 
 .. _DataCite Metadata Schema 4.6: https://schema.datacite.org/meta/kernel-4.6/
+.. _DataCite PIDINST Mapping: https://datacite-metadata-schema.readthedocs.io/en/latest/mappings/pidinst/
+.. _DataCite Cookbook metadata: https://docs.pidinst.org/en/latest/datacite-cookbook/metadata.html
