@@ -168,7 +168,7 @@ DataCite schema at all.
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 10.a  | resourceTypeGeneral        | M          | 1   | The general type of the  | Controlled list of       | None                      |
 |       |                            |            |     | resource                 | values:[#restypegen]_    |                           |
-|       |                            |            |     |                          |   **Other**              |                           |
+|       |                            |            |     |                          |   **Instrument**         |                           |
 +-------+----------------------------+------------+-----+--------------------------+--------------------------+---------------------------+
 | 11    | AlternateIdentifier        | R          | 0-n | Identifiers other than   | Free text, should be     | None                      |
 |       |                            |            |     | the DOI pertaining to    | unique identifiers       |                           |
@@ -268,9 +268,8 @@ Footnotes
    instrument was in operation, either with a single date to indicate
    when this instrument instance started operation, or a date interval
    if this instrument instance ceased to be in operation.
-.. [#restypegen] None of the specific values for `resourceTypeGeneral`
-   in the DataCite schema fits an instrument. This leaves "Other" as
-   the only option.
+.. [#restypegen] The DataCite schema includes "Instrument" in the
+   controlled list of values for `resourceTypeGeneral`.
 .. [#reltype] Use "HasPart" and "IsPartOf" in lieu of "HasComponent"
    and "IsComponentOf".
 .. [#desctype] Not all of the listed values for `descriptionType`
@@ -299,16 +298,6 @@ ordered by increasing importance, from least concern to critical:
   `RelatedIdentifier` / `relationType=HasMetadata` using some
   externally defined ontology seem to be the most viable approach
   anyway.
-
-+ It should be possible to tell from the PID and its metadata that
-  this one pertains to an instrument and not any other kind of
-  resource.  The only property in the DataCite schema suitable to hold
-  this information is `ResourceType` and its subproperty
-  `resourceTypeGeneral`.  `ResourceType` is free text which does not
-  offer a reliable classification.  The only usuable value for
-  `resourceTypeGeneral` is "Other".  It would be desirable to add
-  "Instrument" to the controlled list of values for
-  `resourceTypeGeneral`.
 
 + It is not obvious that the name of the instrument would be in
   `Title`.  This difficulty is even aggravated by the fact that there
