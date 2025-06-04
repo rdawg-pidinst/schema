@@ -1,0 +1,332 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Instrument",
+    "@comment": "Contributed by Wim Fremout, Royal Institute for Cultural Heritage (KIK-IRPA)",
+    "type": "object",
+    "required": [
+        "identifier",
+        "schemaVersion",
+        "landingPage",
+        "name",
+        "owners",
+        "manufacturers"
+    ],
+    "properties": {
+        "identifier": {
+            "title": "Identifier",
+            "description": "Unique string that identifies the instrument instance",
+            "type": "object",
+            "required": ["identifierType", "identifier"],
+            "properties": {
+                "identifier": {
+                    "title": "Identifier",
+                    "type": "string"
+                },
+                "identifierType": {
+                    "title": "Identifier Type",
+                    "description": "Type of the identifier",
+                    "type": "string"
+                }
+            }
+        },
+        "schemaVersion": {
+            "title": "Schema Version",
+            "description": "Version number of thePIDINST schema used in this record",
+            "type": "string",
+            "const": "1.0",
+            "default": "1.0"
+        },
+        "landingPage": {
+            "title": "Landing Page",
+            "description": "A landing page that the identifier resolves to",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "title": "Name",
+            "description": "Name by which the instrument instance is known",
+            "type": "string"
+        },
+        "owners": {
+            "title": "Owners",
+            "description": "Institution(s) responsible for the management of the instrument. This may include the legal owner, the operator or an institute providing access to the instrument.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "title": "Owner",
+                "type": "object",
+                "required": ["ownerName"],
+                "properties": {
+                    "ownerName": {
+                        "title": "Owner Name",
+                        "description": "Full name of the owner",
+                        "type": "string"
+                    },
+                    "ownerContact": {
+                        "title": "Owner Contact",
+                        "description": "Contact address of the owner",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "ownerIdentifier": {
+                        "title": "Owner Identifier",
+                        "description": "Identifier used to identify the owner",
+                        "type": "object",
+                        "required": ["ownerIdentifierType", "ownerIdentifier"],
+                        "properties": {
+                            "ownerIdentifier": {
+                                "title": "Owner Identifier",
+                                "type": "string"
+                            },
+                            "ownerIdentifierType": {
+                                "title": "Identifier Type",
+                                "description": "Type of the identifier",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "manufacturers": {
+            "title": "Manufacturers",
+            "description": "The isntrument's manufacturer(s) or developer. This may also be the owner for custom build instruments.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "title": "Manufacturer",
+                "type": "object",
+                "required": ["manufacturerName"],
+                "properties": {
+                    "manufacturerName": {
+                        "title": "Manufacturer Name",
+                        "description": "Full name of the manufacturer",
+                        "type": "string"
+                    },
+                    "manufacturerIdentifier": {
+                        "title": "Manufacturer Identifier",
+                        "description": "Identifier used to identify the manufacturer",
+                        "type": "object",
+                        "required": ["manufacturerIdentifierType", "manufacturerIdentifier"],
+                        "properties": {
+                            "manufacturerIdentifier": {
+                                "title": "Manufacturer Identifier",
+                                "type": "string"
+                            },
+                            "manufacturerIdentifierType": {
+                                "title": "Identifier Type",
+                                "description": "Type of the identifier",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "model": {
+            "title": "Model",
+            "description": "Name of the model or type of device as attributed by the manufacturer",
+            "type": "object",
+            "required": ["modelName"],
+            "properties": {
+                "modelName": {
+                    "title": "Model Name",
+                    "description": "Full name of the model",
+                    "type": "string"
+                },
+                "modelIdentifier": {
+                    "title": "Model Identifier",
+                    "description": "Identifier used to identify the model",
+                    "type": "object",
+                    "required": ["modelIdentifier", "modelIdentifierType"],
+                    "properties": {
+                        "modelIdentifier": {
+                            "title": "Model Identifier",
+                            "type": "string"
+                        },
+                        "modelIdentifierType": {
+                            "title": "Identifier Type",
+                            "description": "Type of the identifier",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "description": {
+            "title": "Description",
+            "description": "Technical description of the device and its capabilities",
+            "type": "string"
+        },
+        "instrumentTypes": {
+            "title": "Instrument Types",
+            "description": "Classification of the type of the instrument",
+            "type": "array",
+            "items": {
+                "title": "Instrument Type",
+                "type": "object",
+                "required": ["instrumentTypeName"],
+                "properties": {
+                    "instrumentTypeName": {
+                        "title": "Instrument Type Name",
+                        "description": "Full name of the instrument type",
+                        "type": "string"
+                    },
+                    "instrumentTypeIdentifier": {
+                        "title": "Instrument Type Identifier",
+                        "description": "Identifier used to identify the type of the instrument",
+                        "type": "object",
+                        "required": ["instrumentTypeIdentifier", "instrumentTypeIdentifierType"],
+                        "properties": {
+                            "instrumentTypeIdentifier": {
+                                "title": "Instrument Type Identifier",
+                                "type": "string"
+                            },
+                            "instrumentTypeIdentifierType": {
+                                "title": "Identifier Type",
+                                "description": "Type of the identifier",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "measuredVariables": {
+            "title": "Measured Variables",
+            "description": "The variable(s) that this instrument measures or observes",
+            "type": "array",
+            "items": {
+                "title": "Measured Variable",
+                "type": "string"
+            }
+        },
+        "dates": {
+            "title": "Dates",
+            "description": "Dates relevant to the instrument",
+            "type": "array",
+            "items": {
+                "title": "Date",
+                "type": "object",
+                "required": ["date", "dateType"],
+                "properties": {
+                    "date": {
+                        "title": "Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "dateType": {
+                        "title": "Date Type",
+                        "description": "The type of the date",
+                        "type": "string",
+                        "enum": ["Commissioned", "DeCommissioned"]
+                    }
+                }
+            }
+        },
+        "relatedIdentifiers": {
+            "title": "Related Identifiers",
+            "description": "Identifiers of related resources",
+            "type": "array",
+            "items": {
+                "title": "Related Identifier",
+                "type": "object",
+                "required": [
+                    "relatedIdentifier",
+                    "relatedIdentifierType",
+                    "relationType"
+                ],
+                "properties": {
+                    "relatedIdentifier": {
+                        "title": "Related Identifier",
+                        "type": "string"
+                    },
+                    "relatedIdentifierType": {
+                        "title": "Identifier Type",
+                        "description": "Type of the identifier",
+                        "type": "string",
+                        "enum": [
+                            "ARK",
+                            "arXiv",
+                            "bibcode",
+                            "DOI",
+                            "EAN13",
+                            "EISSN",
+                            "Handle",
+                            "IGSN",
+                            "ISBN",
+                            "ISSN",
+                            "ISTC",
+                            "LISSN",
+                            "PMID",
+                            "PURL",
+                            "RAiD",
+                            "RRID",
+                            "UPC",
+                            "URL",
+                            "URN",
+                            "w3id"
+                        ]
+                    },
+                    "relationType": {
+                        "title": "Relation Type",
+                        "description": "Description of the relationship",
+                        "type": "string",
+                        "enum": [
+                            "IsDescribedBy",
+                            "IsNewVersionOf",
+                            "IsPreviousVersionOf",
+                            "HasComponent",
+                            "IsComponentOf",
+                            "References",
+                            "HasMetadata",
+                            "WasUsedIn",
+                            "IsIdenticalTo",
+                            "IsAttachedTo"
+                        ]
+                    },
+                    "relatedIdentifierName": {
+                        "title": "Supplementary Name",
+                        "description": "A name for the related resource, may be used to give a hint on the content of that resource",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "alternateIdentifiers": {
+            "title": "Alternate Identifiers",
+            "description": "Identifiers other than the PIDINST pertaining to the same instruemnt instance. This should be used if the instrument has a serial number. Other possible uses include an owner's inventory number or an entry in some instrument data base",
+            "type": "array",
+            "items": {
+                "title": "Alternate Identifier",
+                "type": "object",
+                "required": [
+                    "alternateIdentifier",
+                    "alternateIdentifierType"
+                ],
+                "properties": {
+                    "alternateIdentifier": {
+                        "title": "Alternate Identifier",
+                        "type": "string"
+                    },
+                    "alternateIdentifierType": {
+                        "title": "Identifier Type",
+                        "description": "Type of the identifier",
+                        "type": "string",
+                        "enum": [
+                            "SerialNumber",
+                            "InventoryNumber",
+                            "Other"
+                        ]
+                    },
+                    "alternateIdentifierName": {
+                        "title": "Supplementary Name",
+                        "description": "A supplementary name for the identifier type. This is mostly useful if the type is 'Other'.",
+                        "type": "string"
+                    }
+                }
+            }
+
+        }
+    }
+}
