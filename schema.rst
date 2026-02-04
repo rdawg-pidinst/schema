@@ -162,6 +162,163 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | is Other.                |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 
+Definition of terms in controlled lists of values
+-------------------------------------------------
+
+dateType
+........
+
++----------------+---------------------------------------------------------+
+| Value          | Definition                                              |
++----------------+---------------------------------------------------------+
+| Commissioned   | The date when the instrument started to be in operation |
++----------------+---------------------------------------------------------+
+| DeCommissioned | The date when the instrument ceased to be in operation  |
++----------------+---------------------------------------------------------+
+
+relatedIdentifierType
+.....................
+
++---------+-------------------------------------------------------------+
+|  Value  | Definition                                                  |
++---------+-------------------------------------------------------------+
+| ARK     | Archival Resource Key: a URI designed to support long-term  |
+|         | access to information objects.                              |
++---------+-------------------------------------------------------------+
+| arXiv   | arXiv identifier: arXiv.org is a repository of preprints    |
+|         | of scientific papers in the fields of mathematics, physics, |
+|         | astronomy, computer science, quantitative biology,          |
+|         | statistics, and quantitative finance.                       |
++---------+-------------------------------------------------------------+
+| bibcode | Astrophysics Data System bibliographic codes: a             |
+|         | standardized 19-character identifier.                       |
++---------+-------------------------------------------------------------+
+| DOI     | Digital Object Identifier: a character string used to       |
+|         | uniquely identify an object.  A DOI name is divided into    |
+|         | two parts, a prefix and a suffix, separated by a slash.     |
++---------+-------------------------------------------------------------+
+| EAN13   | European Article Number, now renamed International Article  |
+|         | Number, but retaining the original acronym, is a 13-digit   |
+|         | barcoding standard that is a superset of the original       |
+|         | 12-digit Universal Product Code (UPC) system.               |
++---------+-------------------------------------------------------------+
+| EISSN   | Electronic International Standard Serial Number: ISSN used  |
+|         | to identify periodicals in electronic form (eISSN or        |
+|         | e-ISSN).                                                    |
++---------+-------------------------------------------------------------+
+| Handle  | This refers specifically to an ID in the Handle system      |
+|         | operated by the Corporation for National Research           |
+|         | Initiatives (CNRI).                                         |
++---------+-------------------------------------------------------------+
+| IGSN    | A persistent unique identifier for physical samples and     |
+|         | specimens.  See https://www.igsn.org/                       |
++---------+-------------------------------------------------------------+
+| ISBN    | International Standard Book Number: a unique numeric book   |
+|         | identifier.                                                 |
++---------+-------------------------------------------------------------+
+| ISSN    | International Standard Serial Number: a unique 8-digit      |
+|         | number used to identify a print or electronic periodical    |
+|         | publication.                                                |
++---------+-------------------------------------------------------------+
+| ISTC    | International Standard Text Code: a unique number assigned  |
+|         | to a textual work.  An ISTC consists of 16 numbers and/or   |
+|         | letters.                                                    |
++---------+-------------------------------------------------------------+
+| LISSN   | The linking ISSN or ISSN-L enables collocation or linking   |
+|         | among different media versions of a continuing resource.    |
++---------+-------------------------------------------------------------+
+| PMID    | PubMed identifier: a unique number assigned to each PubMed  |
+|         | record.                                                     |
++---------+-------------------------------------------------------------+
+| PURL    | Persistent Uniform Resource Locator.                        |
++---------+-------------------------------------------------------------+
+| RAiD    | Research Activity Identifier, see https://www.raid.org.au/  |
++---------+-------------------------------------------------------------+
+| RRID    | Research Resource Identifiers, see https://www.rrids.org/   |
++---------+-------------------------------------------------------------+
+| UPC     | Universal Product Code is a barcode symbology used for      |
+|         | tracking trade items in stores.                             |
++---------+-------------------------------------------------------------+
+| URL     | Uniform Resource Locator, also known as web address.        |
++---------+-------------------------------------------------------------+
+| URN     | Uniform Resource Name: a unique and persistent identifier   |
+|         | of an electronic document.                                  |
++---------+-------------------------------------------------------------+
+| w3id    | Permanent identifier for Web applications.  Mostly used to  |
+|         | publish vocabularies and ontologies.                        |
++---------+-------------------------------------------------------------+
+
+relationType
+............
+
++---------------------+-------------------------------------------------------+
+|  Value              | Definition                                            |
++---------------------+-------------------------------------------------------+
+| IsDescribedBy       | The linked resource is a document describing the      |
+|                     | instrument.                                           |
++---------------------+-------------------------------------------------------+
+| IsNewVersionOf      | If an instrument is substantially modified, a new PID |
+|                     | may be attributed to the new version.  In that case   |
+|                     | the old and the new PID should be linked to each      |
+|                     | other.  IsNewVersionOf should be used in the new PID  |
+|                     | record to link the old instrument before the          |
+|                     | modification.                                         |
++---------------------+-------------------------------------------------------+
+| IsPreviousVersionOf | If an instrument is substantially modified, a new PID |
+|                     | may be attributed to the new version.  In that case   |
+|                     | the old and the new PID should be linked to each      |
+|                     | other.  IsPreviousVersionOf should be used in the old |
+|                     | PIDrecord to link the new instrument after the        |
+|                     | modification.                                         |
++---------------------+-------------------------------------------------------+
+| HasComponent        | In the case of a complex instrument, having multiple  |
+|                     | components that may be considered as instruments in   |
+|                     | their own right, with their own PIDs, these PIDs      |
+|                     | should be linked.  HasComponent should be used in the |
+|                     | PID record of the compound instrument to link the     |
+|                     | components.                                           |
++---------------------+-------------------------------------------------------+
+| IsComponentOf       | In the case of a complex instrument, having multiple  |
+|                     | components that may be considered as instruments in   |
+|                     | their own right, with their own PIDs, these PIDs      |
+|                     | should be linked.  IsComponentOf should be used in    |
+|                     | the PID records of the components to link the         |
+|                     | compound instrument.                                  |
++---------------------+-------------------------------------------------------+
+| References          | This may be used in the generic case, if no other     |
+|                     | more specific relation type applies.                  |
++---------------------+-------------------------------------------------------+
+| HasMetadata         | If there is additional metadata describing the        |
+|                     | instrument, possibly using a community specific       |
+|                     | metadata standard, that metadata record may be linked |
+|                     | using HasMetadata.                                    |
++---------------------+-------------------------------------------------------+
+| WasUsedIn           | If the instrument has been deployed in some research  |
+|                     | activity, such as a cruise of a research vessel,      |
+|                     | WasUsedIn may be used to link that activity.          |
++---------------------+-------------------------------------------------------+
+| IsIdenticalTo       | If multiple PIDs have been attributed to a single     |
+|                     | instrument (which should preferably be avoided in the |
+|                     | first place), these PID records should be linked to   |
+|                     | each other using IsIdenticalTo.                       |
++---------------------+-------------------------------------------------------+
+| IsAttachedTo        | If the instrument is permanently attached to another  |
+|                     | instrument, the PID records for both instruments      |
+|                     | should link to each other using IsAttachedTo.         |
++---------------------+-------------------------------------------------------+
+
+alternateIdentifierType
+.......................
+
++-----------------+------------------------------------------------+
+| Value           | Definition                                     |
++-----------------+------------------------------------------------+
+| SerialNumber    | A serial number attributed by the manufacturer |
++-----------------+------------------------------------------------+
+| InventoryNumber | An inventory number used by the owner          |
++-----------------+------------------------------------------------+
+| Other           | Any other kind of identifier                   |
++-----------------+------------------------------------------------+
 
 Notes
 -----
