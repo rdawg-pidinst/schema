@@ -93,9 +93,19 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 9.2.1  | instrumentTypeIdentifierType       | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| 10     | MeasuredVariable                   | R          | 0-n | The variable(s) that     | Free text              |
+| 10     | MeasuredVariable                   | R          | 0-n | The variable(s) that     |                        |
 |        |                                    |            |     | this instrument          |                        |
 |        |                                    |            |     | measures or observes     |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 10.1   | measuredVariableName               | R          | 1   | Full name of the         | Free text              |
+|        |                                    |            |     | variable                 |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 10.2   | measuredVariableIdentifier         | O          | 0-1 | Identifier used to       | Free text, should be a |
+|        |                                    |            |     | identify the variable    | globally unique        |
+|        |                                    |            |     |                          | identifier             |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 10.2.1 | measuredVariableIdentifierType     | O          | 1   | Type of the identifier   | Free text              |
+|        |                                    |            |     |                          |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601               |
 |        |                                    |            |     | instrument               |                        |
