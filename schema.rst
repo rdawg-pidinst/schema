@@ -165,7 +165,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | instrument follows or    |                        |
 |        |                                    |            |     | the physical phenomenon  |                        |
 |        |                                    |            |     | it makes use of in order |                        |
-|        |                                    |            |     | make its observation     |                        |
+|        |                                    |            |     | to make its observation  |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | XX.1   | measurementTechniqueName           | R          | 1   | Full name of the         | Free text              |
 |        |                                    |            |     | measurement technique    |                        |
