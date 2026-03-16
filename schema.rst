@@ -161,6 +161,14 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     | alternateIdentifierType  |                        |
 |       |                              |            |     | is Other.                |                        |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
+| XX    | InstrumentStatus             | O          | 0-1 | Current status of the    | Controlled list of     |
+|       |                              |            |     | instrument: whether it   | values:                |
+|       |                              |            |     | is active or not         |   Planning             |
+|       |                              |            |     |                          |   Commissioning        |
+|       |                              |            |     |                          |   Active               |
+|       |                              |            |     |                          |   Inactive             |
+|       |                              |            |     |                          |   Terminated           |
++-------+------------------------------+------------+-----+--------------------------+------------------------+
 
 Definition of terms in controlled lists of values
 -------------------------------------------------
@@ -319,6 +327,27 @@ alternateIdentifierType
 +-----------------+------------------------------------------------+
 | Other           | Any other kind of identifier                   |
 +-----------------+------------------------------------------------+
+
+InstrumentStatus
+................
+
++---------------+-------------------------------------------------+
+| Value         | Definition                                      |
++---------------+-------------------------------------------------+
+| Planning      | instrument in design or building phase, not yet |
+|               | active                                          |
++---------------+-------------------------------------------------+
+| Commissioning | instrument being tested or calibrated, before   |
+|               | regular operation                               |
++---------------+-------------------------------------------------+
+| Active        | instrument in use                               |
++---------------+-------------------------------------------------+
+| Inactive      | instrument not active, but could be reactivated |
+|               |                                                 |
++---------------+-------------------------------------------------+
+| Terminated    | instrument decommissioned, destroyed, lost or   |
+|               | terminated                                      |
++---------------+-------------------------------------------------+
 
 Notes
 -----
