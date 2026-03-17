@@ -161,6 +161,18 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | alternateIdentifierType  |                        |
 |        |                                    |            |     | is Other.                |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| XX     | Subject                            | O          | 0-n | Subject or keyword       |                        |
+|        |                                    |            |     | describing the           |                        |
+|        |                                    |            |     | instrument               |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| XX.1   | subjectName                        | O          | 1   | Subject name or text     | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| XX.2   | subjectIdentifier                  | O          | 0-1 | Identifier in the case   | Free text, should be a |
+|        |                                    |            |     | it refers to a term from | globally unique        |
+|        |                                    |            |     | an external vocabulary   | identifier             |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| XX.2.1 | subjectIdentifierType              | O          | 1   | Type of the identifier   | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
 
 
 Notes
