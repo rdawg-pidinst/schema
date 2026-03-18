@@ -194,7 +194,7 @@ relatedIdentifierType
 |         | standardized 19-character identifier.                       |
 +---------+-------------------------------------------------------------+
 | DOI     | Digital Object Identifier: a character string used to       |
-|         | uniquely identify an object.  A DOI name is divided into    |
+|         | uniquely identify an object. A DOI name is divided into     |
 |         | two parts, a prefix and a suffix, separated by a slash.     |
 +---------+-------------------------------------------------------------+
 | EAN13   | European Article Number, now renamed International Article  |
@@ -211,7 +211,7 @@ relatedIdentifierType
 |         | Initiatives (CNRI).                                         |
 +---------+-------------------------------------------------------------+
 | IGSN    | A persistent unique identifier for physical samples and     |
-|         | specimens.  See https://www.igsn.org/                       |
+|         | specimens. See https://www.igsn.org/                        |
 +---------+-------------------------------------------------------------+
 | ISBN    | International Standard Book Number: a unique numeric book   |
 |         | identifier.                                                 |
@@ -221,7 +221,7 @@ relatedIdentifierType
 |         | publication.                                                |
 +---------+-------------------------------------------------------------+
 | ISTC    | International Standard Text Code: a unique number assigned  |
-|         | to a textual work.  An ISTC consists of 16 numbers and/or   |
+|         | to a textual work. An ISTC consists of 16 numbers and/or    |
 |         | letters.                                                    |
 +---------+-------------------------------------------------------------+
 | LISSN   | The linking ISSN or ISSN-L enables collocation or linking   |
@@ -244,7 +244,7 @@ relatedIdentifierType
 | URN     | Uniform Resource Name: a unique and persistent identifier   |
 |         | of an electronic document.                                  |
 +---------+-------------------------------------------------------------+
-| w3id    | Permanent identifier for Web applications.  Mostly used to  |
+| w3id    | Permanent identifier for Web applications. Mostly used to   |
 |         | publish vocabularies and ontologies.                        |
 +---------+-------------------------------------------------------------+
 
@@ -258,30 +258,30 @@ relationType
 |                     | instrument.                                           |
 +---------------------+-------------------------------------------------------+
 | IsNewVersionOf      | If an instrument is substantially modified, a new PID |
-|                     | may be attributed to the new version.  In that case   |
+|                     | may be attributed to the new version. In that case    |
 |                     | the old and the new PID should be linked to each      |
-|                     | other.  IsNewVersionOf should be used in the new PID  |
+|                     | other. IsNewVersionOf should be used in the new PID   |
 |                     | record to link the old instrument before the          |
 |                     | modification.                                         |
 +---------------------+-------------------------------------------------------+
 | IsPreviousVersionOf | If an instrument is substantially modified, a new PID |
-|                     | may be attributed to the new version.  In that case   |
+|                     | may be attributed to the new version. In that case    |
 |                     | the old and the new PID should be linked to each      |
-|                     | other.  IsPreviousVersionOf should be used in the old |
+|                     | other. IsPreviousVersionOf should be used in the old  |
 |                     | PIDrecord to link the new instrument after the        |
 |                     | modification.                                         |
 +---------------------+-------------------------------------------------------+
 | HasComponent        | In the case of a complex instrument, having multiple  |
 |                     | components that may be considered as instruments in   |
 |                     | their own right, with their own PIDs, these PIDs      |
-|                     | should be linked.  HasComponent should be used in the |
+|                     | should be linked. HasComponent should be used in the  |
 |                     | PID record of the compound instrument to link the     |
 |                     | components.                                           |
 +---------------------+-------------------------------------------------------+
 | IsComponentOf       | In the case of a complex instrument, having multiple  |
 |                     | components that may be considered as instruments in   |
 |                     | their own right, with their own PIDs, these PIDs      |
-|                     | should be linked.  IsComponentOf should be used in    |
+|                     | should be linked. IsComponentOf should be used in     |
 |                     | the PID records of the components to link the         |
 |                     | compound instrument.                                  |
 +---------------------+-------------------------------------------------------+
