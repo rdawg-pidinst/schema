@@ -116,8 +116,8 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |       |                              |            |     |                          |   Handle, IGSN, ISBN,  |
 |       |                              |            |     |                          |   ISSN, ISTC, LISSN,   |
 |       |                              |            |     |                          |   PMID, PURL, RAiD,    |
-|       |                              |            |     |                          |   RRID, UPC, URL,      |
-|       |                              |            |     |                          |   URN, w3id            |
+|       |                              |            |     |                          |   RRID, SWHID, UPC,    |
+|       |                              |            |     |                          |   URL, URN, w3id       |
 +-------+------------------------------+------------+-----+--------------------------+------------------------+
 | 12.2  | relationType                 | R          | 1   | Description of the       | Controlled list        |
 |       |                              |            |     | relationship             | of values:             |
@@ -235,6 +235,11 @@ relatedIdentifierType
 | RAiD    | Research Activity Identifier, see https://www.raid.org.au/  |
 +---------+-------------------------------------------------------------+
 | RRID    | Research Resource Identifiers, see https://www.rrids.org/   |
++---------+-------------------------------------------------------------+
+| SWHID   | SoftWare Hash IDentifiers are persistent, intrinsic         |
+|         | identifiers for software source code artifacts such as      |
+|         | source code files, source trees, commits, and other objects |
+|         | typically found in version control systems.                 |
 +---------+-------------------------------------------------------------+
 | UPC     | Universal Product Code is a barcode symbology used for      |
 |         | tracking trade items in stores.                             |
