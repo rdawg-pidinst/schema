@@ -161,23 +161,23 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | alternateIdentifierType  |                        |
 |        |                                    |            |     | is Other.                |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| XX     | MeasurementTechnique               | R          | 0-n | The protocol that the    |                        |
+| 14     | MeasurementTechnique               | R          | 0-n | The protocol that the    |                        |
 |        |                                    |            |     | instrument follows or    |                        |
 |        |                                    |            |     | the physical phenomenon  |                        |
 |        |                                    |            |     | it makes use of in order |                        |
 |        |                                    |            |     | to make its observation  |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| XX.1   | measurementTechniqueName           | R          | 1   | Full name of the         | Free text              |
+| 14.1   | measurementTechniqueName           | R          | 1   | Full name of the         | Free text              |
 |        |                                    |            |     | measurement technique    |                        |
 |        |                                    |            |     |                          |                        |
 |        |                                    |            |     |                          |                        |
 |        |                                    |            |     |                          |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| XX.2   | measurementTechniqueIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
+| 14.2   | measurementTechniqueIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
 |        |                                    |            |     | identify the mesurment   | globally unique        |
 |        |                                    |            |     | technique                | identifier             |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| XX.2.1 | measurementTechniqueIdentifierType | O          | 1   | Type of the identifier   | Free text              |
+| 14.2.1 | measurementTechniqueIdentifierType | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 
 Definition of terms in controlled lists of values
