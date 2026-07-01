@@ -192,6 +192,18 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 15.2.1 | measuredQuantityIdentifierType     | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 16     | Subject                            | O          | 0-n | Subject or keyword       |                        |
+|        |                                    |            |     | describing the           |                        |
+|        |                                    |            |     | instrument               |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 16.1   | subjectName                        | O          | 1   | Subject name or text     | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 16.2   | subjectIdentifier                  | O          | 0-1 | Identifier in the case   | Free text, should be a |
+|        |                                    |            |     | it refers to a term from | globally unique        |
+|        |                                    |            |     | an external vocabulary   | identifier             |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 16.2.1 | subjectIdentifierType              | O          | 1   | Type of the identifier   | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
 
 Definition of terms in controlled lists of values
 -------------------------------------------------
