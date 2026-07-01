@@ -4,7 +4,7 @@
    :target: https://doi.org/10.15497/RDA00070
    :alt: DOI:10.15497/RDA00070
 
-Medadata Schema for the Persistent Identification of Scientific Instruments
+Metadata Schema for the Persistent Identification of Scientific Instruments
 ===========================================================================
 
 The `Research Data Alliance`_ working group `Persistent Identification

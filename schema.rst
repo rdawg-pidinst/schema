@@ -94,8 +94,8 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 | 9.2.1  | instrumentTypeIdentifierType       | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 10     | MeasuredVariable                   | R          | 0-n | The variable(s) that     | Free text              |
-|        |                                    |            |     | this instrument          |                        |
-|        |                                    |            |     | measures or observes     |                        |
+|        |                                    |            |     | this instrument          | Deprecated, please use |
+|        |                                    |            |     | measures or observes     | MeasuredQuantity       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601               |
 |        |                                    |            |     | instrument               |                        |
@@ -116,8 +116,8 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     |                          |   Handle, IGSN, ISBN,  |
 |        |                                    |            |     |                          |   ISSN, ISTC, LISSN,   |
 |        |                                    |            |     |                          |   PMID, PURL, RAiD,    |
-|        |                                    |            |     |                          |   RRID, UPC, URL,      |
-|        |                                    |            |     |                          |   URN, w3id            |
+|        |                                    |            |     |                          |   RRID, SWHID, UPC,    |
+|        |                                    |            |     |                          |   URL, URN, w3id       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 12.2   | relationType                       | R          | 1   | Description of the       | Controlled list        |
 |        |                                    |            |     | relationship             | of values:             |
@@ -178,6 +178,19 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | technique                | identifier             |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 14.2.1 | measurementTechniqueIdentifierType | O          | 1   | Type of the identifier   | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15     | MeasuredQuantity                   | R          | 0-n | The variable(s) that     |                        |
+|        |                                    |            |     | this instrument measures |                        |
+|        |                                    |            |     | or observes              |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.1   | measuredQuantityName               | R          | 1   | Full name of the         | free text              |
+|        |                                    |            |     | variable                 |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.2   | measuredQuantityIdentifier         | O          | 0-1 | Identifier used to       | Free text, should be a |
+|        |                                    |            |     | identify the variable    | globally unique        |
+|        |                                    |            |     |                          | identifier             |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.2.1 | measuredQuantityIdentifierType     | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | XX     | Subject                            | O          | 0-n | Subject or keyword       |                        |
 |        |                                    |            |     | describing the           |                        |
@@ -265,6 +278,11 @@ relatedIdentifierType
 | RAiD    | Research Activity Identifier, see https://www.raid.org.au/  |
 +---------+-------------------------------------------------------------+
 | RRID    | Research Resource Identifiers, see https://www.rrids.org/   |
++---------+-------------------------------------------------------------+
+| SWHID   | SoftWare Hash IDentifiers are persistent, intrinsic         |
+|         | identifiers for software source code artifacts such as      |
+|         | source code files, source trees, commits, and other objects |
+|         | typically found in version control systems.                 |
 +---------+-------------------------------------------------------------+
 | UPC     | Universal Product Code is a barcode symbology used for      |
 |         | tracking trade items in stores.                             |
