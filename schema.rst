@@ -94,8 +94,8 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 | 9.2.1  | instrumentTypeIdentifierType       | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 10     | MeasuredVariable                   | R          | 0-n | The variable(s) that     | Free text              |
-|        |                                    |            |     | this instrument          |                        |
-|        |                                    |            |     | measures or observes     |                        |
+|        |                                    |            |     | this instrument          | Deprecated, please use |
+|        |                                    |            |     | measures or observes     | MeasuredQuantity       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601               |
 |        |                                    |            |     | instrument               |                        |
@@ -178,6 +178,19 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | technique                | identifier             |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 14.2.1 | measurementTechniqueIdentifierType | O          | 1   | Type of the identifier   | Free text              |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15     | MeasuredQuantity                   | R          | 0-n | The variable(s) that     |                        |
+|        |                                    |            |     | this instrument measures |                        |
+|        |                                    |            |     | or observes              |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.1   | measuredQuantityName               | R          | 1   | Full name of the         | free text              |
+|        |                                    |            |     | variable                 |                        |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.2   | measuredQuantityIdentifier         | O          | 0-1 | Identifier used to       | Free text, should be a |
+|        |                                    |            |     | identify the variable    | globally unique        |
+|        |                                    |            |     |                          | identifier             |
++--------+------------------------------------+------------+-----+--------------------------+------------------------+
+| 15.2.1 | measuredQuantityIdentifierType     | O          | 1   | Type of the identifier   | Free text              |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 
 Definition of terms in controlled lists of values
