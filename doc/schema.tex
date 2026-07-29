@@ -219,7 +219,7 @@ Manufacturer (occ.\ 1--n).  Each of them must have a manufacturerName
 manufacturerIdentifier is included for a Manufacturer, it must also
 have a manufacturerIdentifierType (occ.\ 1).
 
-\newlength{\idcolw}\settowidth{\idcolw}{5.3.1}
+\newlength{\idcolw}\settowidth{\idcolw}{14.2.1}
 \newlength{\propcolw}\settowidth{\propcolw}{instrumentTypeIdentifierType}
 \newlength{\occcolw}\settowidth{\occcolw}{\emph{Occ}}
 \newlength{\valcolw}\settowidth{\valcolw}{Controlled list of values:}
@@ -231,7 +231,7 @@ have a manufacturerIdentifierType (occ.\ 1).
 \addtolength{\defcolw}{-\valcolw}
 \addtolength{\defcolw}{-10\tabcolsep}
 
-\begin{longtable}{|l|l|l|p{\defcolw}|p{\valcolw}|}
+\begin{longtable}{|l|p{\propcolw}|l|p{\defcolw}|p{\valcolw}|}
   \hline
   \emph{ID} & \emph{Property}          & \emph{Occ}
         & \emph{Definition}
@@ -437,11 +437,11 @@ have a manufacturerIdentifierType (occ.\ 1).
   14.1  & measurementTechniqueName     & 1
         & Full name of the measurement technique  & Free text \\
   \hline
-  14.2  & measurementTechniqueIdentifier & 0--1
+  14.2  & measurementTechnique\-Identifier & 0--1
         & Identifier used to identify the measurement technique
         & Free text, should be a globally unique identifier \\
   \hline
-  14.2.1 & measurementTechniqueIdentifierType & 1
+  14.2.1 & measurementTechnique\-IdentifierType & 1
          & Type of the identifier & Free text \\
   \hline
   15    & MeasuredQuantity             & 0--n
@@ -454,7 +454,7 @@ have a manufacturerIdentifierType (occ.\ 1).
         & Identifier used to identify the variable
         & Free text, should be a globally unique identifier \\
   \hline
-  15.2.1 & measuredQuantityIdentifierType & 1
+  15.2.1 & measuredQuantity\-IdentifierType & 1
          & Type of the identifier & Free text \\
   \hline
   16    & Subject                      & 0--n
