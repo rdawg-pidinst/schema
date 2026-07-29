@@ -328,7 +328,10 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   10    & MeasuredVariable             & 0--n
         & The variable(s) that this instrument measures or observes
-        & Free text \\
+        & \begin{minipage}[t]{\valcolw}
+            Free text \\
+            \emph{Deprecated}, please use MeasuredQuantity
+          \end{minipage} \\
   \hline
   11    & Date                         & 0--n
         & Dates relevant to the instrument & ISO 8601 \\
@@ -369,6 +372,7 @@ have a manufacturerIdentifierType (occ.\ 1).
             \item PURL
             \item RAiD
             \item RRID
+            \item SWHID
             \item UPC
             \item URL
             \item URN
@@ -424,6 +428,48 @@ have a manufacturerIdentifierType (occ.\ 1).
         & A supplementary name for the identifier type.  This is
           mostly useful if alternateIdentifierType is Other.
         & Free text \\
+  \hline
+  14    & MeasurementTechnique         & 0--n
+        & The protocol that the instrument follows or the physical
+          phenomenon it makes use of in order to make its observation
+        & \\
+  \hline
+  14.1  & measurementTechniqueName     & 1
+        & Full name of the measurement technique  & Free text \\
+  \hline
+  14.2  & measurementTechniqueIdentifier & 0--1
+        & Identifier used to identify the measurement technique
+        & Free text, should be a globally unique identifier \\
+  \hline
+  14.2.1 & measurementTechniqueIdentifierType & 1
+         & Type of the identifier & Free text \\
+  \hline
+  15    & MeasuredQuantity             & 0--n
+        & The variable(s) that this instrument measures or observes & \\
+  \hline
+  15.1  & measuredQuantityName         & 1
+        & Full name of the variable & Free text \\
+  \hline
+  15.2  & measuredQuantityIdentifier   & 0--1
+        & Identifier used to identify the variable
+        & Free text, should be a globally unique identifier \\
+  \hline
+  15.2.1 & measuredQuantityIdentifierType & 1
+         & Type of the identifier & Free text \\
+  \hline
+  16    & Subject                      & 0--n
+        & Subject or keyword describing the instrument & \\
+  \hline
+  16.1  & subjectName                  & 1
+        & Subject name or text & Free text \\
+  \hline
+  16.2  & subjectIdentifier            & 0--1
+        & Identifier in the case it refers to a term from an external
+          vocabulary
+        & Free text, should be a globally unique identifier \\
+  \hline
+  16.2.1 & subjectIdentifierType       & 1
+         & Type of the identifier & Free text \\
   \hline
   \caption{Expanded PIDINST properties}
   \label{tab:schema:expandprops}
@@ -567,6 +613,12 @@ have been adopted from the DataCite Metadata Schema
   \\ \hline
   RRID    &
   Research Resource Identifiers, see \url{https://www.rrids.org/}
+  \\ \hline
+  SWHID   &
+  SoftWare Hash IDentifiers are persistent, intrinsic identifiers for
+  software source code artifacts such as source code files, source
+  trees, commits, and other objects typically found in version control
+  systems.
   \\ \hline
   UPC     &
   Universal Product Code is a barcode symbology used for tracking
