@@ -150,33 +150,34 @@ the property is:
 \item Mandatory (M): the property must be provided for the metadata
   record to be valid,
 \item Recommended (R): the property is optional, but it is recommended
-  to be added if applicable, or
+  to be added if applicable,
 \item Optional (O): the property may be added to provide a richer
-  description.
+  description, or
+\item Deprecated (D): the property is deprecated: another property has
+  been added to the schema to replace it in the future.
 \end{itemize}
-In the present version of the schema, all properties are either
-mandatory or recommended.  It is envisioned that additional optional
-properties (in addition to mandatory and recommended properties) will
-be added in the future.
 
 \begin{longtable}{|l|l|l|}
   \hline
   \emph{ID} & \emph{Property} & \emph{Obligation} \\
   \hline \endhead
   \hline \endfoot\endlastfoot
-  1     & Identifier          & M \\
-  2     & SchemaVersion       & M \\
-  3     & LandingPage         & M \\
-  4     & Name                & M \\
-  5     & Owner               & M \\
-  6     & Manufacturer        & M \\
-  7     & Model               & R \\
-  8     & Description         & R \\
-  9     & InstrumentType      & R \\
-  10    & MeasuredVariable    & R \\
-  11    & Date                & R \\
-  12    & RelatedIdentifier   & R \\
-  13    & AlternateIdentifier & R \\
+  1     & Identifier           & M \\
+  2     & SchemaVersion        & M \\
+  3     & LandingPage          & M \\
+  4     & Name                 & M \\
+  5     & Owner                & M \\
+  6     & Manufacturer         & M \\
+  7     & Model                & R \\
+  8     & Description          & R \\
+  9     & InstrumentType       & R \\
+  10    & MeasuredVariable     & D \\
+  11    & Date                 & R \\
+  12    & RelatedIdentifier    & R \\
+  13    & AlternateIdentifier  & R \\
+  14    & MeasurementTechnique & R \\
+  15    & MeasuredQuantity     & R \\
+  16    & Subject              & O \\
   \hline
   \caption{Overview of PIDINST properties}
   \label{tab:schema:propoverview}
