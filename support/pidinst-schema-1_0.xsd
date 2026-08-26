@@ -6,9 +6,6 @@
     XML Schema Definition for the
     Metadata Schema for the Persistent Identification of Instruments
     Version 1.0
-
-    Important note: this XSD is preliminary as version 1.0 of the
-    PIDINST schema has not yet been published!
   </xsd:documentation>
 </xsd:annotation>
 
