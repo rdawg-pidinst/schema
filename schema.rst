@@ -52,7 +52,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | manufacturer(s) or       |                        |
 |        |                                    |            |     | developer. This may      |                        |
 |        |                                    |            |     | also be the owner for    |                        |
-|        |                                    |            |     | custom build             |                        |
+|        |                                    |            |     | custom-built             |                        |
 |        |                                    |            |     | instruments              |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 6.1    | manufacturerName                   | M          | 1   | Full name of the         | Free text              |
@@ -174,7 +174,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     |                          |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 14.2   | measurementTechniqueIdentifier     | O          | 0-1 | Identifier used to       | Free text, should be a |
-|        |                                    |            |     | identify the mesurment   | globally unique        |
+|        |                                    |            |     | identify the measurement | globally unique        |
 |        |                                    |            |     | technique                | identifier             |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 14.2.1 | measurementTechniqueIdentifierType | O          | 1   | Type of the identifier   | Free text              |
@@ -183,7 +183,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | this instrument measures |                        |
 |        |                                    |            |     | or observes              |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| 15.1   | measuredQuantityName               | R          | 1   | Full name of the         | free text              |
+| 15.1   | measuredQuantityName               | R          | 1   | Full name of the         | Free text              |
 |        |                                    |            |     | variable                 |                        |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 15.2   | measuredQuantityIdentifier         | O          | 0-1 | Identifier used to       | Free text, should be a |
