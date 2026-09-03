@@ -1,0 +1,583 @@
+id: https://example.invalid/pidinst
+name: pidinst
+title: Metadata Schema for the Persistent Identification of Instruments
+description: >-
+  A schema for the persistent identification of scientific instruments by the
+  institutions or bodies that use or manage them.
+conforms_to: https://doi.org/10.15497/RDA00070
+created_by: orcid:0000-0002-6095-8718
+contributors:
+  - orcid:0000-0002-1266-3819
+  - orcid:0000-0003-4163-9575
+  - orcid:0000-0003-3000-0020
+  - orcid:0000-0003-0870-3192
+  - orcid:0000-0001-5911-6022
+  - orcid:0000-0003-3585-6733
+  - orcid:0000-0001-5492-3212
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  orcid: https://orcid.org/
+  pidinst: https://example.invalid/pidinst/
+default_prefix: pidinst
+
+imports:
+  - linkml:types
+default_range: string
+
+classes:
+  PIDInstObjectMixin:
+    description: A mixin used by all objects defined in this schema.
+    notes:
+      - This mixin is intended to facilitate customization of this schema, by
+        allowing another schema to (i) import the present schema and (ii)
+        redefine this mixin as needed.
+    mixin: true
+
+  PIDInstIsIdentifiableEntity:
+    description:
+      A mixin that represents any kind of identifiable entity, and that contains
+      the slots that are shared by all classes in this schema intended to
+      represent such entities.
+    notes:
+      - The main purpose of having these slots in a shared mixin is to be able
+        to state once and for all the constraint that an `identifier_type` must
+        be present whenever an `identifier` is present.
+    mixin: true
+    attributes:
+      name:
+        description: The human-readable name of the entity.
+        required: true
+      identifier:
+        description:
+          An identifier (not necessarily human-readable) for the entity.
+        comments:
+          - This is not an identifier in the LinkML sense of the term – this is
+            a string that identifies the entity, but without the LinkML
+            implications with respect to uniqueness or inlining.
+      identifier_type:
+        description:
+          A value that indicates the type of identifier contained in the
+          `identifier` slot.
+    rules:
+      - description:
+          If the `identifier` is present, then the `identifier_type` must be
+          present as well.
+      - preconditions:
+          slot_conditions:
+            identifier:
+              required: true
+        postconditions:
+          slot_conditions:
+            identifier_type:
+              required: true
+
+  PIDInstInstrument:
+    description:
+      A research instrument. This is the main class of the PIDInst model.
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    attributes:
+      schema_version:
+        description: The version of the PIDInst model this record conforms to.
+        conforms_to: PIDInst model property ID 2
+        range: PIDInstVersion
+        required: true
+      landing_page:
+        description: A landing page that the identifier resolves to.
+        conforms_to: PIDInst model property ID 3
+        range: uri
+        required: true
+      owners:
+        description:
+          The institution(s) responsible for the management of the instrument.
+          This may include the legal owner, the operator, or an institute
+          providing access to the instrument.
+        conforms_to: PIDINST model property ID 5
+        range: PIDInstOwner
+        multivalued: true
+        required: true
+      manufacturers:
+        description:
+          The instrument’s manufacturer(s) or developer. This may also be the
+          owner for custom built instruments.
+        conforms_to: PIDINST model property ID 6
+        range: PIDInstManufacturer
+        multivalued: true
+        required: true
+      model:
+        description:
+          The model or type of device, as attributed by the manufacturer.
+        conforms_to: PIDINST model property ID 7
+        range: PIDInstModel
+        recommended: true
+      description:
+        description: A technical description of the device and its capabilities.
+        conforms_to: PIDINST model property ID 8
+        recommended: true
+      types:
+        description: The type(s) the instrument can be classified into.
+        conforms_to: PIDINST model property ID 9
+        range: PIDInstInstrumentType
+        multivalued: true
+        recommended: true
+      measured_variables:
+        description: The variable(s) that this instrument measures or observes.
+        conforms_to: PIDINST model property ID 10
+        multivalued: true
+        deprecated: Deprecated in favor of `measured_quantities`.
+      dates:
+        description: Dates that are relevant to the instrument.
+        conforms_to: PIDINST model property ID 11
+        range: PIDInstDate
+        multivalued: true
+        recommended: true
+      related_identifiers:
+        description:
+          Identifiers of resources that are related to the instrument.
+        comments:
+          - Not to be confused with `alternate_identifiers`, which is intended
+            for other identifiers for the very same instrument.
+        conforms_to: PIDINST model property ID 12
+        range: PIDInstRelatedIdentifier
+        multivalued: true
+        recommended: true
+      alternate_identifiers:
+        description:
+          Identifiers (other than the PIDInst identifier itself) pertaining to
+          the same instrument instance. This should be used if the instrument
+          has a serial number. Other possible uses include an owner’s inventory
+          number or an entry in some instrument database.
+        comments:
+          - Not to be confused with `related_identifiers`, which is intended for
+            identifiers pointing to other resources that are merely related to
+            this instrument instance while being distinct from it.
+        conforms_to: PIDINST model property ID 13
+        range: PIDInstAlternateIdentifier
+        multivalued: true
+        recommended: true
+      measured_quantities:
+        description: The variable(s) that this instrument measures or observes.
+        conforms_to: PIDINST model property ID 15
+        instantiates:
+          - pidinst:PIDInstVersionable
+        annotations:
+          added_in: "1.1"
+        range: PIDInstMeasuredQuantity
+        multivalued: true
+        recommended: true
+      measurement_techniques:
+        description:
+          The protocol(s) that the instrument follows or the physical phenomenon
+          it makes use of in order to make its observations.
+        conforms_to: PIDINST model property ID 14
+        instantiates:
+          - pidinst:PIDInstVersionable
+        annotations:
+          added_in: "1.1"
+        range: PIDInstMeasurementTechnique
+        multivalued: true
+        recommended: true
+      subjects:
+        description: Subjects or keywords describing the instrument.
+        conforms_to: PIDINST model property ID 16
+        instantiates:
+          - pidinst:PIDInstVersionable
+        annotations:
+          added_in: "1.1"
+        range: PIDInstSubject
+        multivalued: true
+    slot_usage:
+      name:
+        description: The name by which the instrument instance is known.
+        conforms_to: PIDINST model property ID 4
+      identifier:
+        description: A string that uniquely identifies the instrument instance.
+        notes:
+          - In this class (and in this class only) the `identifier` attribute is
+            a real identifier in the LinkML sense of the term.
+        conforms_to: PIDINST model property ID 1
+        identifier: true
+      identifier_type:
+        conforms_to: PIDINST model property ID 1.1
+    tree_root: true
+    extra_slots:
+      allowed: true
+
+  PIDInstOwner:
+    description:
+      An institution responsible for the management of an instrument. This may
+      include the legal owner, the operator, or an institute providing access to
+      the instrument.
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    attributes:
+      contact:
+        description: Contact address of the owner.
+        conforms_to: PIDINST model property ID 5.2
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property 5.1
+      identifier:
+        conforms_to: PIDINST model property 5.3
+      identifier_type:
+        conforms_to: PIDINST model property 5.3.1
+
+  PIDInstManufacturer:
+    description: The manufacturer of an instrument.
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 6.1
+      identifier:
+        conforms_to: PIDINST model property ID 6.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 6.2.1
+
+  PIDInstModel:
+    description: The model of an instrument.
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 7.1
+      identifier:
+        conforms_to: PIDINST model property ID 7.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 7.2.1
+
+  PIDInstInstrumentType:
+    description: The type of an instrument.
+
+      This differs from the instrument model in that (1) it may not be assigned
+      by the manufacturer, and (2) a single instrument can be of more than one
+      type.
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 9.1
+      identifier:
+        conforms_to: PIDINST model property ID 9.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 9.2.1
+
+  PIDInstDate:
+    description: A date relevant to an instrument.
+    mixins:
+      - PIDInstObjectMixin
+    attributes:
+      value:
+        description: The date itself.
+        notes:
+          - The slot is named `value` rather than `date` because of a bug in
+            LinkML-Py’s Pydantic code generator.
+        see_also:
+          - https://github.com/linkml/linkml/issues/3376
+        range: date
+        required: true
+      type:
+        description:
+          The type of date, indicating how the date is relevant to the
+          instrument.
+        conforms_to: PIDINST model property ID 11.1
+        range: PIDInstDateType
+        required: true
+
+  PIDInstRelatedIdentifier:
+    description: An identifier for a resource related to an instrument.
+    mixins:
+      - PIDInstObjectMixin
+    attributes:
+      identifier:
+        description: The identifier itself.
+        required: true
+      name:
+        description:
+          A name for the related resource. This may be used to give an hint on
+          the content of that resource.
+        conforms_to: PIDINST model property ID 12.3
+      type:
+        description: The type of the identifier.
+        comments:
+          - Contrary to most other “identifier type” attributes in this schema,
+            this one is _not_ free text and is instead constrained to a fixed
+            list of values.
+        conforms_to: PIDINST model property ID 12.1
+        range: PIDInstRelatedIdentifierType
+        required: true
+      relation:
+        description:
+          A description of the relationship between an instrument and the
+          related resource pointed to by the identifier.
+        conforms_to: PIDINST model property ID 12.2
+        range: PIDInstRelationType
+        required: true
+
+  PIDInstAlternateIdentifier:
+    description:
+      A non-PIDInst identifier that can also identify an instrument instance.
+    mixins:
+      - PIDInstObjectMixin
+    attributes:
+      identifier:
+        description: The identifier itself.
+        required: true
+      type:
+        description: The type of the alternate identifier.
+        comments:
+          - Contrary to most other “identifier type” attributes in this schema,
+            this one is _not_ free text and is instead constrained to a fixed
+            list of values.
+        conforms_to: PIDINST model property ID 13.1
+        range: PIDInstAlternateIdentifierType
+        required: true
+      name:
+        description:
+          A supplementary name for the identifier type. This is mostly useful if
+          `type` is set to `Other`.
+        conforms_to: PIDINST model property ID 13.2
+
+  PIDInstMeasurementTechnique:
+    description:
+      The protocol that the instrument follows or the physical phenomenon it
+      makes use of in order to make its observations.
+    instantiates:
+      - pidinst:PIDInstVersionable
+    annotations:
+      added_in: "1.1"
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 14.1
+      identifier:
+        conforms_to: PIDINST model property ID 14.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 14.2.1
+
+  PIDInstMeasuredQuantity:
+    description: A variable that an instrument measures or observes.
+    instantiates:
+      - pidinst:PIDInstVersionable
+    annotations:
+      added_in: "1.1"
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 15.1
+      identifier:
+        conforms_to: PIDINST model property ID 15.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 15.2.1
+
+  PIDInstSubject:
+    description: A subject or keyword describing the instrument.
+    instantiates:
+      - pidinst:PIDInstVersionable
+    annotations:
+      added_in: "1.1"
+    mixins:
+      - PIDInstIsIdentifiableEntity
+      - PIDInstObjectMixin
+    slot_usage:
+      name:
+        conforms_to: PIDINST model property ID 16.1
+      identifier:
+        conforms_to: PIDINST model property ID 16.2
+      identifier_type:
+        conforms_to: PIDINST model property ID 16.2.1
+
+  PIDInstVersionable:
+    description:
+      A LinkML metamodel extension class to describe attributes that may not
+      exist in all versions of the schema.
+    attributes:
+      added_in:
+        description:
+          The version of the PIDINST schema in which the attribute was added. If
+          not specified, the attribute is assumed to have been present since
+          version 1.0.
+        range: PIDInstVersion
+
+enums:
+  PIDInstVersion:
+    description: Available versions of the PIDInst model.
+    permissible_values:
+      "1.0":
+        title: Version 1 0
+      "1.1":
+        title: Version 1 1
+
+  PIDInstDateType:
+    description: Values describing how a date is relevant to an instrument.
+    permissible_values:
+      Commissioned:
+        description: The date when the instrument started to be in operation.
+      DeComissioned:
+        description: The date when the instrument ceased to be in operation.
+
+  PIDInstRelatedIdentifierType:
+    description: Possible types of related identifiers for an instrument.
+    permissible_values:
+      ARK:
+        description:
+          Archival Resource Key, a URI designed to support long-term access to
+          information objects.
+      arXiv:
+        description:
+          An arXiv.org identifier. arXiv.org is a repository of preprints of
+          scientific papers in the fields of mathematics, physics, astronomy,
+          computer science, quantitative biology, and quantitative finance.
+      bibcode:
+        description:
+          Astrophysics Data System bibliographic code. A standardized
+          19-character identifier.
+      DOI:
+        description:
+          Digital Object Identifier. A character string used to uniquely
+          identify an object. A DOI is divided into two parts, a prefix and a
+          suffix, separated by a slash.
+      EAN13:
+        description:
+          European Article Number, now renamed International Article Number but
+          retaining the original acronym, is a 13-digit barcoding standard that
+          is a superset of the original 12-digit Universal Product Code (UPC)
+          system.
+      EISSN:
+        description:
+          Electronic International Standard Serial Number. Used to identify
+          periodicals in electronic form (eISSN or e-ISSN).
+      Handle:
+        description:
+          This refers specifically to an ID in the Handle system operated by the
+          Corporation for National Research Initiatives (CNRI).
+      IGSN:
+        description:
+          A persistent unique identifier for physical samples and specimens.
+        see_also:
+          - https://www.igsn.org/
+      ISBN:
+        description:
+          International Standard Book Number. A unique numeric book identifier.
+      ISSN:
+        description:
+          International Standard Serial Number. A unique 8-digit number used to
+          identify a print or electronic periodical publication.
+      ISTC:
+        description:
+          International Standard text Code. A unique “number” assgned to a
+          textual work. An ISTC consists of 16 numbers and/or letters.
+      LISSN:
+        description:
+          The Linking ISSN or ISSN-L enables collocation or linking among
+          different media versions of a continuing resource.
+      PMID:
+        description:
+          PubMed identifier. A unique number assigned to each PubMed record.
+      PURL:
+        description: Permanent Uniform Resource Locator.
+      RAiD:
+        description: Research Activity Identifier.
+        see_also:
+          - https://www.raid.org.au/
+      RRID:
+        description: Research Resource Identifier.
+        see_also:
+          - https://www.rrids.org/
+      SWHID:
+        description:
+          SoftWare Hash IDentifiers are persistent, intrinsic identifiers for
+          software source code artifacts such as source code files, source
+          trees, commits, and other objects typically found in version control
+          systems.
+      UPC:
+        description:
+          Universal Product Code is a barcode symbology used for tracking trade
+          idems in store.
+      URL:
+        description: Uniform Resource Locator, also known as web address.
+      URN:
+        description:
+          Uniform Resource Name. A unique and persistent identifier of an
+          electronic document.
+      w3id:
+        description:
+          Permanent identifier for Web applications. Mostly used to publish
+          vocabularies and ontologies.
+
+  PIDInstRelationType:
+    description:
+      Possible types of relation between a PIDInst instance and its related
+      identifiers.
+    permissible_values:
+      IsDescribedBy:
+        description: The lined resource is a document describing the instrument.
+      IsNewVersionOf:
+        description:
+          If an instrument is substantially modified, a new PID may be
+          attributed to the new version. In that case the old and the new PID
+          should be linked to each other. `IsNewVersionOf` should be used in the
+          new PID record to link the old instrument before the modification.
+      IsPreviousVersionOf:
+        description:
+          If an instrument is substantially modified, a new PID may be
+          attributed to the new version. In that case the old and the new PID
+          should be linked to each other. `IsPreviousVersionOf` should be used
+          in the old PID record to link the new instrument after the
+          modification.
+      HasComponent:
+        description:
+          In the case of a complex instrument, having multiple components that
+          may be considered as instruments in their own right, with their own
+          PIDs, these PIDs should be linked. `HasComponent` should be used in
+          the PID record of the compound instrument to link the components.
+      IsComponentOf:
+        description:
+          In the case of a complex instrument, having multiple components that
+          may be considered as instruments in their own right, with their own
+          PIDs, these PIDs should be linked. `IsComponentOf` should be used in
+          the PID records of the components to link the compound instrument.
+      References:
+        description:
+          This may be used in the generic case, if no other more specific
+          relation type applies.
+      HasMetadata:
+        description:
+          If there is additional metadata describing the instrument, possibly
+          using a community specific metadata standard, that metadata record may
+          be linked using `HasMetadata`.
+      WasUsedIn:
+        description:
+          If the instrument has been deployed in some research activity, such as
+          a cruise of a research vessel, `WasUsedIn` may be used to link that
+          activity.
+      IsIdenticalTo:
+        description:
+          If multiple PIDs have been attributed to a single instrument (which
+          should preferably be avoided in the first place), these PID records
+          should be linked to each other using `IsIdenticalTo`.
+      IsAttachedTo:
+        description:
+          If the instrument is permanently attached to another instrument, the
+          PID record for both instruments should link to each other using
+          `IsAttachedTo`.
+
+  PIDInstAlternateIdentifierType:
+    description: Possible types of alternate identifiers for a PIDINST instance.
+    permissible_values:
+      SerialNumber:
+        description: A serial number attributed by the manufacturer.
+      InventoryNumber:
+        description: An inventory number used by the owner.
+      Other:
+        description: Any other kind of identifier.

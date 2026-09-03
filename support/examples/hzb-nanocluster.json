@@ -1,0 +1,34 @@
+{
+  "identifier": "1234.1848",
+  "identifier_type": "Handle",
+  "schema_version": "1.1",
+  "landing_page": "https://www.helmholtz-berlin.de/pubbin/igama_output?modus=einzel&amp;sprache=en&amp;gid=1848&amp;typoid=35517",
+  "name": "NanoclusterTrap",
+  "owners": [
+  	{
+	  "name": "Helmholtz-Zentrum Berlin für Materialien und Energie",
+	  "identifier": "02aj13c28",
+	  "identifier_type": "ROR"
+	 }
+  ],
+  "manufacturers": [
+  	{
+	  "name": "Helmholtz-Zentrum Berlin für Materialien und Energie",
+	  "identifier": "02aj13c28",
+	  "identifier_type": "ROR"
+	}
+  ],
+  "types": [
+    {
+	  "name": "Synchrotron experimental station"
+	}
+  ],
+  "description": "The Nanocluster Trap endstation at BESSY II combines a cryogenic linear radio-frequency ion trap with an applied magnetic field for x-ray magnetic circular dichroism studies of cold and size-selected trapped ions. Applications include atomic, molecular, and cluster ions as well as ionic complexes.",
+  "related_identifiers": [
+    {
+	  "identifier": "10.17815/jlsrf-3-143",
+	  "type": "DOI",
+	  "relation": "IsDescribedBy"
+	}
+  ]
+}

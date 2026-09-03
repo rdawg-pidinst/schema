@@ -8,11 +8,16 @@ This includes:
 
 + pidinst-schema-1_0.schema.json: a JSON Schema representation.
 
++ pidinst-schema-1_1.yaml: a LinkML representation.
+
 + examples: examples of serializations of instrument metedata using
   the PIDINST schema.  Examples collected so far:
 
   - hzb-nanocluster.xml: NanoclusterTrap, an experimental station at
     HZB's electron storage ring BESSY II.
+
+  - hzb-nanocluster.json: Same, but using the JSON serialisation
+    defined by the aforementioned LinkML schema.
 
   - hzb-mx-14-1.xml, hzb-mx-14-1-pilatus.xml: Macromolecular
     Crystallography experimental station 14.1 at HZB's electron
@@ -28,5 +33,5 @@ represent instrument descriptions and the semantics of these
 properties.  It is technology agnostic and not limited to one
 particular serialization format.  The XML examples are just that:
 examples that illustrate how the schema could be implemented
-using XML.  The XML Schema Definition file and the JSON Schema
-representation are not authoritative.
+using XML.  The XML Schema Definition file, the JSON Schema
+representation, and the LinkML representation are not authoritative.
