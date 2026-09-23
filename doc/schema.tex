@@ -281,8 +281,8 @@ have a manufacturerIdentifierType (occ.\ 1).
   \hline
   5      & Owner                                & 1--n
          & Institution(s) responsible for the management of the
-           instrument.  This may include the legal owner, the operator,
-           or an institute providing access to the instrument.
+           instrument instance.  This may include the legal owner, the
+           operator, or an institute providing access to the instrument.
          & \\
   \hline
   5.1    & ownerName                            & 1
@@ -316,8 +316,8 @@ have a manufacturerIdentifierType (occ.\ 1).
          & Free text, see note below \\
   \hline
   7      & Model                                & 0--1
-         & Name of the model or type of device as attributed by the
-           manufacturer
+         & Name of the model or type of instrument as attributed by
+           the manufacturer
          & \\
   \hline
   7.1    & modelName                            & 1
@@ -332,7 +332,8 @@ have a manufacturerIdentifierType (occ.\ 1).
          & Free text, see note below \\
   \hline
   8      & Description                          & 0--1
-         & Technical description of the device and its capabilities
+         & Technical description of the instrument instance and its
+           capabilities
          & Free text \\
   \hline
   9      & InstrumentType                       & 0--n
@@ -357,7 +358,7 @@ have a manufacturerIdentifierType (occ.\ 1).
            \end{minipage} \\
   \hline
   11     & Date                                 & 0--n
-         & Dates relevant to the instrument & ISO 8601 \\
+         & Dates relevant to the instrument instance & ISO 8601 \\
   \hline
   11.1   & dateType                             & 1
          & The type of the date
@@ -507,8 +508,8 @@ There are however controlled vocabularies or ontologies to classify
 instrument types for some scientific domains.  If the instrument is
 used in a domain that has a well established instrument type
 classification, it is recommended to use these terms in
-instrumentTypeName.  If furthermore the classification defines
-identifiers for the terms, it is recommended to link them using
+instrumentTypeName.  If the classification further defines identifiers
+for the terms, it is recommended to link them using
 instrumentTypeIdentifier.
 
 It is important that links to related resources can be resolved in a
@@ -657,7 +658,7 @@ have been adopted from the DataCite Metadata Schema
   Persistent Uniform Resource Locator.
   \\ \hline
   RAiD    &
-  Research Activity Identifier, see \url{https://www.raid.org.au/}
+  Research Activity Identifier, see \url{https://www.raid.org/}
   \\ \hline
   RRID    &
   Research Resource Identifiers, see \url{https://www.rrids.org/}
