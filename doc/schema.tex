@@ -540,6 +540,17 @@ possible to provide both: MeasuredQuantity to describe what the
 instrument observes and MeasurementTechnique to describe how that
 observation is done.
 
+The MeasuredVariable property from PIDINST version 1.0 has been
+deprecated in favour of MeasuredQuantity, because it is a simple
+property that does include an identifier sub-property and thus does
+not allow linking terms from external vocabularies.  Please use
+MeasuredQuantity when creating a PIDINST record.  If you are concerned
+about compatibility with older consumers of the record, you may
+additionally add measuredQuantityName as a MeasuredVariable.
+Consumers of a PIDINST record should always check MeasuredQuantity
+first and only consider MeasuredVariable as a fallback when the former
+is not provided.
+
 \subsection{Definition of terms in controlled lists of values}
 
 For some properties, the allowed values are constrained to a
