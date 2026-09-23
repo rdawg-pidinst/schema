@@ -529,6 +529,17 @@ standard across domains, future versions of this schema may adopt them
 and change properties that are free text in the current version to use
 a controlled list of values instead.
 
+Many instruments are designed to record one or maybe a few observable
+properties.  In these cases it is recommended to add a
+MeasuredQuantity for each of these observables.  Other instruments are
+implementing a more complex measurement protocol in order to make an
+observation.  A list of observables might not be suitable to describe
+that.  In these cases it is recommended to reference that protocol as
+a MeasurementTechnique instead.  In some cases it might even be
+possible to provide both: MeasuredQuantity to describe what the
+instrument observes and MeasurementTechnique to describe how that
+observation is done.
+
 \subsection{Definition of terms in controlled lists of values}
 
 For some properties, the allowed values are constrained to a
