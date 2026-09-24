@@ -1,4 +1,4 @@
-id: https://example.invalid/pidinst
+id: https://schema.pidinst.org/1.1/linkml
 name: pidinst
 title: Metadata Schema for the Persistent Identification of Instruments
 description: >-
@@ -19,7 +19,7 @@ prefixes:
   dcterms: http://purl.org/dc/terms/
   linkml: https://w3id.org/linkml/
   orcid: https://orcid.org/
-  pidinst: https://example.invalid/pidinst/
+  pidinst: https://schema.pidinst.org/1.1/linkml/
   skos: http://www.w3.org/2004/02/skos/core#
 default_prefix: pidinst
 
