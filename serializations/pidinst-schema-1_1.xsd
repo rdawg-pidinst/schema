@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="https://schema.pidinst.org/1.1/xsd"
+           targetNamespace="https://schema.pidinst.org/1.1/xsd"
+           elementFormDefault="qualified">
+
+<xs:annotation>
+  <xs:documentation>
+    XML Schema Definition for the
+    Metadata Schema for the Persistent Identification of Instruments
+    Version 1.1
+
+    Important note: this XSD is preliminary as version 1.1 of the
+    PIDINST schema has not yet been published!
+  </xs:documentation>
+</xs:annotation>
+
+<xs:element name="instrument" type="pidinst"/>
+
+<xs:complexType name="pidinst">
+  <xs:all>
+    <xs:element name="identifier" type="identifier"/>
+    <xs:element name="schemaVersion" type="xs:string" fixed="1.1"/>
+    <xs:element name="landingPage" type="xs:string"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="owners" type="owners"/>
+    <xs:element name="manufacturers" type="manufacturers"/>
+    <xs:element name="model" type="model" minOccurs="0"/>
+    <xs:element name="description" type="xs:string"
+                minOccurs="0"/>
+    <xs:element name="instrumentTypes" type="instrumentTypes"
+                minOccurs="0"/>
+    <xs:element name="measuredVariables" type="measuredVariables"
+                minOccurs="0"/>
+    <xs:element name="dates" type="dates" minOccurs="0"/>
+    <xs:element name="relatedIdentifiers" type="relatedIdentifiers"
+                minOccurs="0"/>
+    <xs:element name="alternateIdentifiers" type="alternateIdentifiers"
+                minOccurs="0"/>
+    <xs:element name="measurementTechniques" type="measurementTechniques"
+                minOccurs="0"/>
+    <xs:element name="measuredQuantities" type="measuredQuantities"
+                minOccurs="0"/>
+    <xs:element name="subjects" type="subjects" minOccurs="0"/>
+  </xs:all>
+</xs:complexType>
+
+<xs:complexType name="identifier">
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="identifierType" use="required"/>
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="owners">
+  <xs:sequence>
+    <xs:element name="owner" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="ownerName" type="xs:string"/>
+          <xs:element name="ownerContact" type="xs:string" minOccurs="0"/>
+          <xs:element name="ownerIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="ownerIdentifierType" use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="manufacturers">
+  <xs:sequence>
+    <xs:element name="manufacturer" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="manufacturerName" type="xs:string"/>
+          <xs:element name="manufacturerIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="manufacturerIdentifierType"
+                                use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="model">
+  <xs:sequence>
+    <xs:element name="modelName" type="xs:string"/>
+    <xs:element name="modelIdentifier" minOccurs="0">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="modelIdentifierType" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="instrumentTypes">
+  <xs:sequence>
+    <xs:element name="instrumentType" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="instrumentTypeName" type="xs:string"/>
+          <xs:element name="instrumentTypeIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="instrumentTypeIdentifierType"
+                                use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="measuredVariables">
+  <xs:sequence>
+    <xs:element name="measuredVariable" type="xs:string"
+                maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dates">
+  <xs:sequence>
+    <xs:element name="date" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="dateType" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Commissioned"/>
+                  <xs:enumeration value="DeCommissioned"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="relatedIdentifiers">
+  <xs:sequence>
+    <xs:element name="relatedIdentifier" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="relatedIdentifierType" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="ARK"/>
+                  <xs:enumeration value="arXiv"/>
+                  <xs:enumeration value="bibcode"/>
+                  <xs:enumeration value="DOI"/>
+                  <xs:enumeration value="EAN13"/>
+                  <xs:enumeration value="EISSN"/>
+                  <xs:enumeration value="Handle"/>
+                  <xs:enumeration value="IGSN"/>
+                  <xs:enumeration value="ISBN"/>
+                  <xs:enumeration value="ISSN"/>
+                  <xs:enumeration value="ISTC"/>
+                  <xs:enumeration value="LISSN"/>
+                  <xs:enumeration value="PMID"/>
+                  <xs:enumeration value="PURL"/>
+                  <xs:enumeration value="RAiD"/>
+                  <xs:enumeration value="RRID"/>
+                  <xs:enumeration value="SWHID"/>
+                  <xs:enumeration value="UPC"/>
+                  <xs:enumeration value="URL"/>
+                  <xs:enumeration value="URN"/>
+                  <xs:enumeration value="w3id"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="relationType" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="IsDescribedBy"/>
+                  <xs:enumeration value="IsNewVersionOf"/>
+                  <xs:enumeration value="IsPreviousVersionOf"/>
+                  <xs:enumeration value="HasComponent"/>
+                  <xs:enumeration value="IsComponentOf"/>
+                  <xs:enumeration value="References"/>
+                  <xs:enumeration value="HasMetadata"/>
+                  <xs:enumeration value="WasUsedIn"/>
+                  <xs:enumeration value="IsIdenticalTo"/>
+                  <xs:enumeration value="IsAttachedTo"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="relatedIdentifierName"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alternateIdentifiers">
+  <xs:sequence>
+    <xs:element name="alternateIdentifier" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="alternateIdentifierType" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="SerialNumber"/>
+                  <xs:enumeration value="InventoryNumber"/>
+                  <xs:enumeration value="Other"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="alternateIdentifierName"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="measurementTechniques">
+  <xs:sequence>
+    <xs:element name="measurementTechnique" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="measurementTechniqueName" type="xs:string"/>
+          <xs:element name="measurementTechniqueIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="measurementTechniqueIdentifierType"
+                                use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="measuredQuantities">
+  <xs:sequence>
+    <xs:element name="measuredQuantity" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="measuredQuantityName" type="xs:string"/>
+          <xs:element name="measuredQuantityIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="measuredQuantityIdentifierType"
+                                use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subjects">
+  <xs:sequence>
+    <xs:element name="subject" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="subjectName" type="xs:string"/>
+          <xs:element name="subjectIdentifier" minOccurs="0">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="subjectIdentifierType"
+                                use="required"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+</xs:schema>

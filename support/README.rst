@@ -4,8 +4,6 @@ Supporting Material
 This directory contains supporting material for the PIDINST schema.
 This includes:
 
-+ pidinst-schema-1_0.xsd: a XML Schema Definition file.
-
 + pidinst-schema-1_0.schema.json: a JSON Schema representation.
 
 + examples: examples of serializations of instrument metedata using
@@ -28,5 +26,4 @@ represent instrument descriptions and the semantics of these
 properties.  It is technology agnostic and not limited to one
 particular serialization format.  The XML examples are just that:
 examples that illustrate how the schema could be implemented
-using XML.  The XML Schema Definition file and the JSON Schema
-representation are not authoritative.
+using XML.  The JSON Schema representation is not authoritative.
