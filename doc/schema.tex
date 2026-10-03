@@ -135,8 +135,8 @@ Version 1.1 of the PIDINST schema includes these changes:
 \item Add new property MeasurementTechnique with sub-properties.
 \item Add new property MeasuredQuantity with sub-properties.
 \item Add new property Subject with sub-properties.
-\item Add SWHID to the controlled list of values for
-  relatedIdentifierType.
+\item Add SWHID (software hash identifier) to the controlled list of
+  values for relatedIdentifierType.
 \item Deprecate MeasuredVariable in favor of MeasuredQuantity.
 \end{itemize}
 
@@ -216,7 +216,7 @@ the properties in the PIDINST metadata schema.  Simple properties,
 such as Name and Description, take just one value.  Complex properties
 are composed of multiple sub-properties.  For instance, Owner is
 composed of ownerName, ownerContact, and ownerIdentifier, the latter
-in turn having another sub-property ownerIdentifierType.  The
+in turn having another sub-property, i.e.\ ownerIdentifierType.  The
 structure of properties and sub-properties is indicated in the
 numbering in the ID column, e.g.\ the property 5.3 (ownerIdentifier)
 has a sub-property 5.3.1 (ownerIdentifierType).
@@ -469,14 +469,15 @@ have a manufacturerIdentifierType (occ.\ 1).
          & Type of the identifier & Free text \\
   \hline
   15     & MeasuredQuantity                     & 0--n
-         & The variable(s) that this instrument measures or observes
+         & The quantity (or quantities) that this instrument measures
+           or observes
          & \\
   \hline
   15.1   & measuredQuantityName                 & 1
-         & Full name of the variable & Free text \\
+         & Full name of the quantity & Free text \\
   \hline
   15.2   & measuredQuantityIdentifier           & 0--1
-         & Identifier used to identify the variable
+         & Identifier used to identify the quantity
          & Free text, should be a globally unique identifier \\
   \hline
   15.2.1 & measuredQuantity\-IdentifierType     & 1
@@ -531,7 +532,7 @@ and change properties that are free text in the current version to use
 a controlled list of values instead.
 
 Many instruments are designed to record one or maybe a few observable
-properties.  In these cases it is recommended to add a
+quantities.  In these cases it is recommended to add a
 MeasuredQuantity for each of these observables.  Other instruments are
 implementing a more complex measurement protocol in order to make an
 observation.  A list of observables might not be suitable to describe
@@ -542,12 +543,12 @@ instrument observes and MeasurementTechnique to describe how that
 observation is done.
 
 The MeasuredVariable property from PIDINST version 1.0 has been
-deprecated in favour of MeasuredQuantity, because it is a simple
-property that does include an identifier sub-property and thus does
-not allow linking terms from external vocabularies.  Please use
-MeasuredQuantity when creating a PIDINST record.  If you are concerned
-about compatibility with older consumers of the record, you may
-additionally add measuredQuantityName as a MeasuredVariable.
+deprecated in favour of MeasuredQuantity, because MeasuredVariable is
+a simple property that does include an identifier sub-property and
+thus does not allow linking terms from external vocabularies.  Please
+use MeasuredQuantity when creating a PIDINST record.  If you are
+concerned about compatibility with older consumers of the record, you
+may additionally add measuredQuantityName as a MeasuredVariable.
 Consumers of a PIDINST record should always check MeasuredQuantity
 first and only consider MeasuredVariable as a fallback when the former
 is not provided.
