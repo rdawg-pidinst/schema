@@ -1,6 +1,7 @@
 #=========================================================================
 # Builders and flags:
 
+PYTHON = python3
 BIBTEX = bibtex
 PDFLATEX = pdflatex
 EPSTOPDF = epstopdf
@@ -44,7 +45,7 @@ distclean:
 
 # metafile: Create a file containing some metadata such as version and date
 metafile:
-	python3 meta.py > .meta.tex
+	$(PYTHON) meta.py > .meta.tex
 
 # Tell make, that the main targets are not actually files, that should
 # considered to be build:
