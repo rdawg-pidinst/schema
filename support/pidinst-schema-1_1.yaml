@@ -36,7 +36,7 @@ classes:
         redefine this mixin as needed.
     mixin: true
 
-  PIDInstIsIdentifiableEntity:
+  PIDInstIsIdentifiableEntityMixin:
     description:
       A mixin that represents any kind of identifiable entity, and that contains
       the slots that are shared by all classes in this schema intended to
@@ -78,7 +78,7 @@ classes:
     description:
       A research instrument. This is the main class of the PIDInst model.
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     attributes:
       schema_version:
@@ -217,7 +217,7 @@ classes:
       include the legal owner, the operator, or an institute providing access to
       the instrument.
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     attributes:
       contact:
@@ -234,7 +234,7 @@ classes:
   PIDInstManufacturer:
     description: The manufacturer of an instrument.
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
@@ -247,7 +247,7 @@ classes:
   PIDInstModel:
     description: The model of an instrument.
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
@@ -264,7 +264,7 @@ classes:
       by the manufacturer, and (2) a single instrument can be of more than one
       type.
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
@@ -359,7 +359,7 @@ classes:
     annotations:
       added_in: "1.1"
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
@@ -376,7 +376,7 @@ classes:
     annotations:
       added_in: "1.1"
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
@@ -393,7 +393,7 @@ classes:
     annotations:
       added_in: "1.1"
     mixins:
-      - PIDInstIsIdentifiableEntity
+      - PIDInstIsIdentifiableEntityMixin
       - PIDInstObjectMixin
     slot_usage:
       name:
