@@ -221,11 +221,11 @@ dateType
 | DeCommissioned | The date when the instrument ceased to be in operation  |
 +----------------+---------------------------------------------------------+
 | Maintenance    | An intervention to keep up the function of the          |
-|                | instrument happend at this date.  This may include      |
+|                | instrument happened at this date.  This may include     |
 |                | repairing the instrument after a damage.                |
 +----------------+---------------------------------------------------------+
 | Upgraded       | An intervention aiming at improving the performance or  |
-|                | capabilities of the instrument happend at this date.    |
+|                | capabilities of the instrument happened at this date.   |
 +----------------+---------------------------------------------------------+
 
 relatedIdentifierType
