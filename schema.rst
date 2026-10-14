@@ -97,8 +97,8 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | this instrument          | Deprecated, please use |
 |        |                                    |            |     | measures or observes     | MeasuredQuantity       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601               |
-|        |                                    |            |     | instrument               |                        |
+| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601, may also be  |
+|        |                                    |            |     | instrument               | a range                |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11.1   | dateType                           | R          | 1   | The type of the date     | Controlled list        |
 |        |                                    |            |     |                          | of values:             |
