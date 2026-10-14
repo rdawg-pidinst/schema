@@ -97,13 +97,15 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | this instrument          | Deprecated, please use |
 |        |                                    |            |     | measures or observes     | MeasuredQuantity       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601               |
-|        |                                    |            |     | instrument               |                        |
+| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601, may also be  |
+|        |                                    |            |     | instrument               | a range                |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11.1   | dateType                           | R          | 1   | The type of the date     | Controlled list        |
 |        |                                    |            |     |                          | of values:             |
 |        |                                    |            |     |                          |   Commissioned,        |
-|        |                                    |            |     |                          |   DeCommissioned       |
+|        |                                    |            |     |                          |   DeCommissioned,      |
+|        |                                    |            |     |                          |   Maintenance,         |
+|        |                                    |            |     |                          |   Upgraded             |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 12     | RelatedIdentifier                  | R          | 0-n | Identifiers of related   | Free text, must be     |
 |        |                                    |            |     | resources                | globally unique        |
@@ -217,6 +219,13 @@ dateType
 | Commissioned   | The date when the instrument started to be in operation |
 +----------------+---------------------------------------------------------+
 | DeCommissioned | The date when the instrument ceased to be in operation  |
++----------------+---------------------------------------------------------+
+| Maintenance    | An intervention to keep up the function of the          |
+|                | instrument happened at this date.  This may include     |
+|                | repairing the instrument after a damage.                |
++----------------+---------------------------------------------------------+
+| Upgraded       | An intervention aiming at improving the performance or  |
+|                | capabilities of the instrument happened at this date.   |
 +----------------+---------------------------------------------------------+
 
 relatedIdentifierType
