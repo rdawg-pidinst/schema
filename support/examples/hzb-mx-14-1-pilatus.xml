@@ -3,9 +3,11 @@
   Note: this is just an example.  It does not correspond to a real PID
   for an instrument.
   -->
-<instrument>
+<instrument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="https://schema.pidinst.org/1.1/xsd"
+            xsi:schemaLocation="https://schema.pidinst.org/1.1/xsd https://schema.pidinst.org/1.1/xsd/pidinst-schema.xsd">
     <identifier identifierType="Handle">1234.1675.1</identifier>
-    <schemaVersion>1.0</schemaVersion>
+    <schemaVersion>1.1</schemaVersion>
     <landingPage>https://www.helmholtz-berlin.de/pubbin/igama_output?modus=einzel&amp;sprache=en&amp;gid=1675&amp;typoid=35517</landingPage>
     <name>Pilatus detector at MX station 14.1</name>
     <owners>
