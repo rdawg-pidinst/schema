@@ -5,6 +5,9 @@
            targetNamespace="https://schema.pidinst.org/1.1/xsd"
            elementFormDefault="qualified">
 
+<xs:import namespace="http://www.w3.org/XML/1998/namespace"
+           schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+
 <xs:annotation>
   <xs:documentation>
     XML Schema Definition for the
@@ -23,11 +26,11 @@
     <xs:element name="identifier" type="identifier"/>
     <xs:element name="schemaVersion" type="xs:string" fixed="1.1"/>
     <xs:element name="landingPage" type="xs:string"/>
-    <xs:element name="name" type="xs:string"/>
+    <xs:element name="name" type="lang_string"/>
     <xs:element name="owners" type="owners"/>
     <xs:element name="manufacturers" type="manufacturers"/>
     <xs:element name="model" type="model" minOccurs="0"/>
-    <xs:element name="description" type="xs:string"
+    <xs:element name="description" type="lang_string"
                 minOccurs="0"/>
     <xs:element name="instrumentTypes" type="instrumentTypes"
                 minOccurs="0"/>
@@ -59,7 +62,7 @@
     <xs:element name="owner" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="ownerName" type="xs:string"/>
+          <xs:element name="ownerName" type="lang_string"/>
           <xs:element name="ownerContact" type="xs:string" minOccurs="0"/>
           <xs:element name="ownerIdentifier" minOccurs="0">
             <xs:complexType>
@@ -81,7 +84,7 @@
     <xs:element name="manufacturer" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="manufacturerName" type="xs:string"/>
+          <xs:element name="manufacturerName" type="lang_string"/>
           <xs:element name="manufacturerIdentifier" minOccurs="0">
             <xs:complexType>
               <xs:simpleContent>
@@ -100,7 +103,7 @@
 
 <xs:complexType name="model">
   <xs:sequence>
-    <xs:element name="modelName" type="xs:string"/>
+    <xs:element name="modelName" type="lang_string"/>
     <xs:element name="modelIdentifier" minOccurs="0">
       <xs:complexType>
         <xs:simpleContent>
@@ -118,7 +121,7 @@
     <xs:element name="instrumentType" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="instrumentTypeName" type="xs:string"/>
+          <xs:element name="instrumentTypeName" type="lang_string"/>
           <xs:element name="instrumentTypeIdentifier" minOccurs="0">
             <xs:complexType>
               <xs:simpleContent>
@@ -137,7 +140,7 @@
 
 <xs:complexType name="measuredVariables">
   <xs:sequence>
-    <xs:element name="measuredVariable" type="xs:string"
+    <xs:element name="measuredVariable" type="lang_string"
                 maxOccurs="unbounded"/>
   </xs:sequence>
 </xs:complexType>
@@ -248,7 +251,7 @@
     <xs:element name="measurementTechnique" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="measurementTechniqueName" type="xs:string"/>
+          <xs:element name="measurementTechniqueName" type="lang_string"/>
           <xs:element name="measurementTechniqueIdentifier" minOccurs="0">
             <xs:complexType>
               <xs:simpleContent>
@@ -270,7 +273,7 @@
     <xs:element name="measuredQuantity" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="measuredQuantityName" type="xs:string"/>
+          <xs:element name="measuredQuantityName" type="lang_string"/>
           <xs:element name="measuredQuantityIdentifier" minOccurs="0">
             <xs:complexType>
               <xs:simpleContent>
@@ -292,7 +295,7 @@
     <xs:element name="subject" maxOccurs="unbounded">
       <xs:complexType>
         <xs:sequence>
-          <xs:element name="subjectName" type="xs:string"/>
+          <xs:element name="subjectName" type="lang_string"/>
           <xs:element name="subjectIdentifier" minOccurs="0">
             <xs:complexType>
               <xs:simpleContent>
@@ -307,6 +310,14 @@
       </xs:complexType>
     </xs:element>
   </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lang_string">
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute ref="xml:lang"/>
+    </xs:extension>
+  </xs:simpleContent>
 </xs:complexType>
 
 </xs:schema>
