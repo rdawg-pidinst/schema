@@ -105,7 +105,7 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     |                          |   Commissioned,        |
 |        |                                    |            |     |                          |   DeCommissioned,      |
 |        |                                    |            |     |                          |   Maintenance,         |
-|        |                                    |            |     |                          |   Upgraded             |
+|        |                                    |            |     |                          |   Upgraded, Damaged    |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 12     | RelatedIdentifier                  | R          | 0-n | Identifiers of related   | Free text, must be     |
 |        |                                    |            |     | resources                | globally unique        |
@@ -226,6 +226,9 @@ dateType
 +----------------+---------------------------------------------------------+
 | Upgraded       | An intervention aiming at improving the performance or  |
 |                | capabilities of the instrument happened at this date.   |
++----------------+---------------------------------------------------------+
+| Damaged        | The instrument has been damaged or a damage has been    |
+|                | noted at this date.                                     |
 +----------------+---------------------------------------------------------+
 
 relatedIdentifierType
