@@ -24,7 +24,7 @@
 <xs:complexType name="pidinst">
   <xs:all>
     <xs:element name="identifier" type="identifier"/>
-    <xs:element name="schemaVersion" type="xs:string" fixed="1.1"/>
+    <xs:element name="schemaVersion" type="version"/>
     <xs:element name="landingPage" type="xs:string"/>
     <xs:element name="name" type="lang_string"/>
     <xs:element name="owners" type="owners"/>
@@ -319,5 +319,11 @@
     </xs:extension>
   </xs:simpleContent>
 </xs:complexType>
+
+<xs:simpleType name="version">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]+\.[0-9]+([ab][0-9]+)?"/>
+  </xs:restriction>
+</xs:simpleType>
 
 </xs:schema>
