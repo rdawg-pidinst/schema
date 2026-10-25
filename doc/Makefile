@@ -80,4 +80,6 @@ metafile:
 
 #=========================================================================
 # Dependencies:
-schema.pdf: metafile schema.tex
+schema.pdf: metafile schema.tex \
+	rda-logo.pdf pidinst-logo.pdf cc-by.pdf \
+	orcid_icon.pdf ror-icon-rgb.pdf
