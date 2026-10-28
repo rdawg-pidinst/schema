@@ -3,40 +3,42 @@
   Note: this is just an example.  It does not correspond to a real PID
   for an instrument.
   -->
-<instrument>
+<instrument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="https://schema.pidinst.org/1.1/xsd"
+            xsi:schemaLocation="https://schema.pidinst.org/1.1/xsd https://schema.pidinst.org/1.1/xsd/pidinst-schema.xsd">
     <identifier identifierType="Handle">1234.1675.1</identifier>
-    <schemaVersion>1.0</schemaVersion>
+    <schemaVersion>1.1</schemaVersion>
     <landingPage>https://www.helmholtz-berlin.de/pubbin/igama_output?modus=einzel&amp;sprache=en&amp;gid=1675&amp;typoid=35517</landingPage>
     <name>Pilatus detector at MX station 14.1</name>
     <owners>
-	<owner>
-	    <ownerName>Helmholtz-Zentrum Berlin für Materialien und Energie</ownerName>
-	    <ownerIdentifier ownerIdentifierType="ROR">02aj13c28</ownerIdentifier>
-	</owner>
+        <owner>
+            <ownerName>Helmholtz-Zentrum Berlin für Materialien und Energie</ownerName>
+            <ownerIdentifier ownerIdentifierType="ROR">02aj13c28</ownerIdentifier>
+        </owner>
     </owners>
     <manufacturers>
-	<manufacturer>
-	    <manufacturerName>DECTRIS</manufacturerName>
-	    <manufacturerIdentifier manufacturerIdentifierType="Wikidata">Q107529885</manufacturerIdentifier>
-	</manufacturer>
+        <manufacturer>
+            <manufacturerName>DECTRIS</manufacturerName>
+            <manufacturerIdentifier manufacturerIdentifierType="Wikidata">Q107529885</manufacturerIdentifier>
+        </manufacturer>
     </manufacturers>
     <model>
-	<modelName>PILATUS3 S 6M</modelName>
+        <modelName>PILATUS3 S 6M</modelName>
     </model>
     <instrumentTypes>
-	<instrumentType>
-	    <instrumentTypeName>Raster image pixel detector</instrumentTypeName>
-	</instrumentType>
+        <instrumentType>
+            <instrumentTypeName>Raster image pixel detector</instrumentTypeName>
+        </instrumentType>
     </instrumentTypes>
     <measuredVariables>
-	<measuredVariable>X-ray</measuredVariable>
+        <measuredVariable>X-ray</measuredVariable>
     </measuredVariables>
     <description>The Pilatus 6M pixel-detector at the MX station 14.1</description>
     <relatedIdentifiers>
-	<relatedIdentifier relatedIdentifierType="Handle" relationType="IsComponentOf">1234.1675</relatedIdentifier>
-	<relatedIdentifier relatedIdentifierType="URL" relationType="References">https://www.dectris.com/products/pilatus3/pilatus3-s-for-synchrotron/details/pilatus3-s-6m</relatedIdentifier>
+        <relatedIdentifier relatedIdentifierType="Handle" relationType="IsComponentOf">1234.1675</relatedIdentifier>
+        <relatedIdentifier relatedIdentifierType="URL" relationType="References">https://www.dectris.com/products/pilatus3/pilatus3-s-for-synchrotron/details/pilatus3-s-6m</relatedIdentifier>
     </relatedIdentifiers>
     <alternateIdentifiers>
-	<alternateIdentifier alternateIdentifierType="SerialNumber">1234567</alternateIdentifier>
+        <alternateIdentifier alternateIdentifierType="SerialNumber">1234567</alternateIdentifier>
     </alternateIdentifiers>
 </instrument>
