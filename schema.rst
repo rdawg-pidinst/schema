@@ -97,8 +97,16 @@ Metadata Schema for the Persistent Identification of Scientific Measuring Instru
 |        |                                    |            |     | this instrument          | Deprecated, please use |
 |        |                                    |            |     | measures or observes     | MeasuredQuantity       |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
-| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601, may also be  |
-|        |                                    |            |     | instrument               | a range                |
+| 11     | Date                               | R          | 0-n | Dates relevant to the    | ISO 8601: either a     |
+|        |                                    |            |     | instrument               | single date or a date  |
+|        |                                    |            |     |                          | interval expressed as  |
+|        |                                    |            |     |                          | start and end date     |
+|        |                                    |            |     |                          | separated by a solidus |
+|        |                                    |            |     |                          | ('/'). For open ended  |
+|        |                                    |            |     |                          | intervals, either      |
+|        |                                    |            |     |                          | start or end date (but |
+|        |                                    |            |     |                          | not both) may be       |
+|        |                                    |            |     |                          | empty.                 |
 +--------+------------------------------------+------------+-----+--------------------------+------------------------+
 | 11.1   | dateType                           | R          | 1   | The type of the date     | Controlled list        |
 |        |                                    |            |     |                          | of values:             |
